@@ -41,20 +41,6 @@ $route['admin'] = "admin/user";
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 
-$route['usuario/editar-perfil'] = "usuario/editar_perfil";
-$route['muro'] = "home/wall";
-$route['muro/(:num)'] = "home/wall/$1";
-$route['mi-cuenta'] = "home/profile/";
-$route['perfil/(:num)/(:any)'] = "home/profile/$1/$2";
-$route['editar-cuenta'] = "home/edit_profile/";
-$route['primer-ingreso'] = "home/first_login/";
-$route['completar-registro'] = "home/complete_register/";
-$route['log-in'] = "home/login/";
-$route['log-out'] = "home/logout/";
-$route['olvide-mi-clave'] = "front_user/forgot_password/";
-$route['generame-la-clave/(:any)'] = "front_user/recover_password/$1";
-$route['confirmar-cuenta/(:any)'] = "home/confirm_account/$1";
-$route['cambiar-idioma/(:any)'] = "home/language/$1";
 
 $route['admin/olvide-la-clave'] = "admin/user/forgot_password/";
 $route['admin/generame-la-clave/(:any)'] = "admin/user/recover_password/$1";

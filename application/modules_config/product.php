@@ -5,11 +5,11 @@ $module_name = 'product';
 $config['modules'][$module_name] = array(
 										 	'controller_name' => 'admin/product',
 											'main_model' => 'admin/product_model',
-										 	'module_label' => 'Vehículos',
-											'module_unit' => 'Vehículo',
+										 	'module_label' => 'Productos',
+											'module_unit' => 'Producto',
 										 );
 
-$config['modules'][$module_name]['fields'] = array(	
+$config['modules'][$module_name]['fields'] = array(
 
 										'name' => array(	'label' => 'Nombre',
 															'type' => 'text',
@@ -17,8 +17,14 @@ $config['modules'][$module_name]['fields'] = array(
 															'validation' => 'required',
 															'visibility' => 'save|details|list'
 														),
+										'brief'=> array(	'label' => 'Resumen',
+															'type' => 'textarea',
+															'class' => 'summernote',
+															'validation' => 'required',
+															'visibility' => 'save|details|list'
+														),
 										'description'=> array(	'label' => 'Detalle',
-															'type' => 'text',
+															'type' => 'textarea',
 															'class' => 'title',
 															'validation' => 'required',
 															'visibility' => 'save|details|list'
@@ -34,18 +40,13 @@ $config['modules'][$module_name]['fields'] = array(
 																	'tag' => 'complete_image',
 																	'validation' => '',
 																	'visibility' => 'details|save',
-																	),							
-						
+																	),
+
 										'active'	=> array(	'label' => 'Activo',
 																'type' => 'checkbox',
 																'value' => 1,
 																'visibility' => 'save|details|list'
 																),
-										'hits'	=> array(	'label' => 'Votos',
-															'type' => 'text',
-															'class' => 'number',
-															'visibility' => 'details|list'
-																),						
 										);
 
 $config['modules'][$module_name]['top_menu_actions'] = array( 	'products_list' => array('url' => '#product/show_list','method' => 'show_list', 'class_name' => $config['modules'][$module_name], 'icon' => "ui-icon-clipboard", 'label' => "Listado de ".$config['modules'][$module_name]['module_label']),
@@ -64,7 +65,7 @@ $config['modules'][$module_name]['datatable_actions'] = array( 	'details' => arr
 											'edit' => array( 	'label' => 'Editar',
 											 					'url' => '#'.$module_name.'/edit/'),
 											'delete' => array( 	'label' => 'Borrar',
-																'dialog' => 'Borrar jugador?',
+																'dialog' => 'Borrar producto?',
 											 					'url' => '#'.$module_name.'/delete/'),
 											);
 ?>

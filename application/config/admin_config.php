@@ -10,6 +10,7 @@ $config['general']['admin'] = array('home_controller' => 'admin/x/',
 
 $config['general']['admin']['sections'] = array(
 									'user' =>array('url' => '#user/show_list', 'name' => 'Clientes', 'admin_only' => true, 'icon' => 'fa-user'),
+									'product' =>array('url' => '#product/show_list', 'name' => 'Productos', 'admin_only' => true, 'icon' => 'fa-flask'),
 									'client_files' =>array('url' => '#user/media_gallery/file', 'name' => 'Archivos', 'client_only' => true, 'icon' => 'fa-file-text-o'),
 									//'documents' =>array('url' => '#documents/show_list', 'name' => 'Facturas', 'icon' => 'fa-file-text-o'),
 									);
@@ -19,7 +20,7 @@ $config['general']['admin']['table_icons'] = array(	'details' => 'fa fa-eye',
 													'edit' => 'fa fa-pencil',
 													'files' => 'fa fa-file-text-o',
 													'delete' => 'fa fa-trash-o');
-													
+
 foreach(glob( dirname(__FILE__)."/../modules_config/*.php") as $filename)
 {
     include $filename;
