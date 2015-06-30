@@ -63,8 +63,8 @@
             <nav>
               <ul>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="issue-en-el-mundo.html">Issue en el mundo</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
+                <li class="<?= $section == 'issue_mundo' ? 'active' : "" ?>"><a href="<?=base_url();?>issue_mundo">Issue en el mundo</a></li>
+                <li class="<?= $section == 'issue_about' ? 'active' : "" ?>"><a href="<?=base_url();?>issue_about">Nosotros</a></li>
                 <li class="social"><a href="#" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_facebook.png" alt="Facebook" /></a></li>
                 <li class="social"><a href="#" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_twitter.png" alt="Twitter" /></a></li>
               </ul>
@@ -80,9 +80,9 @@
           <div class="col-md-8 col-sm-8 col-xs-4">
             <nav>
               <ul>
-                <li><a href="<?=base_url();?>home/coloracion">Coloración</a></li>
-                <li><a href="">Decoloración</a></li>
-                <li class="last"><a href="">Tratamientos</a></li>
+                <li class="<?= $section == 'coloracion' ? 'active' : "" ?>"><a href="<?=base_url();?>coloracion">Coloración</a></li>
+                <li class="<?= $section == 'decoloracion' ? 'active' : "" ?>"><a href="<?=base_url();?>decoloracion">Decoloración</a></li>
+                <li class="<?= $section == 'tratamientos' ? 'active' : "" ?> last"><a href="<?=base_url();?>tratamientos">Tratamientos</a></li>
               </ul>
             </nav>
             <button id="btn_mobile"><img src="<?=base_url();?>assets_fe/img/btn_mobile.png" alt="Boton Mobile" /></button>

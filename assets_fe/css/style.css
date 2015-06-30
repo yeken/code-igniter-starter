@@ -47,6 +47,10 @@ header{
 	font-size: 13px;
 	font-weight: 700;
 }
+#header-top nav ul li.active a{
+	color: #ffffff;
+}
+
 #header-bottom{
 	height: 93px;
 }
@@ -64,11 +68,16 @@ header{
 	font-size: 19px;
 	padding: 40px 85px 0 0;
 }
+
 #header-bottom nav ul li.last{
 	padding-right: 0;
 }
 #header-bottom nav ul li a{
+	color: #878484;
+}
+#header-bottom nav ul li.active a{
 	color: #5b5b5b;
+	text-decoration: underline;
 }
 
 /* Mobile */
@@ -365,6 +374,14 @@ footer .mobile{
 .image-bg-fluid-height .section-paragraph{
 	font-size: 15px;
 	line-height: 14px;
+}
+
+/*ABOUT*/
+section#about p{
+	color: #000000;
+	margin: 5% 0;
+	font-family: 'Signika', sans-serif;
+	font-size: 14px;
 }
 
 /*COLORACION*/
