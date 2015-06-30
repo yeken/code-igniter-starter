@@ -29,7 +29,7 @@
       <div class="owl-carousel">
           <div class="item">
             <div class="box-image">
-              <img src="img/keratin.jpg" alt="Keratin" />
+              <img src="<?=base_url();?>assets_fe/img/keratin.jpg" alt="Keratin" />
             </div>
             <div class="box-info">
               <h4>Keratin</h4>
@@ -38,7 +38,7 @@
           </div>
           <div class="item">
             <div class="box-image">
-              <img src="img/shampoo.jpg" alt="Shampoo Hydrax" />
+              <img src="<?=base_url();?>assets_fe/img/shampoo.jpg" alt="Shampoo Hydrax" />
             </div>
             <div class="box-info">
               <h4>Shampoo Hydrax</h4>
@@ -47,7 +47,7 @@
           </div>
           <div class="item">
             <div class="box-image">
-              <img src="img/3d-gloss.jpg" alt="3D Gloss" />
+              <img src="<?=base_url();?>assets_fe/img/3d-gloss.jpg" alt="3D Gloss" />
               <a href="#">
                 <span>ver detalle</span>
               </a>
@@ -59,7 +59,7 @@
           </div>
           <div class="item">
             <div class="box-image">
-              <img src="img/3d-gloss.jpg" alt="3D Gloss" />
+              <img src="<?=base_url();?>assets_fe/img/3d-gloss.jpg" alt="3D Gloss" />
               <a href="#">
                 <span>ver detalle</span>
               </a>
@@ -71,7 +71,7 @@
           </div>
           <div class="item">
             <div class="box-image">
-              <img src="img/3d-gloss.jpg" alt="3D Gloss" />
+              <img src="<?=base_url();?>assets_fe/img/3d-gloss.jpg" alt="3D Gloss" />
               <a href="#">
                 <span>ver detalle</span>
               </a>
@@ -83,7 +83,7 @@
           </div>
           <div class="item">
             <div class="box-image">
-              <img src="img/3d-gloss.jpg" alt="3D Gloss" />
+              <img src="<?=base_url();?>assets_fe/img/3d-gloss.jpg" alt="3D Gloss" />
               <a href="#">
                 <span>ver detalle</span>
               </a>
@@ -95,7 +95,7 @@
           </div>
           <div class="item">
             <div class="box-image">
-              <img src="img/3d-gloss.jpg" alt="3D Gloss" />
+              <img src="<?=base_url();?>assets_fe/img/3d-gloss.jpg" alt="3D Gloss" />
               <a href="#">
                 <span>ver detalle</span>
               </a>
@@ -107,7 +107,7 @@
           </div>
           <div class="item">
             <div class="box-image">
-              <img src="img/crazy-colors.jpg" alt="Crazy Colors" />
+              <img src="<?=base_url();?>assets_fe/img/crazy-colors.jpg" alt="Crazy Colors" />
             </div>
             <div class="box-info">
               <h4>Crazy Colors</h4>
@@ -116,7 +116,7 @@
           </div>
           <div class="item">
             <div class="box-image">
-              <img src="img/shock-de-brillo.jpg" alt="Shock de Brillo" />
+              <img src="<?=base_url();?>assets_fe/img/shock-de-brillo.jpg" alt="Shock de Brillo" />
             </div>
             <div class="box-info">
               <h4>Shock de Brillo</h4>

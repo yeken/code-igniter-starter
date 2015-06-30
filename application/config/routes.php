@@ -40,6 +40,7 @@
 
 $route['default_controller'] = 'home';
 
+$route['coloracion'] = "home/coloracion";
 //$route['admin'] = "admin/user";
 //$route['default_controller'] = "home";
 $route['404_override'] = '';

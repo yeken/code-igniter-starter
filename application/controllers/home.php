@@ -13,6 +13,12 @@ class Home extends Front_init
 		$this->load->view("front/index.php", $this->data);
 	}
 
+	public function coloracion()
+	{
+		$this->data['section'] = "coloracion";
+		$this->load->view("front/coloracion.php", $this->data);
+	}
+
 	public function contact()
 	{
 		$this->data['section'] = "contact";

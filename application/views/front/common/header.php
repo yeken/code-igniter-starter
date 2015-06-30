@@ -8,7 +8,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
     <!-- Bootstrap -->
-    <link href="<?=base_url();?>/assets_fe/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?=base_url();?>assets_fe/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -16,14 +16,14 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?=base_url();?>/assets_fe/css/jquery.bxslider.css" />
-    <link rel="stylesheet" href="<?=base_url();?>/assets_fe/css/owl.carousel.css" />
-    <link rel="stylesheet" href="<?=base_url();?>/assets_fe/css/owl.theme.default.min.css" />
+    <link href="<?=base_url();?>assets_fe/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?=base_url();?>assets_fe/css/jquery.bxslider.css" />
+    <link rel="stylesheet" href="<?=base_url();?>assets_fe/css/owl.carousel.css" />
+    <link rel="stylesheet" href="<?=base_url();?>assets_fe/css/owl.theme.default.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="<?=base_url();?>/assets_fe/js/bootstrap.min.js"></script>
-    <script src="<?=base_url();?>/assets_fe/js/jquery.bxslider.min.js"></script>
-    <script src="<?=base_url();?>/assets_fe/js/owl.carousel.min.js"></script>
+    <script src="<?=base_url();?>assets_fe/js/bootstrap.min.js"></script>
+    <script src="<?=base_url();?>assets_fe/js/jquery.bxslider.min.js"></script>
+    <script src="<?=base_url();?>assets_fe/js/owl.carousel.min.js"></script>
     <script>
       $(document).ready(function(){
       
@@ -65,8 +65,8 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="issue-en-el-mundo.html">Issue en el mundo</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
-                <li class="social"><a href="#" target="_blank"><img src="img/ico_facebook.png" alt="Facebook" /></a></li>
-                <li class="social"><a href="#" target="_blank"><img src="img/ico_twitter.png" alt="Twitter" /></a></li>
+                <li class="social"><a href="#" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_facebook.png" alt="Facebook" /></a></li>
+                <li class="social"><a href="#" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_twitter.png" alt="Twitter" /></a></li>
               </ul>
             </nav>
           </div>
@@ -80,12 +80,12 @@
           <div class="col-md-8 col-sm-8 col-xs-4">
             <nav>
               <ul>
-                <li><a href="">Coloración</a></li>
+                <li><a href="<?=base_url();?>home/coloracion">Coloración</a></li>
                 <li><a href="">Decoloración</a></li>
                 <li class="last"><a href="">Tratamientos</a></li>
               </ul>
             </nav>
-            <button id="btn_mobile"><img src="img/btn_mobile.png" alt="Boton Mobile" /></button>
+            <button id="btn_mobile"><img src="<?=base_url();?>assets_fe/img/btn_mobile.png" alt="Boton Mobile" /></button>
           </div>
         </div>
       </div>
