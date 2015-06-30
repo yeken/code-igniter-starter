@@ -38,8 +38,7 @@
 |
 */
 
-$route['default_controller'] = 'demos/view';
-$route['(:any)'] = 'demos/view/$1';
+$route['default_controller'] = 'home';
 
 //$route['admin'] = "admin/user";
 //$route['default_controller'] = "home";

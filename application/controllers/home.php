@@ -10,7 +10,7 @@ class Home extends Front_init
 	public function index()
 	{
 		$this->data['section'] = "home";
-		redirect("admin");
+		$this->load->view("front/index.php", $this->data);
 	}
 
 	public function contact()
