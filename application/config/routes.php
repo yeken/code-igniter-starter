@@ -37,13 +37,16 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-$route['admin'] = "admin/user";
-$route['default_controller'] = "home";
+
+$route['default_controller'] = 'demos/view';
+$route['(:any)'] = 'demos/view/$1';
+
+//$route['admin'] = "admin/user";
+//$route['default_controller'] = "home";
 $route['404_override'] = '';
 
-
-$route['admin/olvide-la-clave'] = "admin/user/forgot_password/";
-$route['admin/generame-la-clave/(:any)'] = "admin/user/recover_password/$1";
+//$route['admin/olvide-la-clave'] = "admin/user/forgot_password/";
+//$route['admin/generame-la-clave/(:any)'] = "admin/user/recover_password/$1";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
