@@ -1,10 +1,10 @@
 <? include(dirname(__FILE__)."/common/header.php") ?>
 
-    <section class="image-bg-fluid-height">
+    <section class="image-bg-fluid-height" style="background: url('<?=base_url();?>assets_fe/img/slider1.jpg') no-repeat left center scroll;">
         <div class="container-fluid">
             <div class="row">
                 <div class=" col-xs-12 col-lg-6 col-lg-offset-2">
-                    <h1 class="section-heading">Section Heading</h1>
+                    <h1 class="section-heading"><?=ucfirst($title);?></h1>
                 </div>
             </div>
         </div>

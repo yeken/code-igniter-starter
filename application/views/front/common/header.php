@@ -62,9 +62,9 @@
           <div class="col-md-6 col-sm-6 col-xs-10 col-md-offset-6 col-sm-offset-6 col-xs-offset-2">
             <nav>
               <ul>
-                <li><a href="blog.html">Blog</a></li>
+                <li class="<?= $section == 'blog' ? 'active' : "" ?>"><a href="<?=base_url();?>blog">Blog</a></li>
                 <li class="<?= $section == 'issue_mundo' ? 'active' : "" ?>"><a href="<?=base_url();?>issue_mundo">Issue en el mundo</a></li>
-                <li class="<?= $section == 'issue_about' ? 'active' : "" ?>"><a href="<?=base_url();?>issue_about">Nosotros</a></li>
+                <li class="<?= $section == 'nosotros' ? 'active' : "" ?>"><a href="<?=base_url();?>issue_about">Nosotros</a></li>
                 <li class="social"><a href="#" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_facebook.png" alt="Facebook" /></a></li>
                 <li class="social"><a href="#" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_twitter.png" alt="Twitter" /></a></li>
               </ul>

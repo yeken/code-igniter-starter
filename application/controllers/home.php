@@ -34,13 +34,22 @@ class Home extends Front_init
 	public function issue_mundo()
 	{
 		$this->data['section'] = "issue_mundo";
+		$this->data['title'] = "Issue en el mundo";
 		$this->load->view("front/about.php", $this->data);
 	}
 
 	public function issue_about()
 	{
-		$this->data['section'] = "issue_about";
+		$this->data['section'] = "nosotros";
+		$this->data['title'] = "Nosotros";
 		$this->load->view("front/about.php", $this->data);
+	}
+
+	public function blog()
+	{
+		$this->data['section'] = "blog";
+		$this->data['title'] = "Blog";
+		$this->load->view("front/blog.php", $this->data);
 	}
 
 	public function contact()

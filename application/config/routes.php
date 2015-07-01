@@ -45,6 +45,7 @@ $route['decoloracion'] = "home/decoloracion";
 $route['tratamientos'] = "home/tratamientos";
 $route['issue_mundo'] = "home/issue_mundo";
 $route['issue_about'] = "home/issue_about";
+$route['blog'] = "home/blog";
 //$route['admin'] = "admin/user";
 //$route['default_controller'] = "home";
 $route['404_override'] = '';

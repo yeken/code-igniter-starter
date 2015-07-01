@@ -76,8 +76,7 @@ header{
 	color: #878484;
 }
 #header-bottom nav ul li.active a{
-	color: #5b5b5b;
-	text-decoration: underline;
+	color: #730029;
 }
 
 /* Mobile */
@@ -322,6 +321,7 @@ header{
 /* FOOTER */
 
 footer{
+	margin-top: 3%;
 	height: 66px;
 	background: #000000;
 	color: #878889;
@@ -348,7 +348,6 @@ footer .mobile{
 
 /*SECTIONS COMMONS*/
 .image-bg-fluid-height{
-	background: url('http://lorempixel.com/g/1920/500/') no-repeat center center scroll;
 	color: #ffffff;
 	font-family: 'Signika', sans-serif;
 	font-weight: 300;
@@ -440,6 +439,10 @@ section#coloracion #opacity-bg.active{
 	z-index: 2000 !important;
 }
 
+#coll .exposed img{
+	background: #ffffff;
+	border: 1px solid #ffffff !important;
+}
 section#coloracion .showing{
 	background: url('../img/css/collapse_arrow.png') no-repeat;
 	background-size: cover;
@@ -461,8 +464,8 @@ section#coloracion .showing{
 
 section#coloracion .detail-cont{
 	padding: 80px 143px 30px;
-  width: 122%;
-  margin-left: -11%;
+  width: 124%;
+  margin-left: -12%;
   background: #710329;
   position: relative;
 	-webkit-transition: all 0.25s ease-in-out;
@@ -491,7 +494,6 @@ section#coloracion .product-detail a{
 }
 section#coloracion .product-detail a img{
 	border: 1px solid #994260;
-	padding: 2px;
 	margin: 0 auto;
 	-webkit-transition: all 0.25s ease-in-out;
 	-moz-transition: all 0.25s ease-in-out;
