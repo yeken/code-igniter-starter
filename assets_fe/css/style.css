@@ -518,6 +518,98 @@ section#coloracion .product-detail a p{
 section#coloracion .product-detail:hover a p{
 	color: #ffffff;
 }
+
+/*BLOG*/
+section#blog{
+	margin-top: 3%;
+	font-family: 'Signika', sans-serif;
+}
+section#blog #blog-post h2{
+	background: #43b77a;
+	color: #ffffff;
+	font-size: 19px;
+	line-height: 30px;
+	padding: 0 3%;
+	display: inline;
+}
+
+section#blog #blog-post img{
+	margin-top: -3px;
+}
+
+section#blog #blog-post .social{
+	margin: 3% 0;
+}
+
+section#blog #blog-post h3{
+	color: #000000;
+	font-size: 36px;
+	line-height: 36px;
+	margin-bottom: 3%;
+}
+
+section#blog #blog-post p{
+	color: #000000;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+}
+section#blog #popular ul li{
+	border-bottom: 1px dotted #000000;
+	overflow: hidden;
+	margin: 2% 0;
+	padding: 2% 0;
+}
+section#blog #popular ul li img{
+	float: left;
+	margin-right: 2%;
+}
+
+section#blog #popular ul li a{
+	color: #499ae0;
+	float: left;
+	font-size: 14px;
+}
+
+section#blog h4{
+	background: #710329;
+	color: #ffffff;
+	font-size: 17px;
+	line-height: 28px;
+	padding: 0 3%;
+	width: auto;
+}
+
+section#blog #related{
+	padding: 0;
+	margin-top: 10%;
+}
+
+section#blog #related img{
+	margin: 15% 0 3%
+}
+
+section#blog #related h3{
+	color: #f01235;
+	font-size: 14px;
+	line-height: 14px;
+	margin: 5% 0;
+	text-transform: uppercase;
+}
+
+section#blog #related p{
+	color: #b1b1b1;
+	font-size: 11px;
+	line-height: 11px;
+	margin: 3% 0;
+}
+
+section#blog #related a{
+	color: #499ae0;
+	font-size: 12px;
+	line-height: 12px;
+	margin: 3% 0;
+}
+
 /*Extra small devices Phones (<768px)*/
 @media only screen and (max-width:768px){
 	/*SECTIONS COMMONS*/

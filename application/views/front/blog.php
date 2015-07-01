@@ -1,135 +1,113 @@
 <? include(dirname(__FILE__)."/common/header.php") ?>
 
+<section class="image-bg-fluid-height" style="background: url('<?=base_url();?>assets_fe/img/slider1.jpg') no-repeat left center scroll;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" col-xs-12 col-lg-6 col-lg-offset-2">
+                <h1 class="section-heading"><?=ucfirst($title);?></h1>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Page Content -->
+	<section id="blog">
     <div class="container">
 
         <div class="row">
-
             <!-- Blog Entries Column -->
-            <div class="col-md-8">
-
-                <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
-                </h1>
-
+            <div class="col-lg-6 col-lg-offset-1" id="blog-post">
                 <!-- First Blog Post -->
                 <h2>
-                    <a href="#">Blog Post Title</a>
+                    Consejos
                 </h2>
-                <p class="lead">
-                    by <a href="index.php">Start Bootstrap</a>
+                <img class="img-responsive" src="http://placehold.it/630x350" alt="">
+                <div class="social">
+                	<img class="img-responsive" src="<?=base_url();?>assets_fe/img/social-demo.jpg">
+                </div>
+                <h3>Consejos para cuidar tu cabello en el verano</h3>
+                <p>
+                	Con una exclusiva fórmula, clínica y dermatológicamente testeada, la Coloración en Crema Issue combina la belleza del color con la fuerza de su duración, ofreciendo un producto de alta calidad al mejor precio.
+                	<br>
+                	<br>
+									Issue te ofrece una coloración práctica, con la mejor calidad al mejor precio. Incluye Coloración en crema Issue y Activador en Crema Issue en la proporción justa para una mezcla homogénea y un mejor resultado en sus cabellos, proporcionando un color intenso, luminoso y parejo de raíz a puntas
+									<br>
+									<br>
+									Además, trae un Shock de Keratina para maximizar la belleza del cabello luego de la coloración, dejándolo suave y vital.
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
-                <hr>
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
-
-                <!-- Second Blog Post -->
-                <h2>
-                    <a href="#">Blog Post Title</a>
-                </h2>
-                <p class="lead">
-                    by <a href="index.php">Start Bootstrap</a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
-                <hr>
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum perferendis labore impedit voluptates!</p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
-
-                <!-- Third Blog Post -->
-                <h2>
-                    <a href="#">Blog Post Title</a>
-                </h2>
-                <p class="lead">
-                    by <a href="index.php">Start Bootstrap</a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
-                <hr>
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates, voluptas dolore ipsam cumque quam veniam accusantium laudantium adipisci architecto itaque dicta aperiam maiores provident id incidunt autem. Magni, ratione.</p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr>
-
-                <!-- Pager -->
-                <ul class="pager">
-                    <li class="previous">
-                        <a href="#">&larr; Older</a>
-                    </li>
-                    <li class="next">
-                        <a href="#">Newer &rarr;</a>
-                    </li>
-                </ul>
-
+            </div>
+            
+                        <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-5" id="popular">
+                <!-- Blog Categories Well -->
+                  <h4>
+                  	Articulos populares
+                	</h4>
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <ul>
+                              <li>
+                              	<img class="img-responsive" src="http://placehold.it/100x100" alt="">
+                              	<a href="#">Category Name</a>
+                              </li>
+                              <li>
+                              	<img class="img-responsive" src="http://placehold.it/100x100" alt="">
+                              	<a href="#">Category Name</a>
+                              </li>
+                              <li>
+                              	<img class="img-responsive" src="http://placehold.it/100x100" alt="">
+                              	<a href="#">Category Name</a>
+                              </li>
+                              <li>
+                              	<img class="img-responsive" src="http://placehold.it/100x100" alt="">
+                              	<a href="#">Category Name</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <!-- /.row -->
             </div>
 
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
+            <!-- relateds posts -->
+						<div class="col-lg-6 col-lg-offset-1">
+							<div class="container-fluid" id="related">
+								
+								<div class="row">
+									<div class="col-lg-12">
+										<h4>Artículos relacionados</h4>
+									</div>
+								</div>
 
-                <!-- Blog Search Well -->
-                <div class="well">
-                    <h4>Blog Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
-                    </div>
-                    <!-- /.input-group -->
-                </div>
+								<div class="row">
+	                <div class="col-lg-3">
+	                	<img class="img-responsive" src="http://placehold.it/125x125" alt="">
+	                	<h3>Related title</h3>
+	                	<p>12/12/1212</p>
+	                	<a href="#">Related link</a>
+	                </div>
 
-                <!-- Blog Categories Well -->
-                <div class="well">
-                    <h4>Blog Categories</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- /.col-lg-6 -->
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- /.col-lg-6 -->
-                    </div>
-                    <!-- /.row -->
-                </div>
+	                <div class="col-lg-3">
+	                	<img class="img-responsive" src="http://placehold.it/125x125" alt="">
+	                	<h3>Related title</h3>
+	                	<p>12/12/1212</p>
+	                	<a href="#">Related link</a>
+	                </div>
 
-                <!-- Side Widget Well -->
-                <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-                </div>
+	                <div class="col-lg-3">
+	                	<img class="img-responsive" src="http://placehold.it/125x125" alt="">
+	                	<h3>Related title</h3>
+	                	<p>12/12/1212</p>
+	                	<a href="#">Related link</a>
+	                </div>
 
+	                <div class="col-lg-3">
+	                	<img class="img-responsive" src="http://placehold.it/125x125" alt="">
+	                	<h3>Related title</h3>
+	                	<p>12/12/1212</p>
+	                	<a href="#">Related link</a>
+	                </div>
+	              </div>
+							</div>
             </div>
 
         </div>
@@ -137,5 +115,6 @@
 
     </div>
     <!-- /.container -->
+	</section>
 
 <? include(dirname(__FILE__)."/common/footer.php") ?>
