@@ -610,6 +610,17 @@ section#blog #related a{
 	margin: 3% 0;
 }
 
+/*CONTACT*/
+
+section#contact{
+	margin-top: 4%;
+}
+
+section#contact .bigicon{
+    font-size: 35px;
+    color: #710329;
+}
+
 /*Extra small devices Phones (<768px)*/
 @media only screen and (max-width:768px){
 	/*SECTIONS COMMONS*/
@@ -652,7 +663,7 @@ section#blog #related a{
 	section#blog #popular{
 		display: none;
 	}
-	
+
 }
 
 @media only screen and (max-width:640px){

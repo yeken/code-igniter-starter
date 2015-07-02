@@ -55,7 +55,8 @@ class Home extends Front_init
 	public function contact()
 	{
 		$this->data['section'] = "contact";
-		$this->load->view("front/index.php", $this->data);
+		$this->data['title'] = "Contactenos";
+		$this->load->view("front/contact.php", $this->data);
 
 	}
 }

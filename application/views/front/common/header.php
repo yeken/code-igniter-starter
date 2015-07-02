@@ -8,8 +8,8 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
     <!-- Bootstrap -->
-    <link href="<?=base_url();?>assets_fe/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="<?=base_url();?>assets_fe/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<?=base_url();?>assets_fe/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -59,9 +59,10 @@
     <header>
       <div id="header-top">
         <div class="content row">
-          <div class="col-md-6 col-sm-6 col-xs-10 col-md-offset-6 col-sm-offset-6 col-xs-offset-2">
+          <div class="col-md-8 col-sm-8 col-xs-10 col-md-offset-4 col-sm-offset-4 col-xs-offset-2">
             <nav>
               <ul>
+                <li class="<?= $section == 'contact' ? 'active' : "" ?>"><a href="<?=base_url();?>contact">Contacto</a></li>
                 <li class="<?= $section == 'blog' ? 'active' : "" ?>"><a href="<?=base_url();?>blog">Blog</a></li>
                 <li class="<?= $section == 'issue_mundo' ? 'active' : "" ?>"><a href="<?=base_url();?>issue_mundo">Issue en el mundo</a></li>
                 <li class="<?= $section == 'nosotros' ? 'active' : "" ?>"><a href="<?=base_url();?>issue_about">Nosotros</a></li>
