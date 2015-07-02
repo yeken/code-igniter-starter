@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://www.adyouwish.com/chepire/';
+$config['base_url']	= 'http://local.bamboo.com/issue/';
 
 /*
 |--------------------------------------------------------------------------
@@ -126,7 +126,7 @@ $config['subclass_prefix'] = 'ADMIN_';
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-АИМСЗаимсзяЯ+';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫+';
 
 
 /*

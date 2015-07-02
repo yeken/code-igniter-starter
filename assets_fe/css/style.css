@@ -643,10 +643,16 @@ section#blog #related a{
 		line-height: 13px;
 	}
 
+	/*COLORACION*/
 	section#coloracion .product-item, section#coloracion .product-detail a img{
 		margin-top: 10%; 
 	}
 
+	/*BLOG*/
+	section#blog #popular{
+		display: none;
+	}
+	
 }
 
 @media only screen and (max-width:640px){
