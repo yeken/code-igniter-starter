@@ -52,6 +52,14 @@ class Home extends Front_init
 		$this->load->view("front/blog.php", $this->data);
 	}
 
+	public function detail()
+	{
+		$this->data['section'] = "detail";
+		$this->data['title'] = "Detalle";
+		$this->load->view("front/detail.php", $this->data);
+
+	}
+
 	public function contact()
 	{
 		$this->data['section'] = "contact";

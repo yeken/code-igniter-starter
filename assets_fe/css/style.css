@@ -610,6 +610,120 @@ section#blog #related a{
 	margin: 3% 0;
 }
 
+/*DETAIL*/
+section#detail{
+	margin-top: 4%;
+}
+
+section#detail img{
+	border: 1px solid #D5D5D5;
+}
+
+section#detail p{
+	color: #000000;
+	font-size: 16px;
+	font-family: 'Signika', sans-serif;
+	font-weight: 300;
+	line-height: 26px;
+	margin-bottom: 2%;
+}
+
+section#detail p:last-child{
+	margin: 0;
+}
+
+section#color-chart{
+	margin-top: 4%;
+}
+
+section#color-chart h3{
+	border-top: 1px solid;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-color: #D5D5D5;
+	display: inline;
+	padding: 1% 2%;
+}
+
+section#color-chart hr{
+	border: 0;
+	background: #D5D5D5;
+	height: 1px;
+	width: 55%;
+	float: right;
+	margin-top: 27px;
+}
+
+section#color-chart #viewer{
+	max-height: 100px;
+	font-family: 'Signika', sans-serif;
+	font-weight: 300;
+}
+
+section#color-chart #viewer .color-option img{
+	float: left;
+	margin-right: 3%;
+}
+
+section#color-chart #viewer .color-option p{
+	color: #000000;
+	display: inline-block;
+	font-size: 22px;
+	line-height: 92px;
+	float: left;
+}
+
+section#color-chart #viewer .color-option p span{
+	font-size: 45px;
+	font-weight: 600;
+}
+
+section#color-chart #viewer .color-option p span sup{
+	font-size: 22px;
+	line-height: 22px;
+}
+
+section#color-chart #accordion{
+	margin-top: 2%;
+}
+
+section#color-chart #accordion .panel{
+	background: #f4f4f4;
+	border: 0;
+	border-bottom: 1px solid #D5D5D5;
+}
+section#color-chart #accordion .panel-heading{
+	padding: 30px 15px 20px;
+}
+section#color-chart #accordion .panel-heading h4 a{
+	cursor: pointer;
+}
+
+section#color-chart #accordion .panel-body{
+	border: 0;
+}
+
+section#color-chart #accordion .color-option{
+	position: relative;
+}
+
+section#color-chart #accordion .color-option .viewing{
+	border: 3px solid #710329;
+	background: rgba(255, 255, 255, 0.5);
+	left: 0;
+	position: absolute;
+	padding: 2px;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+section#color-chart #accordion .color-option img{
+	min-width: 20px;
+}
+section#color-chart #accordion .color-option p{
+	display: none;
+}
 /*CONTACT*/
 
 section#contact{

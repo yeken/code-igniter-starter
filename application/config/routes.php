@@ -47,6 +47,7 @@ $route['issue_mundo'] = "home/issue_mundo";
 $route['issue_about'] = "home/issue_about";
 $route['blog'] = "home/blog";
 $route['contact'] = "home/contact";
+$route['detail'] = "home/detail";
 //$route['admin'] = "admin/user";
 //$route['default_controller'] = "home";
 $route['404_override'] = '';
