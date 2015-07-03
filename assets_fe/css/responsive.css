@@ -1,8 +1,10 @@
 /*Extra small devices Phones (<768px)*/
 @media only screen and (max-width:768px){
+	/*HEADER*/
 	header{
 		background: #ffffff;
 	}
+	/*NAVIGATIONS*/
 	header .navbar-primary{
 		padding: 1% 0;
 		background: #ffffff;
@@ -36,9 +38,48 @@
 		border-top: 1px solid #666666;
 	}
 
+	/*HOME*/
+	/*SLIDER*/
+	#slider .col-xs-12{
+		padding: 0;
+	}
+
+	#slider #myCarousel .carousel-caption{
+		text-align: center;
+		top: 0;
+	}
+
+#slider #myCarousel .carousel-caption h2{
+	font-size: 26px;
+	margin-bottom: 1%;
+}
+
+#slider #myCarousel .carousel-caption h3{
+	font-size: 13px;
+	margin-bottom: 1%;
+}
+
+#slider #myCarousel .carousel-caption p{
+	font-size: 12px;
+	margin-bottom: 3%;
+}
+
+#slider #myCarousel .carousel-caption a{
+	font-size: 22px;
+	display: inline-block;
+}
+
+
+.carousel-control.left{
+	left: 0;
+}
+
+.carousel-control.right{
+	right: 0;
+}
+
 	/*SECTIONS COMMONS*/
 	.image-bg-fluid-height{
-		background: url('http://lorempixel.com/g/1920/500/') no-repeat center top scroll;
 		color: #ffffff;
 		font-family: 'Signika', sans-serif;
 		font-weight: 300;
@@ -75,60 +116,6 @@
 	/*BLOG*/
 	section#blog #popular{
 		display: none;
-	}
-
-}
-
-@media only screen and (max-width:640px){
-
-	#btn_mobile{
-		display: block;
-		margin: 30px 20px 0 0;
-	}
-	#header-top, #header-bottom nav{
-		display: none;
-	}
-	.content{
-		width: 100%;
-	}
-
-	
-	/* SLIDER */
-	
-	#slider{
-		  height: 468px;
-	}
-	#slider-1{
-		background: #710329 url('../img/slider1-mobile.png') no-repeat center top;
-	}
-	.content-text{
-		text-align: center;
-		width: 60% !important;
-		margin: auto;
-	}
-	.content-text h2{
-		font-size: 37px;
-		font-weight: 700;
-	}
-	.content-text h3{
-		font-size: 15.5px;
-		font-weight: 600;
-	}
-	.content-text p{
-		font-size: 14px;
-		font-weight: 300;
-	}
-	.content-text button{
-		font-size: 30px;
-	}
-	.bx-controls-direction a{
-		top: 40% !important;
-	}
-	header{
-		height: inherit;
-	}
-	.bxslider, .bxslider li{
-		max-height: 468px !important;
 	}
 
 	/* ULTIMOS ARTICULOS */

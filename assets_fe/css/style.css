@@ -101,56 +101,53 @@ header .navbar-primary ul li.social a:hover{
 	color: #730029;
 }
 /* HOME */
-
 /* SLIDER */
 
-#slider, .bxslider, .bxslider li{
-	height: 586px;
-}
-#slider-1{
-	background: transparent url('../img/slider1.jpg') no-repeat center;
-}
-#slider-2{
-	background: transparent url('../img/slider2.jpg') no-repeat center;
-}
-.bxslider li{
-	padding-top: 165px;
-}
-.content-text{
-	width: 350px;
+#slider #myCarousel .carousel-caption{
+	left: 0;
+	width: 100%;
+	top: 20%;
+	text-align: left;
 	color: #ffffff;
 	font-family: 'Signika', sans-serif;
 }
-.content-text h2{
+
+#slider #myCarousel .carousel-caption h2{
 	font-size: 56px;
-	font-size: 700;
+	font-weight: 700;
 	margin-bottom: 24px;
 }
-.content-text h3{
+
+#slider #myCarousel .carousel-caption h3{
 	font-size: 23px;
-	font-size: 600;
+	font-weight: 600;
 	margin-bottom: 21px;
 }
-.content-text p{
+
+#slider #myCarousel .carousel-caption p{
 	font-size: 15px;
 	font-weight: 300;
 	margin-bottom: 20px;
 }
-.content-text button{
-	width: 233px;
-	height: 49px;
+
+#slider #myCarousel .carousel-caption a{
+	color: #ffffff;
 	background: #ee075d;
 	border: none;
 	font-size: 32px;
+	padding: 0.3% 5%;
 	font-weight: 700;
 }
-.content-text button a{
-	color: #ffffff;
-}
-#slider-2 .content-text button{
-	background: #29abe2;
+
+.carousel-control.left{
+	background: 0;
+	left: -3%;
 }
 
+.carousel-control.right{
+	background: 0;
+	right: -3%;
+}
 
 /* NUESTROS PRODUCTOS */
 
