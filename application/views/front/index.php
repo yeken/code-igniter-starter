@@ -1,29 +1,35 @@
 ﻿<? include(dirname(__FILE__)."/common/header.php") ?>
 
     <section id="slider">
-      <ul class="bxslider">
-        <li id="slider-1">
-          <div class="content">
-            <div class="content-text">
-              <h2>Coloración</h2>
-              <h3>Productos de cuidado y tratamiento para el cabello.</h3>
-              <p>Issue brinda los mejores productos para obtener el mejor cuidado para tu cabello.</p>
-              <button><a href="#">ver más</a></button>
-            </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="bxslider">
+              <li id="slider-1">
+                <div class="content">
+                  <div class="content-text">
+                    <h2>Coloración</h2>
+                    <h3>Productos de cuidado y tratamiento para el cabello.</h3>
+                    <p>Issue brinda los mejores productos para obtener el mejor cuidado para tu cabello.</p>
+                    <button><a href="#">ver más</a></button>
+                  </div>
+                </div>
+              </li>
+              <li id="slider-2">
+                <div class="content">
+                  <div class="content-text">
+                    <h2>Tratamientos</h2>
+                    <h3>Productos de cuidado y tratamiento para el cabello.</h3>
+                    <p>Issue brinda los mejores productos para obtener el mejor cuidado para tu cabello.</p>
+                    <button><a href="#">ver más</a></button>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
-        </li>
-        <li id="slider-2">
-          <div class="content">
-            <div class="content-text">
-              <h2>Tratamientos</h2>
-              <h3>Productos de cuidado y tratamiento para el cabello.</h3>
-              <p>Issue brinda los mejores productos para obtener el mejor cuidado para tu cabello.</p>
-              <button><a href="#">ver más</a></button>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </section>  
+        </div>    
+      </div>
+    </section>
     <section id="nuestros-productos">
       <h3>nuestros productos</h3>
       <div class="owl-carousel">

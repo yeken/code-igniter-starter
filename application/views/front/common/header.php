@@ -17,6 +17,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="<?=base_url();?>assets_fe/css/style.css" rel="stylesheet">
+    <link href="<?=base_url();?>assets_fe/css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="<?=base_url();?>assets_fe/css/jquery.bxslider.css" />
     <link rel="stylesheet" href="<?=base_url();?>assets_fe/css/owl.carousel.css" />
     <link rel="stylesheet" href="<?=base_url();?>assets_fe/css/owl.theme.default.min.css" />
@@ -57,37 +58,60 @@
   </head>
   <body>  
     <header>
-      <div id="header-top">
-        <div class="content row">
-          <div class="col-md-8 col-sm-8 col-xs-10 col-md-offset-4 col-sm-offset-4 col-xs-offset-2">
-            <nav>
-              <ul>
-                <li class="<?= $section == 'contact' ? 'active' : "" ?>"><a href="<?=base_url();?>contact">Contacto</a></li>
-                <li class="<?= $section == 'blog' ? 'active' : "" ?>"><a href="<?=base_url();?>blog">Blog</a></li>
-                <li class="<?= $section == 'issue_mundo' ? 'active' : "" ?>"><a href="<?=base_url();?>issue_mundo">Issue en el mundo</a></li>
-                <li class="<?= $section == 'nosotros' ? 'active' : "" ?>"><a href="<?=base_url();?>issue_about">Nosotros</a></li>
-                <li class="social"><a href="#" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_facebook.png" alt="Facebook" /></a></li>
-                <li class="social"><a href="#" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_twitter.png" alt="Twitter" /></a></li>
-              </ul>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <nav class="navbar-primary">
+              <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"><i class="fa fa-bars bigicon"></i></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="logo" href="<?=base_url();?>">
+                    <img class="img-responsive" src="<?=base_url();?>assets_fe/img/logo.png">
+                  </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="primary">
+                  <ul class="navbar-nav navbar-right">
+                    <li><a class="<?= $section == 'blog' ? 'active' : "" ?>" href="<?=base_url();?>blog">Blog</a></li>
+                    <li><a class="<?= $section == 'issue_mundo' ? 'active' : "" ?>" href="<?=base_url();?>issue_mundo">Issue en el mundo</a></li>
+                    <li><a class="<?= $section == 'nosotros' ? 'active' : "" ?>" href="<?=base_url();?>issue_about">Nosotros</a></li>
+                    <li><a class="<?= $section == 'contact' ? 'active' : "" ?>" href="<?=base_url();?>contact">Contacto</a></li>
+                    <li class="social"><a href="#" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_facebook.png" alt="Facebook" /></a></li>
+                    <li class="social"><a href="#" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_twitter.png" alt="Twitter" /></a></li>
+                  </ul>
+                </div>
+              </div>
             </nav>
-          </div>
-        </div>
-      </div>
-      <div id="header-bottom">
-        <div class="content row">
-          <div class="col-md-4 col-sm-4 col-xs-8">
-            <h1>Issue</h1>
-          </div>
-          <div class="col-md-8 col-sm-8 col-xs-4">
-            <nav>
-              <ul>
-                <li class="<?= $section == 'coloracion' ? 'active' : "" ?>"><a href="<?=base_url();?>coloracion">Coloración</a></li>
-                <li class="<?= $section == 'decoloracion' ? 'active' : "" ?>"><a href="<?=base_url();?>decoloracion">Decoloración</a></li>
-                <li class="<?= $section == 'tratamientos' ? 'active' : "" ?> last"><a href="<?=base_url();?>tratamientos">Tratamientos</a></li>
-              </ul>
-            </nav>
-            <button id="btn_mobile"><img src="<?=base_url();?>assets_fe/img/btn_mobile.png" alt="Boton Mobile" /></button>
           </div>
         </div>
       </div>
     </header>
+
+    <div id="second-nav">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <a class="logo" href="<?=base_url();?>">
+              <img class="img-responsive" src="<?=base_url();?>assets_fe/img/logo.png">
+            </a>
+            <ul>
+              <li>
+                <a class="<?= $section == 'coloracion' ? 'active' : "" ?>" href="<?=base_url();?>coloracion">coloración</a>
+              </li>
+              <li>
+                <a class="<?= $section == 'decoloracion' ? 'active' : "" ?>" href="<?=base_url();?>decoloracion">decoloración</a>
+              </li>
+              <li>
+                <a class="<?= $section == 'tratamientos' ? 'active' : "" ?>" href="<?=base_url();?>tratamientos">tratamientos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>

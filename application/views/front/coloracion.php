@@ -1,20 +1,17 @@
 <? include(dirname(__FILE__)."/common/header.php") ?>
 
-      
-    <!-- Full Width Image Header -->
-    <!-- Image backgrounds are set within the styles.css file. -->
-    <section class="image-bg-fluid-height" style="background: url('<?=base_url();?>assets_fe/img/slider1.jpg') no-repeat left center scroll;">
-      <div class="container-fluid">
-        <div class="row">
-          <div class=" col-xs-12 col-lg-6 col-lg-offset-2">
-            <h1 class="section-heading"><?=ucfirst($section);?></h1>
-            <p class="lead section-lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <section class="image-bg-fluid-height" style="background: url('<?=base_url();?>assets_fe/img/slider1.jpg') no-repeat center center scroll;">
+      <div class="container">
+          <div class="row">
+              <div class=" col-xs-12">
+                  <h1 class="section-heading"><?=ucfirst($section);?></h1>
+                  <p class="lead section-lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             <p class="section-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, suscipit, rerum quos facilis repellat architecto commodi officia atque nemo facere eum non illo voluptatem quae delectus odit vel itaque amet.</p>
+              </div>
           </div>
-        </div>
       </div>
     </section>
-    
+
     <section id="coloracion">
       <div class="container">
         <div class="row" id="coll">
