@@ -2,17 +2,17 @@
 
 $config['general']['admin'] = array('home_controller' => 'admin/x/',
 									'user_session' => 'user',
-									'start_page' => 'matches/show_list',
+									'start_page' => 'product/show_list',
 									'login_page' => 'admin/user/login',
-									'login_logo' => 'chepire_big.png',
-									'admin_logo' => 'chepire_small.png'
+									'login_logo' => 'logo.png',
+									'admin_logo' => 'logo.png'
 									);
 
 $config['general']['admin']['sections'] = array(
-									'user' =>array('url' => '#user/show_list', 'name' => 'Clientes', 'admin_only' => true, 'icon' => 'fa-user'),
+									//'user' =>array('url' => '#user/show_list', 'name' => 'Clientes', 'admin_only' => true, 'icon' => 'fa-user'),
+									'category' =>array('url' => '#category/show_list', 'name' => 'Categorias', 'admin_only' => true, 'icon' => 'fa-list'),
+									'subcategory' =>array('url' => '#subcategory/show_list', 'name' => 'Sub Categorias', 'admin_only' => true, 'icon' => 'fa-th-list'),
 									'product' =>array('url' => '#product/show_list', 'name' => 'Productos', 'admin_only' => true, 'icon' => 'fa-flask'),
-									'client_files' =>array('url' => '#user/media_gallery/file', 'name' => 'Archivos', 'client_only' => true, 'icon' => 'fa-file-text-o'),
-									//'documents' =>array('url' => '#documents/show_list', 'name' => 'Facturas', 'icon' => 'fa-file-text-o'),
 									);
 
 $config['general']['admin']['table_icons'] = array(	'details' => 'fa fa-eye',

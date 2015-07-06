@@ -5,6 +5,7 @@ class Home extends Front_init
 	public function __construct()
 	{
 		parent::__construct();
+		$this->get_categories();
 	}
 
 	public function index()
@@ -13,23 +14,23 @@ class Home extends Front_init
 		$this->load->view("front/index.php", $this->data);
 	}
 
-	public function coloracion()
-	{
-		$this->data['section'] = "coloracion";
-		$this->load->view("front/coloracion.php", $this->data);
-	}
+	// public function coloracion()
+	// {
+	// 	$this->data['section'] = "coloracion";
+	// 	$this->load->view("front/coloracion.php", $this->data);
+	// }
 
-	public function decoloracion()
-	{
-		$this->data['section'] = "decoloracion";
-		$this->load->view("front/coloracion.php", $this->data);
-	}
+	// public function decoloracion()
+	// {
+	// 	$this->data['section'] = "decoloracion";
+	// 	$this->load->view("front/coloracion.php", $this->data);
+	// }
 
-	public function tratamientos()
-	{
-		$this->data['section'] = "tratamientos";
-		$this->load->view("front/coloracion.php", $this->data);
-	}
+	// public function tratamientos()
+	// {
+	// 	$this->data['section'] = "tratamientos";
+	// 	$this->load->view("front/coloracion.php", $this->data);
+	// }
 
 	public function issue_mundo()
 	{
@@ -66,5 +67,24 @@ class Home extends Front_init
 		$this->data['title'] = "Contactenos";
 		$this->load->view("front/contact.php", $this->data);
 
+	}
+
+	public function category($category_id)
+	{
+		$this->load->model('admin/category_model', 'category_model');
+		$this->category_model->get($category_id);
+		$this->category_model->get_subcategories();
+		
+		$this->data['section'] = "Category";
+		$this->load->view("front/category.php", $this->data);
+	}
+
+	public function product($product_id)
+	{
+		$this->load->model('admin/product_model', 'product_model');
+		$this->product_model->get($product_id);
+		
+		$this->data['section'] = "decoloracion";
+		$this->load->view("front/detail.php", $this->data);
 	}
 }

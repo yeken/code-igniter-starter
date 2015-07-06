@@ -1,12 +1,12 @@
 <?
 
-$module_name = 'product';
+$module_name = 'subcategory';
 
 $config['modules'][$module_name] = array(
-										 	'controller_name' => 'admin/product',
-											'main_model' => 'admin/product_model',
-										 	'module_label' => 'Productos',
-											'module_unit' => 'Producto',
+										 	'controller_name' => 'admin/subcategory',
+											'main_model' => 'admin/subcategory_model',
+										 	'module_label' => 'Sub Categorias',
+											'module_unit' => 'Subcategory',
 										 );
 
 $config['modules'][$module_name]['fields'] = array(
@@ -19,45 +19,40 @@ $config['modules'][$module_name]['fields'] = array(
 														),
 										'brief'=> array(	'label' => 'Resumen',
 															'type' => 'textarea',
-															'class' => '',
+															'class' => 'title',
 															'validation' => 'required',
 															'visibility' => 'save|details|list'
 														),
-										'description'=> array(	'label' => 'Detalle',
-															'type' => 'textarea',
-															'class' => 'summernote',
-															'validation' => 'required',
-															'visibility' => 'save|details|list'
+
+										'active'	=> array(	'label' => 'Activo',
+																'type' => 'checkbox',
+																'value' => 1,
+																'visibility' => 'save|details|list'
+																),
+										'category' => array(	'label' => 'Categoria',
+															'type' => 'text',
+															'class' => 'title',
+															'visibility' => 'details|list'
 														),
+										'category_id'	=> array(	'label' => 'Categoria',
+																'type' => 'select',
+																'validation' => 'required',
+																'visibility' => 'save',
+																'source_table' => 'categories',
+																'source_condition' => "",
+																'source_index_id' => 'category_id',
+																'source_fields' => array('name')
+																),
 										'main_image' => array(	'label' => 'Imagen Principal',
 																	'type' => 'image',
 																	'tag' => 'main_image',
 																	'validation' => '',
 																	'visibility' => 'details|save',
 																	),
-										'active'	=> array(	'label' => 'Activo',
-																'type' => 'checkbox',
-																'value' => 1,
-																'visibility' => 'save|details|list'
-																),
-										'subcategory' => array(	'label' => 'Subcategoria',
-															'type' => 'text',
-															'class' => 'title',
-															'visibility' => 'details|list'
-														),
-										'subcategory_id'	=> array(	'label' => 'Categoria',
-																'type' => 'select',
-																'validation' => 'required',
-																'visibility' => 'save',
-																'source_table' => 'subcategories',
-																'source_condition' => "",
-																'source_index_id' => 'subcategory_id',
-																'source_fields' => array('name')
-																),
 										);
 
-$config['modules'][$module_name]['top_menu_actions'] = array( 	'products_list' => array('url' => '#product/show_list','method' => 'show_list', 'class_name' => $config['modules'][$module_name], 'icon' => "ui-icon-clipboard", 'label' => "Listado de ".$config['modules'][$module_name]['module_label']),
-																'add_product' => array('url' => '#product/create','method' => 'create', 'class_name' => $config['modules'][$module_name], 'icon' => "ui-icon-plusthick", 'label' => "Agregar ".$config['modules'][$module_name]['module_unit']));
+$config['modules'][$module_name]['top_menu_actions'] = array( 	'subcategories_list' => array('url' => '#subcategory/show_list','method' => 'show_list', 'class_name' => $config['modules'][$module_name], 'icon' => "ui-icon-clipboard", 'label' => "Listado de ".$config['modules'][$module_name]['module_label']),
+																'add_subcategory' => array('url' => '#subcategory/create','method' => 'create', 'class_name' => $config['modules'][$module_name], 'icon' => "ui-icon-plusthick", 'label' => "Agregar ".$config['modules'][$module_name]['module_unit']));
 
 $config['modules'][$module_name]['main_model_tabs'] = array( 	'details' => array( 'label' => 'Detalle',
 								  			  	 				'url' => '#'.$module_name.'/details/'),
@@ -72,7 +67,7 @@ $config['modules'][$module_name]['datatable_actions'] = array( 	'details' => arr
 											'edit' => array( 	'label' => 'Editar',
 											 					'url' => '#'.$module_name.'/edit/'),
 											'delete' => array( 	'label' => 'Borrar',
-																'dialog' => 'Borrar producto?',
+																'dialog' => 'Borrar subcategoria?',
 											 					'url' => '#'.$module_name.'/delete/'),
 											);
 ?>

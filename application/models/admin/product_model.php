@@ -11,10 +11,20 @@ class Product_model extends Simple_data_model
 								'name',
 								'description',
 								'brief',
-								'category',
+								'subcategory',
 								'file_manager_id',
 								'active',
-								'date_created'
+								'date_created',
+								'subcategory_id'
 								);
+
+
+	protected function pre_save()
+	{
+		$this->load->model('admin/subcategory_model', 'subcategory_model');
+		$subcategory = new Subcategory_model();
+		$subcategory->get($this->subcategory_id);
+		$this->set_field('subcategory', $subcategory->name);
+	}
 }
 ?>

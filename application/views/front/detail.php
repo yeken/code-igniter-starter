@@ -4,7 +4,8 @@
     <div class="container">
         <div class="row">
             <div class=" col-xs-12">
-                <h1 class="section-heading"><?=ucfirst($title);?></h1>
+                <h1 class="section-heading"><?=ucfirst($this->product_model->name);?></h1>
+                <p class="lead section-lead"><?=$this->product_model->brief?></p>
             </div>
         </div>
     </div>
@@ -14,18 +15,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-3">
-				<img class="img-responsive" src="http://placehold.it/305x305">
+				<img class="img-responsive" src="<?= $this->product_model->main_image?>">
 			</div>
 			<div class="col-xs-12 col-sm-9">
-				<p>
-					Con una exclusiva fórmula, clínica y dermatológicamente testeada, la Coloración en Crema Issue combina la belleza del color con la fuerza de su duración, ofreciendo un producto de alta calidad al mejor precio.
-				</p>
-				<p>
-					Issue te ofrece una coloración práctica, con la mejor calidad al mejor precio. Incluye Coloración en crema Issue y Activador en Crema Issue en la proporción justa para una mezcla homogénea y un mejor resultado en sus cabellos, proporcionando un color intenso, luminoso y parejo de raíz a puntas
-				</p>
-				<p>
-					<strong>Además, trae un Shock de Keratina para maximizar la belleza del cabello luego de la coloración, dejándolo suave y vital.</strong>
-				</p>
+				<p><?= $this->product_model->description?></p>
 			</div>
 		</div>
 	</div>

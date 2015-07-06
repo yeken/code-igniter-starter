@@ -40,9 +40,10 @@
 
 $route['default_controller'] = 'home';
 
-$route['coloracion'] = "home/coloracion";
-$route['decoloracion'] = "home/decoloracion";
-$route['tratamientos'] = "home/tratamientos";
+$route['coloracion'] = "home/category/1";
+$route['decoloracion'] = "home/category/2";
+$route['tratamientos'] = "home/category/4";
+$route['producto/(:num)/(:any)'] = "home/product/$1";
 $route['issue_mundo'] = "home/issue_mundo";
 $route['issue_about'] = "home/issue_about";
 $route['blog'] = "home/blog";

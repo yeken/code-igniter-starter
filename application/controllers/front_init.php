@@ -20,7 +20,21 @@ class Front_init extends CI_Controller
 		$this->session->sess_destroy();	
 	}
 
+	protected function get_categories(){
+		$sql = 'SELECT * FROM categories ORDER BY category_id DESC';
+		$result = $this->db->query($sql)->result_array();
 
+		$this->load->model('admin/category_model', 'category_model');
+		$this->data[categories] = array();
+
+		foreach($result as $row){
+			$category = new Category_model();
+			$category->set($row);
+			$category->get_files();
+			$this->data[categories][] = $category;
+		}
+
+	}
 	/*
 	Splits the fields array into page_fields[$visible_page][field_id][field_attributes]
 	*/

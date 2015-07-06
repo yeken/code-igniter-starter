@@ -77,7 +77,7 @@
         <footer>
 
         	<!--<a href="http://www.adyouwish.com" target="_blank" id="adyou-logo"><img src="<?= base_url()?>assets_be/img/adyouwish.png" style="opacity:0.15"></a>-->
-        	<b style="color:#3D5368">Bamboo &copy;</b>
+        	<b style="color:#3D5368">Adyouwish &copy;</b>
         	<div class="pull-right toggle-menu">
         		<a href="#menu-toggle" id="menu-toggle" class="btn btn-default" style="padding:3px 6px;"><span class="fa fa-chevron-left " style="font-size:12px; color: #3D5368;"></span></a>
         	</div>
