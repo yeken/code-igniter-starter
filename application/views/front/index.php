@@ -24,7 +24,7 @@
               <?
                 $active = 1;
                 foreach ($banners as $banner) {
-              ?>  
+              ?>
                 <div class="item <?= $active ? 'active' : ""?>">
                   <img class="desktop" src="<?= $banner->desktop_image?>" alt="<?= $banner->name?>">
                   <img class="mobile" src="<?= $banner->mobile_image?>" alt="<?= $banner->name?>">
@@ -68,24 +68,24 @@
     <section id="nuestros-productos">
       <h3>nuestros productos</h3>
       <div>
-        <?  
-          vd($products);
-          if(is_array($products)){
-            foreach ($products as $product) {
-        ?>
-        <div class="item">
-          <div class="box-image">
-            <img src="<?= $product->main_image?>" alt="<?= $product->name?>" />
-            <a href="#">
-              <span>ver detalle</span>
-            </a>
-          </div>
-          <div class="box-info">
-            <h4><?= $product->name?></h4>
-            <p><?= $product->brief?></p>
-          </div>
-        </div>  
         <?
+          if(is_array($products)){
+            vd(count($products));
+            foreach ($products as $product) {
+              ?>
+              <div class="item">
+                <div class="box-image">
+                  <img src="<?= $product->main_image?>" alt="<?= $product->name?>" />
+                  <a href="#">
+                    <span>ver detalle</span>
+                  </a>
+                </div>
+                <div class="box-info">
+                  <h4><?= $product->name?></h4>
+                  <p><?= $product->brief?></p>
+                </div>
+              </div>
+              <?
             }
           }
         ?>

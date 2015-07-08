@@ -10,10 +10,7 @@ class Home extends Front_init
 
 	public function index()
 	{
-		$this->load->model('admin/banner_model', 'banner_model');
 		$this->get_banners();
-
-		$this->load->model('admin/product_model', 'product_model');
 		$this->get_products();
 
 		$this->load->view("front/index.php", $this->data);
@@ -61,7 +58,7 @@ class Home extends Front_init
 		$this->load->model('admin/category_model', 'category_model');
 		$this->category_model->get($category_id);
 		$this->category_model->get_subcategories();
-		
+
 		$this->data['section'] = "Category";
 		$this->load->view("front/category.php", $this->data);
 	}
@@ -70,7 +67,7 @@ class Home extends Front_init
 	{
 		$this->load->model('admin/product_model', 'product_model');
 		$this->product_model->get($product_id);
-		
+
 		$this->data['section'] = "decoloracion";
 		$this->load->view("front/detail.php", $this->data);
 	}
