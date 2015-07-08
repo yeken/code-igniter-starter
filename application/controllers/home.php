@@ -10,27 +10,14 @@ class Home extends Front_init
 
 	public function index()
 	{
-		$this->data['section'] = "home";
+		$this->load->model('admin/banner_model', 'banner_model');
+		$this->get_banners();
+
+		$this->load->model('admin/product_model', 'product_model');
+		$this->get_products();
+
 		$this->load->view("front/index.php", $this->data);
 	}
-
-	// public function coloracion()
-	// {
-	// 	$this->data['section'] = "coloracion";
-	// 	$this->load->view("front/coloracion.php", $this->data);
-	// }
-
-	// public function decoloracion()
-	// {
-	// 	$this->data['section'] = "decoloracion";
-	// 	$this->load->view("front/coloracion.php", $this->data);
-	// }
-
-	// public function tratamientos()
-	// {
-	// 	$this->data['section'] = "tratamientos";
-	// 	$this->load->view("front/coloracion.php", $this->data);
-	// }
 
 	public function issue_mundo()
 	{

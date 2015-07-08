@@ -25,15 +25,44 @@ class Front_init extends CI_Controller
 		$result = $this->db->query($sql)->result_array();
 
 		$this->load->model('admin/category_model', 'category_model');
-		$this->data[categories] = array();
+		$this->data['categories'] = array();
 
 		foreach($result as $row){
 			$category = new Category_model();
 			$category->set($row);
 			$category->get_files();
-			$this->data[categories][] = $category;
+			$this->data['categories'][] = $category;
 		}
+	}
 
+	protected function get_banners(){
+		$sql = 'SELECT * FROM banners WHERE active = 1 ORDER BY banner_id DESC';
+		$result = $this->db->query($sql)->result_array();
+
+		$this->load->model('admin/banner_model', 'banner_model');
+		$this->data['banners'] = array();
+
+		foreach($result as $row){
+			$banner = new Banner_model();
+			$banner->set($row);
+			$banner->get_files();
+			$this->data['banners'][] = $banner;
+		}
+	}
+
+	public function get_products(){
+			$sql = 'SELECT * FROM products WHERE active = 1 ORDER BY product_id DESC';
+			$result = $this->db->query($sql)->result_array();
+			
+			$this->load->model('admin/product_model', 'product_model');
+			$this->data['products'] = array();
+			
+			foreach ($result as $row){
+				$product = new Product_model();
+				$product->set($row);
+				$product->get_files();
+				$this->data['products'] = $product;
+			}
 	}
 	/*
 	Splits the fields array into page_fields[$visible_page][field_id][field_attributes]

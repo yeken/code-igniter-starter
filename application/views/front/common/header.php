@@ -18,43 +18,12 @@
     <![endif]-->
     <link href="<?=base_url();?>assets_fe/css/style.css" rel="stylesheet">
     <link href="<?=base_url();?>assets_fe/css/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?=base_url();?>assets_fe/css/jquery.bxslider.css" />
     <link rel="stylesheet" href="<?=base_url();?>assets_fe/css/owl.carousel.css" />
     <link rel="stylesheet" href="<?=base_url();?>assets_fe/css/owl.theme.default.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="<?=base_url();?>assets_fe/js/bootstrap.min.js"></script>
-    <script src="<?=base_url();?>assets_fe/js/jquery.bxslider.min.js"></script>
     <script src="<?=base_url();?>assets_fe/js/owl.carousel.min.js"></script>
-    <script>
-      $(document).ready(function(){
-      
-        $('.bxslider').bxSlider({
-          mode: 'horizontal',
-          auto: true,
-          autoStart: true,
-          infiniteLoop: true,
-          speed: 2000
-        });
-
-        $('.owl-carousel').owlCarousel({
-            loop:true,
-            margin:10,
-            nav:true,
-            responsive:{
-                0:{
-                    items:1
-                },
-                600:{
-                    items:3
-                },
-                1000:{
-                    items:5
-                }
-            }
-        });
-        
-      });
-    </script>
+    
   </head>
   <body>  
     <header>
@@ -102,13 +71,13 @@
             </a>
             <ul>
               <li>
-                <a class="<?= $section == 'coloracion' ? 'active' : "" ?>" href="<?=base_url();?>coloracion">coloración</a>
+                <a class="<?= $section == 'tratamientos' ? 'active' : "" ?>" href="<?=base_url();?>tratamientos">tratamientos</a>
               </li>
               <li>
                 <a class="<?= $section == 'decoloracion' ? 'active' : "" ?>" href="<?=base_url();?>decoloracion">decoloración</a>
               </li>
               <li>
-                <a class="<?= $section == 'tratamientos' ? 'active' : "" ?>" href="<?=base_url();?>tratamientos">tratamientos</a>
+                <a class="<?= $section == 'coloracion' ? 'active' : "" ?>" href="<?=base_url();?>coloracion">coloración</a>
               </li>
             </ul>
           </div>

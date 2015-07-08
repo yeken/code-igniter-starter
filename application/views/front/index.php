@@ -4,46 +4,47 @@
       <div class="container-fluid" style="padding: 0;">
         <div class="row">
           <div class="col-xs-12">
+            <?
+            if(is_array($banners)){
+            ?>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <?
+                $total_banners = count($banners);
+                for($i = 1; $i < $total_banners; $i++ ){
+                  echo '<li data-target="#myCarousel" data-slide-to="'.$i.'"></li>';
+                }
+              ?>
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-              <div class="item active">
-                <img src="<?=base_url();?>assets_fe/img/slider1.jpg" alt="item1">
-                <div class="carousel-caption">
+              <?
+                $active = 1;
+                foreach ($banners as $banner) {
+              ?>  
+                <div class="item <?= $active ? 'active' : ""?>">
+                  <img class="desktop" src="<?= $banner->desktop_image?>" alt="<?= $banner->name?>">
+                  <img class="mobile" src="<?= $banner->mobile_image?>" alt="<?= $banner->name?>">
+                  <div class="carousel-caption">
                     <div class="container">
                       <div class="row">
                         <div class="col-xs-12">
-                          <h2>Coloración</h2>
-                          <h3>Productos de cuidado y tratamiento para el cabello.</h3>
-                          <p>Issue brinda los mejores productos para obtener el mejor cuidado para tu cabello.</p>
-                          <a href="#">ver más</a>
+                          <h2><?= $banner->name?></h2>
+                          <h3><?= $banner->brief?></h3>
+                          <p><?= $banner->description?></p>
+                          <a href="#" class="<?= $banner->button?>">ver más</a>
                         </div>
                       </div>
                     </div>
                   </div>
-              </div>
-
-              <div class="item">
-                <img src="<?=base_url();?>assets_fe/img/slider1.jpg" alt="item2">
-                <div class="carousel-caption">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col-xs-12">
-                          <h2>Coloración</h2>
-                          <h3>Productos de cuidado y tratamiento para el cabello.</h3>
-                          <p>Issue brinda los mejores productos para obtener el mejor cuidado para tu cabello.</p>
-                          <a href="#">ver más</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
+                </div>
+              <?
+                $active = 0;
+                }
+              ?>
 
             </div>
 
@@ -56,140 +57,38 @@
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
               </a>
-            </div>
-          </div>
-        </div>
-      </div> 
-
-
-      <!-- <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <ul class="bxslider">
-              <li id="slider-1">
-                <div class="content">
-                  <div class="content-text">
-                    <h2>Coloración</h2>
-                    <h3>Productos de cuidado y tratamiento para el cabello.</h3>
-                    <p>Issue brinda los mejores productos para obtener el mejor cuidado para tu cabello.</p>
-                    <button><a href="#">ver más</a></button>
-                  </div>
-                </div>
-              </li>
-              <li id="slider-2">
-                <div class="content">
-                  <div class="content-text">
-                    <h2>Tratamientos</h2>
-                    <h3>Productos de cuidado y tratamiento para el cabello.</h3>
-                    <p>Issue brinda los mejores productos para obtener el mejor cuidado para tu cabello.</p>
-                    <button><a href="#">ver más</a></button>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>    
-      </div> -->
-    </section>
+            </div><!-- end myCarousel -->
+            <?
+            }
+            ?>
+          </div> <!-- end col-xs -->
+        </div> <!-- end row -->
+      </div> <!-- end container -->
+    </section><!-- end slider -->
     <section id="nuestros-productos">
       <h3>nuestros productos</h3>
-      <div class="owl-carousel">
-          <div class="item">
-            <div class="box-image">
-              <img src="<?=base_url();?>assets_fe/img/keratin.jpg" alt="Keratin" />
-            </div>
-            <div class="box-info">
-              <h4>Keratin</h4>
-              <p>Issue Super Colorpack con keratina</p>
-            </div>
+      <div>
+        <?  
+          vd($products);
+          if(is_array($products)){
+            foreach ($products as $product) {
+        ?>
+        <div class="item">
+          <div class="box-image">
+            <img src="<?= $product->main_image?>" alt="<?= $product->name?>" />
+            <a href="#">
+              <span>ver detalle</span>
+            </a>
           </div>
-          <div class="item">
-            <div class="box-image">
-              <img src="<?=base_url();?>assets_fe/img/shampoo.jpg" alt="Shampoo Hydrax" />
-            </div>
-            <div class="box-info">
-              <h4>Shampoo Hydrax</h4>
-              <p>Issue Super Colorpack con keratina</p>
-            </div>
+          <div class="box-info">
+            <h4><?= $product->name?></h4>
+            <p><?= $product->brief?></p>
           </div>
-          <div class="item">
-            <div class="box-image">
-              <img src="<?=base_url();?>assets_fe/img/3d-gloss.jpg" alt="3D Gloss" />
-              <a href="#">
-                <span>ver detalle</span>
-              </a>
-            </div>
-            <div class="box-info">
-              <h4>3D Gloss</h4>
-              <p>Issue Super Colorpack con keratina</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="box-image">
-              <img src="<?=base_url();?>assets_fe/img/3d-gloss.jpg" alt="3D Gloss" />
-              <a href="#">
-                <span>ver detalle</span>
-              </a>
-            </div>
-            <div class="box-info">
-              <h4>3D Gloss</h4>
-              <p>Issue Super Colorpack con keratina</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="box-image">
-              <img src="<?=base_url();?>assets_fe/img/3d-gloss.jpg" alt="3D Gloss" />
-              <a href="#">
-                <span>ver detalle</span>
-              </a>
-            </div>
-            <div class="box-info">
-              <h4>3D Gloss</h4>
-              <p>Issue Super Colorpack con keratina</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="box-image">
-              <img src="<?=base_url();?>assets_fe/img/3d-gloss.jpg" alt="3D Gloss" />
-              <a href="#">
-                <span>ver detalle</span>
-              </a>
-            </div>
-            <div class="box-info">
-              <h4>3D Gloss</h4>
-              <p>Issue Super Colorpack con keratina</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="box-image">
-              <img src="<?=base_url();?>assets_fe/img/3d-gloss.jpg" alt="3D Gloss" />
-              <a href="#">
-                <span>ver detalle</span>
-              </a>
-            </div>
-            <div class="box-info">
-              <h4>3D Gloss</h4>
-              <p>Issue Super Colorpack con keratina</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="box-image">
-              <img src="<?=base_url();?>assets_fe/img/crazy-colors.jpg" alt="Crazy Colors" />
-            </div>
-            <div class="box-info">
-              <h4>Crazy Colors</h4>
-              <p>Issue Super Colorpack con keratina</p>
-            </div>
-          </div>
-          <div class="item">
-            <div class="box-image">
-              <img src="<?=base_url();?>assets_fe/img/shock-de-brillo.jpg" alt="Shock de Brillo" />
-            </div>
-            <div class="box-info">
-              <h4>Shock de Brillo</h4>
-              <p>Issue Super Colorpack con keratina</p>
-            </div>
-          </div>
+        </div>  
+        <?
+            }
+          }
+        ?>
       </div>
     </section>
     <section id="ultimos-articulos">

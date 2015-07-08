@@ -26,6 +26,10 @@ body{
 header{
 	background: #252525;
 }
+
+header #primary{
+	padding: 0;
+}
 header .navbar-primary{
 	padding: 1% 0;
 	background: #252525;
@@ -102,6 +106,14 @@ header .navbar-primary ul li.social a:hover{
 }
 /* HOME */
 /* SLIDER */
+#slider{
+	overflow: hidden;
+	width: 100%;
+}
+#slider #myCarousel .item{
+	padding: 0;
+	width: 100%;
+}
 
 #slider #myCarousel .carousel-caption{
 	left: 0;
@@ -132,7 +144,6 @@ header .navbar-primary ul li.social a:hover{
 
 #slider #myCarousel .carousel-caption a{
 	color: #ffffff;
-	background: #ee075d;
 	border: none;
 	font-size: 32px;
 	padding: 0.3% 5%;
@@ -149,6 +160,32 @@ header .navbar-primary ul li.social a:hover{
 	right: -3%;
 }
 
+#slider .mobile{
+	display: none;
+}
+/*SLIDER COLOURS*/
+#slider .btn-bordeaux{
+	background: #ee075d;
+}
+#slider .btn-black{
+	background: #000000;
+}
+#slider .btn-white{
+	background: #ffffff;
+	color: #000000;
+}
+#slider .btn-grey{
+	background: #666666;
+}
+#slider .btn-blue{
+	background: blue;
+}
+#slider .btn-red{
+	background: red;
+}
+#slider .btn-green{
+	background: green;
+}
 /* NUESTROS PRODUCTOS */
 
 #nuestros-productos{
@@ -328,27 +365,37 @@ header .navbar-primary ul li.social a:hover{
 
 footer{
 	margin-top: 3%;
-	height: 66px;
 	background: #000000;
 	color: #878889;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	font-size: 12px;
-	padding-top: 27px;
+	padding: 2% 0;
 }
-footer .right{
-	position: relative;
-	top: -13px;
+
+footer ul{
+	float: right;
+	width: 100%;
 }
-footer .right span{
-	margin: 0 12px;
+
+footer p{
+		line-height: 23px;
+}
+footer ul li{
+	float: right;
+	line-height: 23px;
+	margin-left: 4%;
+}
+
+footer ul li a{
+	float: left;
+	color: #878889;
 }
 footer .mobile{
 	display: none;
 }
-#img_footer{
-	position: relative;
-	top: 9px;
+footer .notmobile{
+	display: block;
 }
 
 

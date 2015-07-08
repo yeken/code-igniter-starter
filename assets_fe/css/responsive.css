@@ -46,7 +46,7 @@
 
 	#slider #myCarousel .carousel-caption{
 		text-align: center;
-		top: 0;
+		top: 50%;
 	}
 
 #slider #myCarousel .carousel-caption h2{
@@ -78,6 +78,14 @@
 	right: 0;
 }
 
+#slider .mobile{
+	display: block;
+	width: 100%;
+}
+
+#slider .desktop{
+	display: none;
+}
 	/*SECTIONS COMMONS*/
 	.image-bg-fluid-height{
 		color: #ffffff;
@@ -130,24 +138,26 @@
 		width: 312px;
 		margin: auto;
 		margin-bottom: 20px;
-  		float: none;
+		float: none;
 	}
 
 	/* FOOTER */
 
-	footer{
-		height: 107px;
+	footer {
+		padding: 3%;
 	}
-	footer .right{
-		display: none;
-	}
-	footer .derechos{
+	footer p{
+		margin: 5% 0 2%;
 		text-align: center;
+	}
+	footer .social{
+		float: right;
+		margin-left: 3px;
 	}
 	footer .mobile{
 		display: block;
-		margin-bottom: 12px;
 	}
-
-
+	footer .notmobile{
+		display: none;
+	}
 }

@@ -10,6 +10,7 @@ $config['general']['admin'] = array('home_controller' => 'admin/x/',
 
 $config['general']['admin']['sections'] = array(
 									//'user' =>array('url' => '#user/show_list', 'name' => 'Clientes', 'admin_only' => true, 'icon' => 'fa-user'),
+									'banner' =>array('url' => '#banner/show_list', 'name' => 'Banners', 'admin_only' => true, 'icon' => 'fa-desktop'),
 									'category' =>array('url' => '#category/show_list', 'name' => 'Categorias', 'admin_only' => true, 'icon' => 'fa-list'),
 									'subcategory' =>array('url' => '#subcategory/show_list', 'name' => 'Sub Categorias', 'admin_only' => true, 'icon' => 'fa-th-list'),
 									'product' =>array('url' => '#product/show_list', 'name' => 'Productos', 'admin_only' => true, 'icon' => 'fa-flask'),
