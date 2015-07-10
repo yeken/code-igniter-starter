@@ -51,12 +51,11 @@ $route['issue_about'] = "home/issue_about";
 $route['blog'] = "home/blog";
 $route['contact'] = "contactform/index";
 $route['detail'] = "home/detail";
-//$route['admin'] = "admin/user";
-//$route['default_controller'] = "home";
+$route['admin'] = "admin/user";
 $route['404_override'] = '';
 
-//$route['admin/olvide-la-clave'] = "admin/user/forgot_password/";
-//$route['admin/generame-la-clave/(:any)'] = "admin/user/recover_password/$1";
+$route['admin/olvide-la-clave'] = "admin/user/forgot_password/";
+$route['admin/generame-la-clave/(:any)'] = "admin/user/recover_password/$1";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
