@@ -192,7 +192,7 @@ header .navbar-primary ul li.social a:hover{
 	padding: 0 15px 0 30px;
 	margin-bottom: 84px;
 }
-#nuestros-productos h3, #ultimos-articulos h3{
+#nuestros-productos h3, #latest h3{
 	font-size: 25px;
 	font-weight: 300;
 	font-family: 'Signika', sans-serif;
@@ -274,92 +274,36 @@ header .navbar-primary ul li.social a:hover{
 #ultimos-articulos{
 	margin-bottom: 106px;
 }
-#ultimos-articulos ul{
-	width: 1170px;
-	margin: auto;
-}
-#ultimos-articulos ul li{
+
+#latest > div.latest-item{
 	float: left;
-	height: 248px;
-	margin-right: 16px;
-}
-#ultimos-articulos ul li.no_margin_r{
-	margin-right: 0;
-}
-#ultimos-articulos ul li.small{
-	width: 312px;
-}
-#ultimos-articulos ul li.big{
-	width: 513px;
-}
-.box_info{
-	width: 130px;
-}
-.box_info span{
-	color: #333;
-	font-family: 'Signika', sans-serif;
-	font-weight: 300;
-	font-size: 20px;
-	padding: 7px 15px;
-	background: #ffffff;
-	margin: 12px 0 0 2px;
-	display: inline-block;
+	position: relative;
+	margin-right: 1%;
+	overflow: hidden;
 }
 
-#ultimos-articulos ul li a{
-	background: rgba(0, 0, 0, 0);
+#latest > div:nth-child(1) > a > img, 
+#latest > div:nth-child(3) > a > img, 
+#latest > div:nth-child(1) > a > .box_info, 
+#latest > div:nth-child(3) > a > .box_info{
+	width: 300px;
+}
+
+
+#latest > div.latest-item a{
 	display: block;
-	height: 100%;
-	-webkit-transition: all 0.25s ease-in-out;
-	-moz-transition: all 0.25s ease-in-out;
-	-ms-transition: all 0.25s ease-in-out;
-	-o-transition: all 0.25s ease-in-out;
-	transition: all 0.25s ease-in-out;
 }
 
-#ultimos-articulos ul li a:hover{
-	background: rgba(0, 0, 0, 0.3);
+#latest > div.latest-item a img{
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
-#ultimos-articulos ul li a h4{
-	opacity: 0.8;
-	-webkit-transition: all 0.25s ease-in-out;
-	-moz-transition: all 0.25s ease-in-out;
-	-ms-transition: all 0.25s ease-in-out;
-	-o-transition: all 0.25s ease-in-out;
-	transition: all 0.25s ease-in-out;
+#latest > div:nth-child(2) > a > img, 
+#latest > div:nth-child(2) > a > .box_info{
+	width: 500px;
 }
-
-#ultimos-articulos ul li a:hover h4{
-	opacity: 1;
-}
-#ultimos-articulos ul li .green{
-	padding: 7px 15px;
-	background: #43b77a;
-	color: #ffffff;
-	margin-top: 0;
-}
-#ultimos-articulos ul li .purple{
-	background: #5843b7;
-	color: #ffffff;
-	margin-top: 0;
-}
-#blog_post1{
-	background: transparent url('../img/blog_post1.jpg') no-repeat center;
-}
-#blog_post2{
-	background: transparent url('../img/blog_post2.jpg') no-repeat center;
-}
-#blog_post3{
-	background: transparent url('../img/blog_post3.jpg') no-repeat center;
-}
-#ultimos-articulos h4{
-	color: #ffffff;
-	font-size: 27px;
-	margin-top: 18px;
-	padding: 0 35px
-}
-
 
 /* FOOTER */
 
@@ -577,6 +521,15 @@ section#blog{
 	margin-top: 3%;
 	font-family: 'Signika', sans-serif;
 }
+
+section#blog .post-item h3{
+	margin-bottom: 3%;
+}
+
+section#blog .post-item p{
+	margin: 2% 0;
+}
+
 section#blog #blog-post h2{
 	background: #43b77a;
 	color: #ffffff;
@@ -615,6 +568,7 @@ section#blog #popular ul li{
 section#blog #popular ul li img{
 	float: left;
 	margin-right: 2%;
+	max-width: 100px;
 }
 
 section#blog #popular ul li a{

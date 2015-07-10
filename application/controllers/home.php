@@ -12,6 +12,7 @@ class Home extends Front_init
 	{
 		$this->get_banners();
 		$this->get_products();
+		$this->get_posts();
 
 		$this->load->view("front/index.php", $this->data);
 	}
@@ -32,17 +33,23 @@ class Home extends Front_init
 
 	public function blog()
 	{
+		$this->get_posts();
 		$this->data['section'] = "blog";
-		$this->data['title'] = "Blog";
 		$this->load->view("front/blog.php", $this->data);
 	}
 
-	public function detail()
+	public function post($post_id, $category)
 	{
-		$this->data['section'] = "detail";
-		$this->data['title'] = "Detalle";
-		$this->load->view("front/detail.php", $this->data);
-
+		$this->load->model('admin/blog_model', 'blog_model');
+		$this->blog_model->get($post_id);
+		$this->get_posts();
+		
+		if(!$this->blog_model->get_id()){
+			$this->index();
+			die();
+		}
+		$this->data['section'] = "blog";
+		$this->load->view("front/post.php", $this->data);
 	}
 
 	public function contact()

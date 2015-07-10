@@ -65,18 +65,18 @@
         </div> <!-- end row -->
       </div> <!-- end container -->
     </section><!-- end slider -->
+
     <section id="nuestros-productos">
       <h3>nuestros productos</h3>
-      <div>
+      <div class="owl-carousel">
         <?
           if(is_array($products)){
-            vd(count($products));
             foreach ($products as $product) {
               ?>
               <div class="item">
                 <div class="box-image">
                   <img src="<?= $product->main_image?>" alt="<?= $product->name?>" />
-                  <a href="#">
+                  <a href="<?= base_url()?>producto/<?= $product->get_id()?>/<?= urlencode($product->name)?>">
                     <span>ver detalle</span>
                   </a>
                 </div>
@@ -91,37 +91,39 @@
         ?>
       </div>
     </section>
-    <section id="ultimos-articulos">
+
+    <section id="latest">
       <h3>últimos artículos</h3>
-      <ul class="row">
-        <li class="small" id="blog_post1">
-          <a href="#">
-            <div class="box_info">
-              <span class="blog">Blog</span>
-              <span class="purple">Tendencias</span>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <?
+            if(is_array($posts)){
+                $i = 0;
+                foreach($posts as $post){
+            ?>
+            <div class="latest-item">
+              <a href="<?= base_url()?>post/<?= $post->get_id()?>/<?= $post->category?>/<?= urlencode($post->name)?>">
+                <img class="img-responsive" src="<?= $post->main_image?>">
+                <div class="box_info">
+                  <span>Blog</span>
+                  <span class="purple"><?= $post->category?></span>
+                </div>
+                <h4><?= $post->name?></h4>
+              </a>
             </div>
-            <h4>Los colores más utilizados en 2015</h4>
-          </a>
-        </li>
-        <li class="big" id="blog_post2">
-          <a href="#">
-            <div class="box_info">
-              <span class="blog">Blog</span>
-              <span class="green">Consejos</span>
-            </div>
-            <h4>Consejos para cuidar tu cabello en el verano</h4>
-          </a>
-        </li>
-        <li class="small no_margin_r" id="blog_post3">
-          <a href="#">
-            <div class="box_info">
-              <span class="blog">Blog</span>
-              <span class="green">Consejos</span>
-            </div>
-            <h4>10 consejos para una mejor aplicación de shock de brillo</h4>
-          </a>
-        </li>
-      </ul>
-    </section>
+            <?
+                $i++;
+                if($i==3){
+                  break;
+                }
+              }   
+            }
+            ?>
+          </div>
+        </div>
+      </div>
+    </section>    
 
 <? include(dirname(__FILE__)."/common/footer.php") ?>

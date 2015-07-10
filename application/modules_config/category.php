@@ -32,6 +32,7 @@ $config['modules'][$module_name]['fields'] = array(
 										'header_image' => array(	'label' => 'Imagen header',
 																	'type' => 'image',
 																	'tag' => 'main_image',
+																	'description' => 'Tamaño: 1920x600.',
 																	'validation' => '',
 																	'visibility' => 'details|save',
 																	),

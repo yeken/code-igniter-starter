@@ -64,6 +64,21 @@ class Front_init extends CI_Controller
 				$this->data['products'][] = $product;
 			}
 	}
+	
+	public function get_posts(){
+			$sql = 'SELECT * FROM blog WHERE active = 1 ORDER BY post_id DESC';
+			$result = $this->db->query($sql)->result_array();
+
+			$this->load->model('admin/blog_model', 'blog_model');
+			$this->data['posts'] = array();
+
+			foreach ($result as $row){
+				$post = new Blog_model();
+				$post->set($row);
+				$post->get_files();
+				$this->data['posts'][] = $post;
+			}
+	}
 	/*
 	Splits the fields array into page_fields[$visible_page][field_id][field_attributes]
 	*/

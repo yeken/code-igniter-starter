@@ -23,7 +23,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="<?=base_url();?>assets_fe/js/bootstrap.min.js"></script>
     <script src="<?=base_url();?>assets_fe/js/owl.carousel.min.js"></script>
-    
+    <script>
+      $(document).ready(function(){
+
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:5
+                }
+            }
+        });
+        
+      });
+    </script>
   </head>
   <body>  
     <header>

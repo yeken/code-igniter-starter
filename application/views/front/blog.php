@@ -1,117 +1,63 @@
 <? include(dirname(__FILE__)."/common/header.php") ?>
 
-<section class="image-bg-fluid-height" style="background: url('<?=base_url();?>assets_fe/img/slider1.jpg') no-repeat center center scroll;">
-    <div class="container">
-        <div class="row">
-            <div class=" col-xs-12">
-                <h1 class="section-heading"><?=ucfirst($title);?></h1>
+    <section class="image-bg-fluid-height" style="background: url('<?=base_url();?>assets_fe/img/slider1.jpg') no-repeat center center scroll;">
+        <div class="container">
+            <div class="row">
+                <div class=" col-xs-12">
+                    <h1 class="section-heading"><?=ucfirst($section);?></h1>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- Page Content -->
-	<section id="blog">
-    <div class="container">
-
-        <div class="row">
-            <!-- Blog Entries Column -->
-            <div class="col-xs-12 col-sm-7" id="blog-post">
-                <!-- First Blog Post -->
-                <h2>
-                    Consejos
-                </h2>
-                <img class="img-responsive" src="http://placehold.it/630x350" alt="">
-                <div class="social">
-                	<img class="img-responsive" src="<?=base_url();?>assets_fe/img/social-demo.jpg">
+    </section>
+    <section id="blog">
+        <div class="container">
+            <?
+            if(is_array($posts)){
+                foreach($posts as $post){
+            ?>
+            <div class="row post-item">
+                <div class="col-md-5">
+                    <a href="<?= base_url()?>post/<?= $post->get_id()?>/<?= $post->category?>/<?= urlencode($post->name)?>">
+                        <img class="img-responsive img-hover" src="<?= $post->main_image?>" alt="">
+                    </a>
                 </div>
-                <h3>Consejos para cuidar tu cabello en el verano</h3>
-                <p>
-                	Con una exclusiva fórmula, clínica y dermatológicamente testeada, la Coloración en Crema Issue combina la belleza del color con la fuerza de su duración, ofreciendo un producto de alta calidad al mejor precio.
-                	<br>
-                    <br>
-                    Issue te ofrece una coloración práctica, con la mejor calidad al mejor precio. Incluye Coloración en crema Issue y Activador en Crema Issue en la proporción justa para una mezcla homogénea y un mejor resultado en sus cabellos, proporcionando un color intenso, luminoso y parejo de raíz a puntas
-                    <br>
-                    <br>
-                    Además, trae un Shock de Keratina para maximizar la belleza del cabello luego de la coloración, dejándolo suave y vital.
-                </p>
+                <div class="col-md-6">
+                    <h3>
+                        <a href="blog-post.html"><?= $post->name?></a>
+                    </h3>
+                    <p>
+                        Categoria <a href="<?= base_url()?>post/<?= $post->get_id()?>/<?= $post->category?>/<?= urlencode($post->name)?>"><?= $post->category?></a>
+                    </p>
+                    <p class="description"><?= $post->description?></p>
+                    <a class="btn btn-primary" href="<?= base_url()?>post/<?= $post->get_id()?>/<?= $post->category?>/<?= urlencode($post->name)?>">Leer más <i class="fa fa-angle-right"></i></a>
+                </div>
             </div>
+
+            <hr>
+            <?
+                }
+            }
+
+            echo $this->pagination->create_links();
             
-            <div class="col-xs-12 col-sm-5" id="popular">
-                <!-- Blog Categories Well -->
-                  <h4>
-                  	Articulos populares
-                	</h4>
-                  <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <ul>
-                                <li>
-                                	<img class="img-responsive" src="http://placehold.it/100x100" alt="">
-                                	<a href="#">Category Name</a>
-                                </li>
-                                <li>
-                                	<img class="img-responsive" src="http://placehold.it/100x100" alt="">
-                                	<a href="#">Category Name</a>
-                                </li>
-                                <li>
-                                	<img class="img-responsive" src="http://placehold.it/100x100" alt="">
-                                	<a href="#">Category Name</a>
-                                </li>
-                                <li>
-                                	<img class="img-responsive" src="http://placehold.it/100x100" alt="">
-                                	<a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- /.row -->
-                  </div>
+            ?>
+
+            <!-- Pager -->
+            <div class="row">
+                <ul class="pager">
+                    <li class="previous"><a href="#">&larr; Older</a>
+                    </li>
+                    <li class="next"><a href="#">Newer &rarr;</a>
+                    </li>
+                </ul>
             </div>
-
-            <!-- relateds posts -->
-            <div class="col-xs-12 col-sm-7">
-                <div class="container-fluid" id="related">
-                    <div class="row">
-                        <div class="col-lg-12">
-                         <h4>Artículos relacionados</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-3 col-lg-3">
-                            <img class="img-responsive" src="http://placehold.it/125x125" alt="">
-                            <h3>Related title</h3>
-                            <p>12/12/1212</p>
-                            <a href="#">Related link</a>
-                        </div>
-                        <div class="col-xs-3 col-lg-3">
-                            <img class="img-responsive" src="http://placehold.it/125x125" alt="">
-                            <h3>Related title</h3>
-                            <p>12/12/1212</p>
-                            <a href="#">Related link</a>
-                        </div>
-
-                        <div class="col-xs-3 col-lg-3">
-                            <img class="img-responsive" src="http://placehold.it/125x125" alt="">
-                            <h3>Related title</h3>
-                            <p>12/12/1212</p>
-                            <a href="#">Related link</a>
-                        </div>
-                        <div class="col-xs-3 col-lg-3">
-                            <img class="img-responsive" src="http://placehold.it/125x125" alt="">
-                            <h3>Related title</h3>
-                            <p>12/12/1212</p>
-                            <a href="#">Related link</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-        <!-- /.row -->
+        <!-- /.container -->
+    </section>
 
-    </div>
-    <!-- /.container -->
-	</section>
-
-<? include(dirname(__FILE__)."/common/footer.php") ?>
+    <script type="text/javascript">
+        $(".post-item .description").text(function(index, currentText) {
+            return currentText.substr(0, 250);
+        });
+    </script>
+<? include(dirname(__FILE__)."/common/footer.php") ?>    
