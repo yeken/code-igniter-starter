@@ -13,50 +13,58 @@
 <section id="contact">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <form class="form-horizontal" method="post">
-                    <fieldset>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="fname" name="name" type="text" placeholder="Nombre" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="lname" name="name" type="text" placeholder="Apellido" class="form-control">
-                            </div>
-                        </div>
+            <div class="col-md-6 col-md-offset-3 well">
+                <?php $attributes = array("class" => "form-horizontal", "name" => "contactform");
+                echo form_open("contactform/index", $attributes);?>
+                <fieldset>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="name" class="control-label">Nombre</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input class="form-control" name="name" placeholder="Tu nombre completo" type="text" value="<?php echo set_value('name'); ?>" />
+                        <span class="text-danger"><?php echo form_error('name'); ?></span>
+                    </div>
+                </div>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="Email" class="form-control">
-                            </div>
-                        </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="email" class="control-label">Email</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input class="form-control" name="email" placeholder="Tu email" type="text" value="<?php echo set_value('email'); ?>" />
+                        <span class="text-danger"><?php echo form_error('email'); ?></span>
+                    </div>
+                </div>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Telefono" class="form-control">
-                            </div>
-                        </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="subject" class="control-label">Asunto</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input class="form-control" name="subject" placeholder="Tu asunto" type="text" value="<?php echo set_value('subject'); ?>" />
+                        <span class="text-danger"><?php echo form_error('subject'); ?></span>
+                    </div>
+                </div>
 
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                            <div class="col-md-8">
-                                <textarea class="form-control" id="message" name="message" placeholder="Comentarios / Mensaje" rows="7"></textarea>
-                            </div>
-                        </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label for="message" class="control-label">Mensaje</label>
+                    </div>
+                    <div class="col-md-12">
+                        <textarea class="form-control" name="message" rows="4" placeholder="Tu mensaje"><?php echo set_value('message'); ?></textarea>
+                        <span class="text-danger"><?php echo form_error('message'); ?></span>
+                    </div>
+                </div>
 
-                        <div class="form-group">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-danger btn-lg">Enviar</button>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input name="submit" type="submit" class="btn btn-primary" value="Enviar" />
+                    </div>
+                </div>
+                </fieldset>
+                <?php echo form_close(); ?>
+                <?php echo $this->session->flashdata('msg'); ?>
             </div>
         </div>
     </div>

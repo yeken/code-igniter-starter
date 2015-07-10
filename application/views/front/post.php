@@ -76,10 +76,12 @@
                             foreach ($this->blog_model->related as $related) {
                             ?>
                             <div class="col-xs-3 col-lg-3">
-                                <img class="img-responsive" src="http://placehold.it/125x125" alt="">
-                                <h3>Related title</h3>
-                                <p>12/12/1212</p>
-                                <a href="#">Related link</a>
+                                <img class="img-responsive" src="<?= $related->main_image?>" alt="">
+                                <h3><?= $related->name?></h3>
+                                <p><?= $related->date_created?></p>
+                                <a href="<?= base_url()?>post/<?= $post->get_id()?>/<?= urlencode($post->name)?>">
+                                    Ver más
+                                </a>
                             </div>
                             <?
                             }
