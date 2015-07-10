@@ -6,6 +6,8 @@ class Home extends Front_init
 	{
 		parent::__construct();
 		$this->get_categories();
+    $this->load->helper("url");
+    $this->load->library("pagination");
 	}
 
 	public function index()
@@ -34,6 +36,18 @@ class Home extends Front_init
 	public function blog()
 	{
 		$this->get_posts();
+
+		$config = array();
+    $config["total_rows"] = $this->blog_model->record_count();
+    $config["per_page"] = 1;
+    $config["uri_segment"] = 3;
+
+    $this->pagination->initialize($config);
+
+    $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+    $data["results"] = $this->blog_model->fetch_posts($config["per_page"], $page);
+    $data["links"] = $this->pagination->create_links();
+		
 		$this->data['section'] = "blog";
 		$this->load->view("front/blog.php", $this->data);
 	}
@@ -67,6 +81,7 @@ class Home extends Front_init
 		$this->category_model->get_subcategories();
 
 		$this->data['section'] = "Category";
+		$this->data['category_id'] = $category_id;
 		$this->load->view("front/category.php", $this->data);
 	}
 

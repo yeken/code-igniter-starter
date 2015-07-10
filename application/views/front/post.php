@@ -46,7 +46,7 @@
                                     <li>
                                     	<img class="img-responsive" src="<?= $post->main_image?>" alt="">
                                     	<a href="<?= base_url()?>post/<?= $post->get_id()?>/<?= $post->category?>/<?= urlencode($post->name)?>">
-                                            "<?= $post->name?>"
+                                            <?= $post->name?>
                                         </a>
                                     </li>
                                     <?

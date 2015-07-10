@@ -16,6 +16,7 @@ $config['general']['admin']['sections'] = array(
 									'product' =>array('url' => '#product/show_list', 'name' => 'Productos', 'admin_only' => true, 'icon' => 'fa-flask'),
 									'color' =>array('url' => '#color/show_list', 'name' => 'Colores', 'admin_only' => true, 'icon' => 'fa-female'),
 									'blog' =>array('url' => '#blog/show_list', 'name' => 'Blog', 'admin_only' => true, 'icon' => 'fa-rss'),
+									'configuration' =>array('url' => '#configuration/show_list', 'name' => 'configuration', 'admin_only' => true, 'icon' => 'fa-rss'),
 									);
 
 $config['general']['admin']['table_icons'] = array(	'details' => 'fa fa-eye',

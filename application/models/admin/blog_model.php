@@ -36,5 +36,22 @@ class Blog_model extends Simple_data_model
 	{
 		$this->get_related();
 	}
+
+	public function record_count() {
+        return $this->db->count_all("blog");
+    }
+ 
+    public function fetch_posts($limit, $start) {
+        $this->db->limit($limit, $start);
+        $query = $this->db->get("blog");
+ 
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        return false;
+   }
 }
 ?>

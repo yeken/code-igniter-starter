@@ -92,13 +92,13 @@
             </a>
             <ul>
               <li>
-                <a class="<?= $section == 'tratamientos' ? 'active' : "" ?>" href="<?=base_url();?>tratamientos">tratamientos</a>
+                <a class="<?= $category_id == '4' ? 'active' : "" ?>" href="<?=base_url();?>tratamientos">tratamientos</a>
               </li>
               <li>
-                <a class="<?= $section == 'decoloracion' ? 'active' : "" ?>" href="<?=base_url();?>decoloracion">decoloración</a>
+                <a class="<?= $category_id == '2' ? 'active' : "" ?>" href="<?=base_url();?>decoloracion">decoloración</a>
               </li>
               <li>
-                <a class="<?= $section == 'coloracion' ? 'active' : "" ?>" href="<?=base_url();?>coloracion">coloración</a>
+                <a class="<?= $category_id == '1' ? 'active' : "" ?>" href="<?=base_url();?>coloracion">coloración</a>
               </li>
             </ul>
           </div>
