@@ -6,8 +6,10 @@ class Home extends Front_init
 	{
 		parent::__construct();
 		$this->get_categories();
-    $this->load->helper("url");
-    $this->load->library("pagination");
+	    $this->load->helper("url");
+	    $this->load->library("pagination");
+    	$this->load->model("admin/configuration_model","configuration_model");
+    	$this->configuration_model->get(1);
 	}
 
 	public function index()
@@ -23,6 +25,7 @@ class Home extends Front_init
 	{
 		$this->data['section'] = "issue_mundo";
 		$this->data['title'] = "Issue en el mundo";
+		$this->data['section_content'] = $this->configuration_model->text_issue_mundo;
 		$this->load->view("front/about.php", $this->data);
 	}
 
@@ -30,6 +33,7 @@ class Home extends Front_init
 	{
 		$this->data['section'] = "nosotros";
 		$this->data['title'] = "Nosotros";
+		$this->data['section_content'] = $this->configuration_model->text_about;
 		$this->load->view("front/about.php", $this->data);
 	}
 
@@ -47,7 +51,7 @@ class Home extends Front_init
     $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
     $data["results"] = $this->blog_model->fetch_posts($config["per_page"], $page);
     $data["links"] = $this->pagination->create_links();
-		
+
 		$this->data['section'] = "blog";
 		$this->load->view("front/blog.php", $this->data);
 	}
