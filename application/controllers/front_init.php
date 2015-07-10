@@ -65,6 +65,22 @@ class Front_init extends CI_Controller
 			}
 	}
 	
+
+	public function get_colors(){
+			$sql = 'SELECT * FROM colors WHERE active = 1 ORDER BY color_id DESC';
+			$result = $this->db->query($sql)->result_array();
+
+			$this->load->model('admin/color_model', 'color_model');
+			$this->data['colors'] = array();
+
+			foreach ($result as $row){
+				$color = new Color_model();
+				$color->set($row);
+				$color->get_files();
+				$this->data['colors'][$color->category][] = $color;
+			}
+	}
+
 	public function get_posts(){
 			$sql = 'SELECT * FROM blog WHERE active = 1 ORDER BY post_id DESC';
 			$result = $this->db->query($sql)->result_array();

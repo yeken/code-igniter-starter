@@ -74,6 +74,7 @@ class Home extends Front_init
 	{
 		$this->load->model('admin/product_model', 'product_model');
 		$this->product_model->get($product_id);
+		$this->get_colors();
 
 		$this->data['section'] = "decoloracion";
 		$this->load->view("front/detail.php", $this->data);
