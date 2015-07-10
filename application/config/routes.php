@@ -49,12 +49,10 @@ $route['post/(:num)/(:any)'] = "home/post/$1";
 $route['issue_mundo'] = "home/issue_mundo";
 $route['issue_about'] = "home/issue_about";
 $route['contact'] = "contactform/index";
-//$route['admin'] = "admin/user";
-//$route['default_controller'] = "home";
+$route['admin'] = "admin/user";
 $route['404_override'] = '';
-
-//$route['admin/olvide-la-clave'] = "admin/user/forgot_password/";
-//$route['admin/generame-la-clave/(:any)'] = "admin/user/recover_password/$1";
+$route['admin/olvide-la-clave'] = "admin/user/forgot_password/";
+$route['admin/generame-la-clave/(:any)'] = "admin/user/recover_password/$1";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
