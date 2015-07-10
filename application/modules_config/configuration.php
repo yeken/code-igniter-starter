@@ -77,3 +77,5 @@ $config['modules'][$module_name]['main_model_tabs'] = array( 	'details' => array
 														'url' => '#user/edit/'),
 									'edit_conf' => array( 	'label' => 'Editar Configuracion',
 														'url' => '#'.$module_name.'/edit_conf/'),
+)
+?>
