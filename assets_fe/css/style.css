@@ -275,36 +275,71 @@ header .navbar-primary ul li.social a:hover{
 	margin-bottom: 106px;
 }
 
-#latest > div.latest-item{
+#latest > div > div > div > div.latest-item{
 	float: left;
 	position: relative;
-	margin-right: 1%;
 	overflow: hidden;
+	padding: 10% 0;
 }
 
-#latest > div:nth-child(1) > a > img, 
-#latest > div:nth-child(3) > a > img, 
-#latest > div:nth-child(1) > a > .box_info, 
-#latest > div:nth-child(3) > a > .box_info{
-	width: 300px;
+#latest > div > div > div > div:nth-child(1), 
+#latest > div > div > div > div:nth-child(3){
+	width: 30%;
 }
 
+#latest > div > div > div > div:nth-child(2){
+	width: 35%;
+	margin: 0 2.5%;
+}
 
-#latest > div.latest-item a{
+#latest > div > div > div > div.latest-item a{
 	display: block;
-}
-
-#latest > div.latest-item a img{
 	position: absolute;
-	top: 0;
-	left: 0;
+	width: 100%;
 }
 
-#latest > div:nth-child(2) > a > img, 
-#latest > div:nth-child(2) > a > .box_info{
-	width: 500px;
+#latest > div > div > div > div.latest-item a img{
+	position: absolute;
+	z-index: 100;
 }
 
+#latest > div > div > div > div.latest-item a .box-info{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	font-family: 'Open Sans', sans-serif;
+	z-index: 200;
+}
+
+#latest > div > div > div > div.latest-item a .box-info span{
+	background: #232323;
+	padding: 0 5%;
+	line-height: 25px;
+	float: left;
+	font-size: 20px;
+	font-weight: 300;
+	color: #FFFFFF;
+	clear: both;
+}
+
+#latest > div > div > div > div.latest-item a .box-info span:first-child{
+	margin-top: 5%;
+}
+#latest > div > div > div > div.latest-item a .box-info span.Tendencia{
+	background: #5843b7 !important;
+}
+
+#latest > div > div > div > div.latest-item a .box-info span.Consejo{
+	background: #43b77a !important;
+}
+
+#latest > div > div > div > div.latest-item a .box-info h4{
+	float: left;
+	width: 90%;
+	color: #ffffff;
+	font-size: 30px;
+	font-weight: 600;
+}
 /* FOOTER */
 
 footer{

@@ -104,13 +104,14 @@
                 foreach($posts as $post){
             ?>
             <div class="latest-item">
-              <a href="<?= base_url()?>post/<?= $post->get_id()?>/<?= $post->category?>/<?= urlencode($post->name)?>">
+              <a href="<?= base_url()?>post/<?= $post->get_id()?>/<?= urlencode($post->name)?>">
                 <img class="img-responsive" src="<?= $post->main_image?>">
-                <div class="box_info">
+                <div class="box-info">
                   <span>Blog</span>
-                  <span class="purple"><?= $post->category?></span>
+                  <span class="<?= $post->category?>"><?= $post->category?></span>
+                  <h4><?= $post->name?></h4>
                 </div>
-                <h4><?= $post->name?></h4>
+                
               </a>
             </div>
             <?
