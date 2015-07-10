@@ -6,6 +6,7 @@ class Blog_model extends Simple_data_model
 
     public $db_index = 'post_id';
     public $db_table = 'blog';
+    public $related;
 
 	protected $db_fields = array(
 								'name',
@@ -17,20 +18,25 @@ class Blog_model extends Simple_data_model
 								);
 
 
-	public function get_relateds(){
-			$sql = "SELECT * FROM blog WHERE active = 1 AND category = '$this->category' ORDER BY post_id DESC";
+	public function get_related(){
+			$sql = "SELECT * FROM blog WHERE active = 1 AND category = '$this->category' AND post_id != '$this->post_id' ORDER BY post_id DESC";
 			$result = $this->db->query($sql)->result_array();
 
-			$this->load->model('admin/blog_model', 'blog_model');
-			$this->data['relateds'] = array();
+			$this->related = array();
 
 			foreach ($result as $row){
-				$relateds = new Blog_model();
-				$relateds->set($row);
-				$relateds->get_files();
-				$this->data['relateds'][] = $relateds;
+				$related_obj = new Blog_model();
+				$related_obj->set($row);
+				$related_obj->get_files();
+				$this->related[] = $related_obj;
 			}
 	}
 
+	public function get($opt)
+	{
+		parent::get($opt);
+
+		$this->get_related();
+	}
 }
 ?>

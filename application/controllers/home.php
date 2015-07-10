@@ -38,12 +38,12 @@ class Home extends Front_init
 		$this->load->view("front/blog.php", $this->data);
 	}
 
-	public function post($post_id, $category)
+	public function post($post_id)
 	{
 		$this->load->model('admin/blog_model', 'blog_model');
 		$this->blog_model->get($post_id);
 		$this->get_posts();
-		
+
 		if(!$this->blog_model->get_id()){
 			$this->index();
 			die();

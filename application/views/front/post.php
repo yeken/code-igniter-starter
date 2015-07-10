@@ -28,7 +28,7 @@
                         <?= $this->blog_model->description?>
                     </p>
                 </div>
-                
+
                 <div class="col-xs-12 col-sm-5" id="popular">
                     <!-- Blog Categories Well -->
                       <h4>
@@ -72,8 +72,8 @@
                         </div>
                         <div class="row">
                             <?
-                            if(is_array($relateds)){
-                            foreach ($this->blog_model->relateds as $related) {
+                            if(count($this->blog_model->related)){
+                            foreach ($this->blog_model->related as $related) {
                             ?>
                             <div class="col-xs-3 col-lg-3">
                                 <img class="img-responsive" src="http://placehold.it/125x125" alt="">
