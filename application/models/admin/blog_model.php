@@ -32,10 +32,8 @@ class Blog_model extends Simple_data_model
 			}
 	}
 
-	public function get($opt)
+	public function post_get()
 	{
-		parent::get($opt);
-
 		$this->get_related();
 	}
 }
