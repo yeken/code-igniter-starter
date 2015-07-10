@@ -8,8 +8,8 @@ $config['modules'][$module_name] = array(
 											'module_unit' => 'Item',
 											'restrictions' => 'own_content'
 										 );
-										 
-$config['modules'][$module_name]['fields'] = array(	
+
+$config['modules'][$module_name]['fields'] = array(
 
 										'address' => array(	'label' => 'Direcci&oacute;n',
 															'type' => 'text',
@@ -40,13 +40,13 @@ $config['modules'][$module_name]['fields'] = array(
 																'validation' => '',
 																'visibility' => 'edit_conf|details|list'
 																),
-										
+
 										'url_googleplus' => array('label' => 'Google Plus URL',
 																'type' => 'text',
 																'validation' => '',
 																'visibility' => 'edit_conf|details'
 																),
-										
+
 										'url_youtube' => array('label' => 'Youtube URL',
 																'type' => 'text',
 																'validation' => '',
@@ -58,7 +58,7 @@ $config['modules'][$module_name]['fields'] = array(
 																'validation' => 'required',
 																'visibility' => 'edit_conf|details|list'
 																),
-																
+
 										'form_emails' => array(	'label' => 'Emails recibo de formulario',
 																'type' => 'text',
 																'validation' => '',
@@ -67,18 +67,13 @@ $config['modules'][$module_name]['fields'] = array(
 																);
 
 
-$config['modules'][$module_name]['top_menu_actions'] = array( 	'configuration_list' => array('url' => '#user/show_list', 'class_name' => 'configuration', 'method' => 'show_list', 'icon' => "ui-icon-clipboard", 'label' => "Listado de Usuarios"),
-							'add_user' => array('url' => '#user/create', 'method' => 'create', 'icon' => "ui-icon-plusthick", 'label' => "Agregar Usuario")
-												
+$config['modules'][$module_name]['top_menu_actions'] = array( 	'configuration_list' => array('url' => '#'.$module_name.'/details/1', 'class_name' => 'configuration', 'method' => 'show_list', 'icon' => "ui-icon-clipboard", 'label' => "Ver configuración"),
 												);
 
 
 $config['modules'][$module_name]['main_model_tabs'] = array( 	'details' => array( 'label' => 'Detalle',
-														'url' => '#user/details/'),
+														'url' => '#'.$module_name.'/details/'),
 									'edit' => array( 	'label' => 'Editar',
 														'url' => '#user/edit/'),
 									'edit_conf' => array( 	'label' => 'Editar Configuracion',
 														'url' => '#'.$module_name.'/edit_conf/'),
-									
-									'edit_password' => array( 	'label' => 'Modificar Contrase&ntilde;a',
-														'url' => '#user/edit_password/'));
