@@ -86,7 +86,7 @@ CREATE TABLE `bitauth_logins` (
   `success` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`login_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +95,7 @@ CREATE TABLE `bitauth_logins` (
 
 LOCK TABLES `bitauth_logins` WRITE;
 /*!40000 ALTER TABLE `bitauth_logins` DISABLE KEYS */;
-INSERT INTO `bitauth_logins` VALUES (1,3232235881,3,'2014-09-09 17:02:08',1),(2,3232235881,3,'2014-09-10 16:34:09',1),(3,3232235881,3,'2014-09-11 10:46:51',1),(4,3232243969,3,'2015-06-19 19:39:35',1),(5,3232243969,3,'2015-07-06 16:50:54',1),(6,3232243969,3,'2015-07-06 22:35:01',1),(7,3232243969,3,'2015-07-07 20:31:36',1),(8,3232243969,3,'2015-07-07 23:51:21',1),(9,3232243969,3,'2015-07-08 16:15:29',1);
+INSERT INTO `bitauth_logins` VALUES (1,3232235881,3,'2014-09-09 17:02:08',1),(2,3232235881,3,'2014-09-10 16:34:09',1),(3,3232235881,3,'2014-09-11 10:46:51',1),(4,3232243969,3,'2015-06-19 19:39:35',1),(5,3232243969,3,'2015-07-06 16:50:54',1),(6,3232243969,3,'2015-07-06 22:35:01',1),(7,3232243969,3,'2015-07-07 20:31:36',1),(8,3232243969,3,'2015-07-07 23:51:21',1),(9,3232243969,3,'2015-07-08 16:15:29',1),(10,3232243969,3,'2015-07-08 21:17:10',1),(11,3232243969,3,'2015-07-09 18:03:03',1),(12,3232243969,3,'2015-07-10 13:20:47',1);
 /*!40000 ALTER TABLE `bitauth_logins` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,8 +164,37 @@ CREATE TABLE `bitauth_users` (
 
 LOCK TABLES `bitauth_users` WRITE;
 /*!40000 ALTER TABLE `bitauth_users` DISABLE KEYS */;
-INSERT INTO `bitauth_users` VALUES (21822,'bla','bla blas','','admin@bla.com','$2a$08$LfEZbVVeor1fIw79d5GEO.DVNWT6KZUJsYHkDIudtDX0iI0YPs8s2','2014-08-29 12:34:33',0,'8812207e38cccfed486024394288d8a22b66a632','','Jugador',3,1,'','0000-00-00 00:00:00',1,21,'2014-08-29 12:34:58',2147483647,'2014-08-20 18:06:35'),(21823,'admin3232','32132132','','j@a.com','$2a$08$jJelYpqj2/qPWkah4.QFQOWYwNxJrndapu6XrUFkSBYrR9CLDJbk.','2014-08-20 18:21:46',0,'','','Jugador',3,1,'','0000-00-00 00:00:00',1,22,'0000-00-00 00:00:00',0,'2014-08-20 18:21:46'),(3,'admin','Admin tester','','admin@admin.com','$2a$08$TWJfCg7btiKu4bU4JurF9uJh5Byb7ycRMTZii5vqw93JbJFrT.wEq','2013-03-15 16:12:39',0,'0db65fde13455c53a3a5d9a2c779ca2e786a89d3','','Administrador',1,1,'','2013-03-15 16:04:54',1,23,'2015-07-08 16:15:29',2147483647,'2012-09-28 16:27:01'),(21824,'bla','Blas parera','','bla2@gmail.com','$2a$08$bDfP.YHM8GiAdb0CsjXwH.Z41rja57p6r/dZyE6mmHT0mwOXXjBse','2014-08-29 12:40:08',0,'','','Manager',2,1,'','0000-00-00 00:00:00',1,24,'2014-08-29 12:40:28',2147483647,'2014-08-29 12:40:08'),(21825,'bla','fdsfd','','bla@bla.com','$2a$08$MqhbrxvxBsfmga5f//Xt1uZI08GxZ60R4ZrOB/PmR70W0Kum0cKl.','2014-08-29 13:30:28',0,'','','Manager',2,1,'','0000-00-00 00:00:00',1,25,'0000-00-00 00:00:00',0,'2014-08-29 13:30:28');
+INSERT INTO `bitauth_users` VALUES (21822,'bla','bla blas','','admin@bla.com','$2a$08$LfEZbVVeor1fIw79d5GEO.DVNWT6KZUJsYHkDIudtDX0iI0YPs8s2','2014-08-29 12:34:33',0,'8812207e38cccfed486024394288d8a22b66a632','','Jugador',3,1,'','0000-00-00 00:00:00',1,21,'2014-08-29 12:34:58',2147483647,'2014-08-20 18:06:35'),(21823,'admin3232','32132132','','j@a.com','$2a$08$jJelYpqj2/qPWkah4.QFQOWYwNxJrndapu6XrUFkSBYrR9CLDJbk.','2014-08-20 18:21:46',0,'','','Jugador',3,1,'','0000-00-00 00:00:00',1,22,'0000-00-00 00:00:00',0,'2014-08-20 18:21:46'),(3,'admin','Admin tester','','admin@admin.com','$2a$08$TWJfCg7btiKu4bU4JurF9uJh5Byb7ycRMTZii5vqw93JbJFrT.wEq','2013-03-15 16:12:39',0,'76940f5cdb67099ff5cabe6adab47dc40c3f87d9','','Administrador',1,1,'','2013-03-15 16:04:54',1,23,'2015-07-10 13:20:47',2147483647,'2012-09-28 16:27:01'),(21824,'bla','Blas parera','','bla2@gmail.com','$2a$08$bDfP.YHM8GiAdb0CsjXwH.Z41rja57p6r/dZyE6mmHT0mwOXXjBse','2014-08-29 12:40:08',0,'','','Manager',2,1,'','0000-00-00 00:00:00',1,24,'2014-08-29 12:40:28',2147483647,'2014-08-29 12:40:08'),(21825,'bla','fdsfd','','bla@bla.com','$2a$08$MqhbrxvxBsfmga5f//Xt1uZI08GxZ60R4ZrOB/PmR70W0Kum0cKl.','2014-08-29 13:30:28',0,'','','Manager',2,1,'','0000-00-00 00:00:00',1,25,'0000-00-00 00:00:00',0,'2014-08-29 13:30:28');
 /*!40000 ALTER TABLE `bitauth_users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `blog`
+--
+
+DROP TABLE IF EXISTS `blog`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `blog` (
+  `post_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(145) NOT NULL,
+  `description` text NOT NULL,
+  `category` varchar(45) NOT NULL,
+  `active` tinyint(1) unsigned NOT NULL,
+  `file_manager_id` int(10) unsigned NOT NULL,
+  `date_created` datetime NOT NULL,
+  PRIMARY KEY (`post_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `blog`
+--
+
+LOCK TABLES `blog` WRITE;
+/*!40000 ALTER TABLE `blog` DISABLE KEYS */;
+INSERT INTO `blog` VALUES (1,'Post1','<span style=\"color: rgb(0, 0, 0); font-size: 16px; line-height: 16px;\">Con una exclusiva fórmula, clínica y dermatológicamente testeada, la Coloración en Crema Issue combina la belleza del color con la fuerza de su duración, ofreciendo un producto de alta calidad al mejor precio.&nbsp;</span><br style=\"color: rgb(0, 0, 0); font-size: 16px; line-height: 16px;\"><br style=\"color: rgb(0, 0, 0); font-size: 16px; line-height: 16px;\"><span style=\"color: rgb(0, 0, 0); font-size: 16px; line-height: 16px;\">Issue te ofrece una coloración práctica, con la mejor calidad al mejor precio. Incluye Coloración en crema Issue y Activador en Crema Issue en la proporción justa para una mezcla homogénea y un mejor resultado en sus cabellos, proporcionando un color intenso, luminoso y parejo de raíz a puntas&nbsp;</span><br style=\"color: rgb(0, 0, 0); font-size: 16px; line-height: 16px;\"><br style=\"color: rgb(0, 0, 0); font-size: 16px; line-height: 16px;\"><span style=\"color: rgb(0, 0, 0); font-size: 16px; line-height: 16px;\">Además, trae un Shock de Keratina para maximizar la belleza del cabello luego de la coloración, dejándolo suave y vital</span>','Tendencia',1,17,'2015-07-08 21:22:15'),(2,'Post2','<span style=\"background-color: rgb(159, 175, 209);\">Blog post 2</span><span style=\"background-color: rgb(159, 175, 209);\">Blog post 2</span><span style=\"background-color: rgb(159, 175, 209);\">Blog post 2</span><span style=\"background-color: rgb(159, 175, 209);\">Blog post 2</span><span style=\"background-color: rgb(159, 175, 209);\">Blog post 2</span><span style=\"background-color: rgb(159, 175, 209);\">Blog post 2</span><span style=\"background-color: rgb(159, 175, 209);\">Blog post 2</span><span style=\"background-color: rgb(159, 175, 209);\">Blog post 2</span><span style=\"background-color: rgb(159, 175, 209);\">Blog post 2</span><span style=\"background-color: rgb(159, 175, 209);\">Blog post 2</span><span style=\"background-color: rgb(159, 175, 209);\">Blog post 2</span><span style=\"background-color: rgb(159, 175, 209);\">Blog post 2</span><br>','Consejo',1,18,'2015-07-08 22:09:21'),(3,'post3','asdA SDAS DS DAS DAS DAS DASD ASD SA','Consejo',1,19,'2015-07-09 18:21:28');
+/*!40000 ALTER TABLE `blog` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -263,7 +292,7 @@ CREATE TABLE `file_managers` (
   `file_manager` varchar(255) NOT NULL,
   `date_created` datetime NOT NULL,
   PRIMARY KEY (`file_manager_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -272,7 +301,7 @@ CREATE TABLE `file_managers` (
 
 LOCK TABLES `file_managers` WRITE;
 /*!40000 ALTER TABLE `file_managers` DISABLE KEYS */;
-INSERT INTO `file_managers` VALUES (1,'','2014-09-10 16:34:40'),(2,'','2014-09-10 16:34:57'),(3,'','2014-09-10 16:35:02'),(4,'','2014-09-10 16:35:29'),(5,'','2014-09-11 11:18:16'),(6,'','2014-09-11 11:18:32'),(7,'','2015-07-06 16:54:53'),(8,'','2015-07-06 16:55:10'),(9,'','2015-07-06 16:55:16'),(10,'','2015-07-06 16:55:26'),(11,'','2015-07-06 21:03:02'),(12,'','2015-07-06 21:43:44'),(13,'','2015-07-06 21:50:49'),(14,'','2015-07-06 22:01:22'),(15,'','2015-07-07 20:35:39'),(16,'','2015-07-07 20:38:10');
+INSERT INTO `file_managers` VALUES (1,'','2014-09-10 16:34:40'),(2,'','2014-09-10 16:34:57'),(3,'','2014-09-10 16:35:02'),(4,'','2014-09-10 16:35:29'),(5,'','2014-09-11 11:18:16'),(6,'','2014-09-11 11:18:32'),(7,'','2015-07-06 16:54:53'),(8,'','2015-07-06 16:55:10'),(9,'','2015-07-06 16:55:16'),(10,'','2015-07-06 16:55:26'),(11,'','2015-07-06 21:03:02'),(12,'','2015-07-06 21:43:44'),(13,'','2015-07-06 21:50:49'),(14,'','2015-07-06 22:01:22'),(15,'','2015-07-07 20:35:39'),(16,'','2015-07-07 20:38:10'),(17,'','2015-07-08 21:22:15'),(18,'','2015-07-08 22:09:21'),(19,'','2015-07-09 18:21:28');
 /*!40000 ALTER TABLE `file_managers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -298,7 +327,7 @@ CREATE TABLE `file_managers_files` (
 
 LOCK TABLES `file_managers_files` WRITE;
 /*!40000 ALTER TABLE `file_managers_files` DISABLE KEYS */;
-INSERT INTO `file_managers_files` VALUES (1,1,'main_image',0),(2,2,'main_image',0),(3,3,'main_image',0),(4,4,'main_image',0),(5,5,'main_image',0),(6,6,'main_image',0),(1,7,'image_gallery',0),(1,8,'image_gallery',0),(1,9,'image_gallery',0),(7,10,'main_image',0),(8,11,'main_image',0),(9,12,'main_image',0),(10,13,'main_image',0),(11,14,'main_image',0),(12,25,'main_image',0),(12,16,'complete_image',0),(13,17,'main_image',0),(14,18,'main_image',0),(15,19,'desktop_image',0),(15,20,'mobile_image',0),(16,23,'desktop_image',0),(16,24,'mobile_image',0);
+INSERT INTO `file_managers_files` VALUES (1,1,'main_image',0),(2,2,'main_image',0),(3,3,'main_image',0),(4,4,'main_image',0),(5,5,'main_image',0),(6,6,'main_image',0),(1,7,'image_gallery',0),(1,8,'image_gallery',0),(1,9,'image_gallery',0),(7,10,'main_image',0),(8,11,'main_image',0),(9,12,'main_image',0),(10,13,'main_image',0),(11,14,'main_image',0),(12,26,'main_image',0),(12,16,'complete_image',0),(13,17,'main_image',0),(14,18,'main_image',0),(15,19,'desktop_image',0),(15,20,'mobile_image',0),(16,23,'desktop_image',0),(16,24,'mobile_image',0),(17,27,'main_image',0),(18,28,'main_image',0),(19,29,'main_image',0);
 /*!40000 ALTER TABLE `file_managers_files` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -319,7 +348,7 @@ CREATE TABLE `files` (
   `group` varchar(255) NOT NULL,
   `date_created` datetime NOT NULL,
   PRIMARY KEY (`file_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -328,7 +357,7 @@ CREATE TABLE `files` (
 
 LOCK TABLES `files` WRITE;
 /*!40000 ALTER TABLE `files` DISABLE KEYS */;
-INSERT INTO `files` VALUES (1,'1_1.jpg','1','image','','jpg','','2014-09-10 16:34:40'),(2,'2_4.jpg','4','image','','jpg','','2014-09-10 16:34:57'),(3,'3_4.jpg','4','image','','jpg','','2014-09-10 16:35:02'),(4,'4_7.jpg','7','image','','jpg','','2014-09-10 16:35:29'),(5,'5_2.jpg','2','image','','jpg','','2014-09-11 11:18:16'),(6,'6_4.jpg','4','image','','jpg','','2014-09-11 11:18:32'),(7,'7_2.jpg','2','image','','jpg','','2014-09-11 12:37:09'),(8,'8_4.jpg','4','image','','jpg','','2014-09-11 12:37:13'),(9,'9_7.jpg','7','image','','jpg','','2014-09-11 12:37:17'),(10,'10_slider1.jpg','slider1','image','','jpg','','2015-07-06 16:54:53'),(11,'11_slider1.jpg','slider1','image','','jpg','','2015-07-06 16:55:10'),(12,'12_slider1.jpg','slider1','image','','jpg','','2015-07-06 16:55:16'),(13,'13_slider1.jpg','slider1','image','','jpg','','2015-07-06 16:55:26'),(14,'14_shock-de-brillo.jpg','shock-de-brillo','image','','jpg','','2015-07-06 21:03:02'),(16,'16_shock-de-brillo.jpg','shock-de-brillo','image','','jpg','','2015-07-06 21:43:44'),(17,'17_3d-gloss.jpg','3d-gloss','image','','jpg','','2015-07-06 21:50:49'),(18,'18_3d-gloss.jpg','3d-gloss','image','','jpg','','2015-07-06 22:01:22'),(19,'19_slider1.jpg','slider1','image','','jpg','','2015-07-07 20:35:39'),(20,'20_slider1-mobile.png','slider1-mobile','image','','png','','2015-07-07 20:35:39'),(24,'24_slider1-mobile.png','slider1-mobile','image','','png','','2015-07-07 20:41:43'),(25,'25_slider1.jpg','slider1','image','','jpg','','2015-07-08 16:16:24'),(23,'23_slider2.jpg','slider2','image','','jpg','','2015-07-07 20:41:43');
+INSERT INTO `files` VALUES (1,'1_1.jpg','1','image','','jpg','','2014-09-10 16:34:40'),(2,'2_4.jpg','4','image','','jpg','','2014-09-10 16:34:57'),(3,'3_4.jpg','4','image','','jpg','','2014-09-10 16:35:02'),(4,'4_7.jpg','7','image','','jpg','','2014-09-10 16:35:29'),(5,'5_2.jpg','2','image','','jpg','','2014-09-11 11:18:16'),(6,'6_4.jpg','4','image','','jpg','','2014-09-11 11:18:32'),(7,'7_2.jpg','2','image','','jpg','','2014-09-11 12:37:09'),(8,'8_4.jpg','4','image','','jpg','','2014-09-11 12:37:13'),(9,'9_7.jpg','7','image','','jpg','','2014-09-11 12:37:17'),(10,'10_slider1.jpg','slider1','image','','jpg','','2015-07-06 16:54:53'),(11,'11_slider1.jpg','slider1','image','','jpg','','2015-07-06 16:55:10'),(12,'12_slider1.jpg','slider1','image','','jpg','','2015-07-06 16:55:16'),(13,'13_slider1.jpg','slider1','image','','jpg','','2015-07-06 16:55:26'),(14,'14_shock-de-brillo.jpg','shock-de-brillo','image','','jpg','','2015-07-06 21:03:02'),(26,'26_coloracion-demo.png','coloracion-demo','image','','png','','2015-07-08 18:00:33'),(16,'16_shock-de-brillo.jpg','shock-de-brillo','image','','jpg','','2015-07-06 21:43:44'),(17,'17_3d-gloss.jpg','3d-gloss','image','','jpg','','2015-07-06 21:50:49'),(18,'18_3d-gloss.jpg','3d-gloss','image','','jpg','','2015-07-06 22:01:22'),(19,'19_slider1.jpg','slider1','image','','jpg','','2015-07-07 20:35:39'),(20,'20_slider1-mobile.png','slider1-mobile','image','','png','','2015-07-07 20:35:39'),(24,'24_slider1-mobile.png','slider1-mobile','image','','png','','2015-07-07 20:41:43'),(27,'27_blog.jpg','blog','image','','jpg','','2015-07-08 21:22:15'),(23,'23_slider2.jpg','slider2','image','','jpg','','2015-07-07 20:41:43'),(28,'28_slider1.jpg','slider1','image','','jpg','','2015-07-08 22:09:21'),(29,'29_crazy-colors.jpg','crazy-colors','image','','jpg','','2015-07-09 18:21:28');
 /*!40000 ALTER TABLE `files` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -429,4 +458,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-08 14:36:34
+-- Dump completed on 2015-07-10 11:06:57
