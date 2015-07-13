@@ -57,25 +57,15 @@ $config['modules'][$module_name]['fields'] = array(
 										'url_facebook' => array('label' => 'Facebook URL',
 																'type' => 'text',
 																'validation' => '',
+																'description' => "ej: http://www.facebook.com/username",
 																'visibility' => 'edit|details|list'
 																),
 
 										'url_twitter' => array('label' => 'Twitter URL',
 																'type' => 'text',
 																'validation' => '',
+																'description' => "ej: http://www.twitter.com/username",
 																'visibility' => 'edit|details|list'
-																),
-
-										'url_googleplus' => array('label' => 'Google Plus URL',
-																'type' => 'text',
-																'validation' => '',
-																'visibility' => 'edit|details'
-																),
-
-										'url_youtube' => array('label' => 'Youtube URL',
-																'type' => 'text',
-																'validation' => '',
-																'visibility' => 'edit|details'
 																),
 
 										'email' => array(		'label' => 'Email',
