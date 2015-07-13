@@ -30,14 +30,30 @@ $config['modules'][$module_name]['fields'] = array(
 																'visibility' => 'edit|details'
 																),
 
-
 										'text_issue_mundo' => array('label' => 'Texto "Issue en el mundo"',
 																'type' => 'textarea',
 																'class' => 'summernote',
 																'validation' => '',
 																'visibility' => 'edit|details'
 																),
-
+										'text_consumer_rights' => array('label' => 'Texto "Derechos del consumidor"',
+																'type' => 'textarea',
+																'class' => 'summernote',
+																'validation' => '',
+																'visibility' => 'edit|details'
+																),
+										'text_legal' => array('label' => 'Texto "Aviso Legal"',
+																'type' => 'textarea',
+																'class' => 'summernote',
+																'validation' => '',
+																'visibility' => 'edit|details'
+																),
+										'text_privacy_policy' => array('label' => 'Texto "Politica de privacidad"',
+																'type' => 'textarea',
+																'class' => 'summernote',
+																'validation' => '',
+																'visibility' => 'edit|details'
+																),
 										'url_facebook' => array('label' => 'Facebook URL',
 																'type' => 'text',
 																'validation' => '',
