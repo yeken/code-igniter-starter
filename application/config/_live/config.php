@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://local.bamboo.com/issue/';
+$config['base_url']	= 'http://www.adyouwish.com/issue/';
 
 /*
 |--------------------------------------------------------------------------
