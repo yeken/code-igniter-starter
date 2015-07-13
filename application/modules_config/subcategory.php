@@ -46,6 +46,7 @@ $config['modules'][$module_name]['fields'] = array(
 										'main_image' => array(	'label' => 'Imagen Principal',
 																	'type' => 'image',
 																	'tag' => 'main_image',
+																	'description' => 'Tamaño: 260x260.',
 																	'validation' => '',
 																	'visibility' => 'details|save',
 																	),
