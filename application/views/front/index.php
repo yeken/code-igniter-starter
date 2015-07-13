@@ -35,7 +35,7 @@
                           <h2><?= $banner->name?></h2>
                           <h3><?= $banner->brief?></h3>
                           <p><?= $banner->description?></p>
-                          <a href="#" class="<?= $banner->button?>">ver más</a>
+                          <a href="<?= $banner->banner_url?>" class="<?= $banner->button?>">ver más</a>
                         </div>
                       </div>
                     </div>

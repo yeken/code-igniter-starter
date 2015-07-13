@@ -279,7 +279,7 @@ header .navbar-primary ul li.social a:hover{
 	float: left;
 	position: relative;
 	overflow: hidden;
-	padding: 10% 0;
+	padding-bottom: 20%;
 }
 
 #latest > div > div > div > div:nth-child(1), 
@@ -296,11 +296,22 @@ header .navbar-primary ul li.social a:hover{
 	display: block;
 	position: absolute;
 	width: 100%;
+	opacity: 1;
+	-webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	transition: all 0.25s ease-in-out;
+}
+
+#latest > div > div > div > div.latest-item a:hover{
+	opacity: 0.8;
 }
 
 #latest > div > div > div > div.latest-item a img{
 	position: absolute;
 	z-index: 100;
+	width: 100%;
 }
 
 #latest > div > div > div > div.latest-item a .box-info{

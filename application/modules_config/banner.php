@@ -56,6 +56,12 @@ $config['modules'][$module_name]['fields'] = array(
 																						),
 																	'visibility' => 'details|save|list',
 																	),
+										'banner_url' => array(	'label' => 'URL',
+																	'type' => 'text',
+																	'class' => 'title',
+																	'validation' => 'required',
+																	'visibility' => 'save|details'
+																	),
 										'active'	=> array(	'label' => 'Activo',
 																'type' => 'checkbox',
 																'value' => 1,

@@ -15,6 +15,7 @@ class Banner_model extends Simple_data_model
 								'file_manager_id',
 								'active',
 								'date_created',
+								'banner_url'
 								);
 }
 ?>
