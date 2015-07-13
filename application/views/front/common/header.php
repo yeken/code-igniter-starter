@@ -23,6 +23,41 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="<?=base_url();?>assets_fe/js/bootstrap.min.js"></script>
     <script src="<?=base_url();?>assets_fe/js/owl.carousel.min.js"></script>
+    <?
+    if($section == "contact")
+    {
+      ?>
+      <script src="<?=base_url();?>assets_common/js/jquery.form.js"></script>
+      <script>
+          $('#contact-form').ajaxForm({
+          // dataType identifies the expected content type of the server response
+            dataType:  'json',
+            // success identifies the function to invoke when the server response
+            // has been received
+            success:   validate_ajax_form
+          });
+
+          function validate_ajax_form(data) {
+
+            $('.contact_msg_error').fadeOut();
+
+            if(!data.valid)
+            {
+              $.each(data.errors, function(key, value) {
+
+                if(value)
+                  $('#contact_error_' + key ).html( value ).fadeIn();
+              });
+            }
+            else
+            {
+              $('#contact-container').hide().html('<div class="alert alert-success">Gracias por contactarte con Nosotros!</div>').fadeIn();
+            }
+          };
+      </script>
+      <?
+    }
+    ?>
     <script>
       $(document).ready(function(){
 
@@ -42,11 +77,11 @@
                 }
             }
         });
-        
+
       });
     </script>
   </head>
-  <body>  
+  <body>
     <header>
       <div class="container">
         <div class="row">

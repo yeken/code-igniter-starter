@@ -14,6 +14,7 @@ class contactform extends CI_Controller
         $this->form_validation->set_rules('name', 'Name', 'trim|required|xss_clean|callback_alpha_space_only');
         $this->form_validation->set_rules('email', 'Emaid ID', 'trim|required|valid_email');
         $this->form_validation->set_rules('subject', 'Subject', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('telephone', 'Telephone', 'trim|required|xss_clean');
         $this->form_validation->set_rules('message', 'Message', 'trim|required|xss_clean');
 
         //run validation on form input
@@ -61,7 +62,7 @@ class contactform extends CI_Controller
             }
         }
     }
-    
+
     //custom validation function to accept only alphabets and space input
     function alpha_space_only($str)
     {

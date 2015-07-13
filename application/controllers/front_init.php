@@ -4,6 +4,40 @@ class Front_init extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->data['fields'] = array(	'name' => array(	'label' => 'Nombre',
+															'type' => 'text',
+															'validation' => 'required|xss_clean',
+															'visibility' => 'contact'
+															),
+										'last_name' => array(	'label' => 'Apellido',
+															'type' => 'text',
+															'validation' => 'required|xss_clean',
+															'visibility' => 'contact'
+															),
+										'email' => array(	'label' => 'Email',
+															'type' => 'text',
+															'validation' => 'required|valid_email|xss_clean',
+															'visibility' => 'contact'
+															),
+										'telephone' => array(	'label' => 'Teléfono',
+																'type' => 'text',
+																'validation' => 'xss_clean',
+																'visibility' => 'contact'
+															),
+										'subject' => array(	'label' => 'Asunto',
+															'type' => 'text',
+															'validation' => 'required|xss_clean',
+															'visibility' => 'contact'
+															),
+										'message' => array(	'label' => 'Mensaje',
+															'type' => 'textarea',
+															'validation' => 'required|xss_clean',
+															'visibility' => 'contact'
+															),
+								);
+
+		$this->split_fields();
+
 	}
 
 	protected function redirect_login()
@@ -64,7 +98,7 @@ class Front_init extends CI_Controller
 				$this->data['products'][] = $product;
 			}
 	}
-	
+
 
 	public function get_colors(){
 			$sql = 'SELECT * FROM colors WHERE active = 1 ORDER BY color_id DESC';
@@ -141,6 +175,11 @@ class Front_init extends CI_Controller
 	{
 		$output['page'] = $page;
 		$output['valid'] = false;
+		$this->form_validation->set_message('matches', '%s y %s deben ser iguales');
+		$this->form_validation->set_message('required', 'Falta completar este campo');
+		$this->form_validation->set_message('valid_email', 'Este email no es v&aacute;lido');
+		$this->form_validation->set_message('alpha_numeric_space', 'Este campo solo puede contener letras, n&uacute;meros y espacios');
+
 
 		foreach($this->data['page_fields'][$page] as $field_id => $field)
 		{
@@ -148,15 +187,6 @@ class Front_init extends CI_Controller
 		}
 
 		$this->data['post'] = $this->input->post();
-
-		if($this->data['post']['branch_id'])
-		{
-			$sql = "SELECT branch FROM company_branches WHERE branch_id = '".(int)$this->data['post']['branch_id']."'";
-			$row = $this->db->query($sql)->row();
-			$this->data['post']['branch'] = $row->branch;
-
-		}
-
 		if(!$this->form_validation->run())
 		{
 			$output['valid'] = 0;
@@ -172,120 +202,27 @@ class Front_init extends CI_Controller
 
 			switch($page)
 			{
-				case 'first_login':
-									$this->load->model("user_model","form_model");
-									if(!(int)$this->session->userdata('prev_user_id'))
-									{
-										$output['error'] = lang("no-prev-id");
-										echo json_encode($output);
-										return;
-									}
-									$this->form_model->get($this->session->userdata('prev_user_id'));
-									break;
-				case 'register':
-									$this->load->model("user_model","form_model");
-									if(!$this->session->userdata('register_email'))
-									{
-										$output['error'] = lang("no-prev-id");
-										echo json_encode($output);
-										return;
-									}
-									$sql = "SELECT * FROM bitauth_users WHERE username = '".addslashes($this->session->userdata('register_email'))."' AND company_id = '".$this->company_model->get_id()."'";
-									$row = $this->db->query($sql)->row();
-									$this->form_model->get($row->user_id);
-									break;
-				case 'edit_profile':
-									$this->load->model("user_model","form_model");
-									$this->form_model->get($this->bitauth->user_id);
-									break;
-
-				case 'forgot_pass':
-									$this->bitauth->set_password($this->bitauth->user_id, $this->data['post']['password']);
-									$output['message'] = lang('password-changed');
-									$output['valid'] = true;
-									echo json_encode($output);
-									return;
-									break;
+				case 'contact':
+					$this->load->model("admin/contact_model","form_model");
+					$this->data['post']['name'] = $this->data['post']['name']." ".$this->data['post']['last_name'];
+					unset($this->data['post']['last_name']);
+					break;
 			}
 
 			if(!isset($output['valid']) || $output['valid'])
 			{
 
 				$this->form_model->set($this->data['post']);
-				/*
-				if(is_array($_FILES))
-				{
-					$this->get_file_manager();
-					$this->file_manager->upload($this->file_fields);
-				}
-				*/
+
 				if($this->form_model->save())
 				{
 					$output['valid'] = 1;
 					switch($page)
 					{
-						case 'edit_profile':
-											$sql = "UPDATE scores SET username = '".$this->form_model->fullname."' WHERE user_id = '".$this->form_model->get_id()."'";
-											$this->db->query($sql);
-											break;
-
-						case 'first_login':	if($this->company_model->confirm_email)
-											{
-												$this->form_model->set_field("active",0);
-												$this->form_model->set_field("enabled",0);
-											}
-											else
-											{
-												$this->form_model->set_field("active",1);
-												$this->form_model->set_field("enabled",1);
-											}
-											$this->form_model->set_field("group_id",3);
-											$this->form_model->set_field("groups_names","Jugador");
-											$this->form_model->set_field("company_id",$this->company_model->get_id());
-											$this->form_model->set_field("company",$this->company_model->name);
-											$pass = $this->bitauth->hash_password($this->data['post']['password']);
-											$last_set = $this->bitauth->timestamp();
-											$this->form_model->set_field("password",$pass);
-											$this->form_model->set_field("password_last_set",$last_set);
-											$this->form_model->update();
-											if($this->form_model->email)
-											{
-												$this->send_register_email();
-											}
-											$this->bitauth->logout();
-											$this->bitauth->login($this->form_model->username,$this->data['post']['password']);
-											$output['message'] = lang('first-time-message-no-email');
-											break;
-						case 'register':
-
-											if($this->company_model->confirm_email)
-											{
-												$this->form_model->set_field("active",0);
-												$this->form_model->set_field("enabled",0);
-											}
-											else
-											{
-												$this->form_model->set_field("active",1);
-												$this->form_model->set_field("enabled",1);
-											}
-											$this->form_model->set_field("username",$this->session->userdata('register_email'));
-											$this->form_model->set_field("group_id",3);
-											$this->form_model->set_field("groups_names","Jugador");
-											$this->form_model->set_field("company_id",$this->company_model->get_id());
-											$this->form_model->set_field("company",$this->company_model->name);
-											$pass = $this->bitauth->hash_password($this->data['post']['password']);
-											$last_set = $this->bitauth->timestamp();
-											$this->form_model->set_field("password",$pass);
-											$this->form_model->set_field("password_last_set",$last_set);
-
-											$this->form_model->update();
-											$this->bitauth->logout();
-											$this->bitauth->login($this->form_model->username,$this->data['post']['password']);
-											$this->send_register_email();
-											$output['message'] = lang("register-message");
-											break;
+						case 'contact':
+							$this->send_register_email();
+							break;
 					}
-
 				}
 				else
 				{
@@ -307,31 +244,25 @@ class Front_init extends CI_Controller
 
 		$this->email->initialize($config);
 
-		$this->email->from('registro@fantasyfutbol2014.com', 'Fantasy Futbol 2014');
+		$this->email->from('admin@issue.com', 'Issue Web');
 
-		$this->email->to($this->form_model->email);
+		$this->email->to('joaquinastelarra@gmail.com');
+		$this->email->reply_to($this->form_model->email);
 
-		$this->email->subject(lang("subject-registro"));
+		$this->email->subject($this->form_model->subject);
 
-		$confirm_link = $this->data['link_url']."confirmar-cuenta/".$this->get_confirm_code($this->form_model->get_id());
-
-		$body= var_lang('body-registro',$this->form_model->fullname)."<a href='".$confirm_link."'>".$confirm_link."</a>
-				<br><br>".lang('register-login-email')."
-				<br><br>".$this->company_model->username_field.": <b>".$this->form_model->username."</b><br>
-				<br><br>".lang('Contraseña').": <b>".$this->data['post']['password']."</b><br><br>
-				Fantasy Futbol 2014<br>--";
+		$body= "Nombre: ".$this->form_model->name."<br>";
+		$body.= "Email: ".$this->form_model->email."<br>";
+		$body.= "Teléfono: ".$this->form_model->telephone."<br>";
+		$body.= "Asunto: ".$this->form_model->subject."<br>";
+		$body.= "Mensaje: ".$this->form_model->message."<br>";
+		$body.= "--";
 
 		$this->email->message($body);
 
 		$this->email->send();
 
 	}
-
-	protected function get_confirm_code($id)
-	{
-		return $id."-".substr(base64_encode($id."fantastic 2013 vv ++ ??"),0,10);
-	}
-
 
 
 	protected function check_captcha()

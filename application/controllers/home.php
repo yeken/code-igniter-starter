@@ -29,6 +29,15 @@ class Home extends Front_init
 		$this->load->view("front/about.php", $this->data);
 	}
 
+	public function footer_link($text)
+	{
+		$sections_title = ['text_legal' => "Aviso Legal", 'text_consumer_rights' => "Derechos del Consumidor", 'text_privacy_policy' => "Política de Privacidad"];
+		$this->data['section'] = $text;
+		$this->data['title'] = $sections_title[$text];
+		$this->data['section_content'] = $this->configuration_model->$text;
+		$this->load->view("front/about.php", $this->data);
+	}
+
 	public function issue_about()
 	{
 		$this->data['section'] = "nosotros";
