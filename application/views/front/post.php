@@ -1,4 +1,17 @@
 <? include(dirname(__FILE__)."/common/header.php") ?>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=557486314296533";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+window.fbAsyncInit = function() {
+ FB.Event.subscribe('edge.create', function(href, widget) {
+});
+};
+</script>
 
 <section class="image-bg-fluid-height" style="background: url('<?=base_url();?>assets_fe/img/slider1.jpg') no-repeat center center scroll;">
     <div class="container">
@@ -21,7 +34,9 @@
                     </h2>
                     <img class="img-responsive" src="<?= $this->blog_model->main_image?>" alt="">
                     <div class="social">
-                    	<img class="img-responsive" src="<?=base_url();?>assets_fe/img/social-demo.jpg">
+                    	<div class="fb-like" data-href="<?= base_url()?>post/<?= $this->blog_model->post_id?>/<?= $this->blog_model->name?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+                        <a href="https://twitter.com/share"  data-related="IssueMundo" class="twitter-share-button" data-dnt="true" data-count="none" data-via="" data-text=" ">Tweet</a>
+
                     </div>
                     <h3><?= $this->blog_model->name?></h3>
                     <p>
@@ -97,5 +112,6 @@
         </div>
     <!-- /.container -->
 	</section>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 <? include(dirname(__FILE__)."/common/footer.php") ?>
