@@ -172,7 +172,6 @@ header .navbar-primary ul li.social a:hover{
 }
 #slider .btn-white{
 	background: #ffffff;
-	color: #000000;
 }
 #slider .btn-grey{
 	background: #666666;
@@ -185,6 +184,27 @@ header .navbar-primary ul li.social a:hover{
 }
 #slider .btn-green{
 	background: green;
+}
+#slider .txt-bordeaux{
+	color: #ee075d;
+}
+#slider .txt-black{
+	color: #000000;
+}
+#slider .txt-white{
+	color: #ffffff;
+}
+#slider .txt-grey{
+	color: #666666;
+}
+#slider .txt-blue{
+	color: blue;
+}
+#slider .txt-red{
+	color: red;
+}
+#slider .txt-green{
+	color: green;
 }
 /* NUESTROS PRODUCTOS */
 

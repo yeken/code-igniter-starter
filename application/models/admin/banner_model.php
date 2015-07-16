@@ -12,6 +12,7 @@ class Banner_model extends Simple_data_model
 								'description',
 								'brief',
 								'button',
+								'button_txt',
 								'file_manager_id',
 								'active',
 								'date_created',
