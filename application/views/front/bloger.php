@@ -18,24 +18,13 @@
                         <img src="">
                         <p>
                             <?
-                                if(is_array($posts['by_category']['consejo'])){
-                                    foreach($posts['by_category']['consejo'] as $post){
-                                        echo "sadasf";
-                                    }
+                                foreach ($consejo as $post => $item) {
+                                    echo 'asasdsa<br>';
                                 }
                             ?>
                         </p>
                     </div>
                     <div class="tendencias">
-                        <?
-                            if(is_array($posts['by_category']['tendencia'])){
-                                $i = 0;
-                                if($i)
-                                foreach($posts['by_category']['tendencia'] as $post){
-                                    echo "sadasf";
-                                }
-                            }
-                        ?>
                         <div class="row">
                             <div class="col-xs-6">
 
