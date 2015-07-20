@@ -45,7 +45,7 @@
 
 			<div class="col-xs-12">
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-				  
+
 				  <?
 				  $i = 0;
 				  foreach($colors as $category => $category_colors){
@@ -65,7 +65,7 @@
  						<?
  						foreach($category_colors as $color){
  						?>
-				        <div class="col-xs-1">
+				        <div class="col-xs-1 col-md-1">
 				        	<div class="color-option">
 					        	<img class="img-responsive" src="<?= $color->main_image?>">
 					        	<p>
@@ -73,7 +73,7 @@
 					        	</p>
 				        	</div>
 				        </div>
- 						<?		
+ 						<?
  							}
  						?>
  						</div>
@@ -83,7 +83,7 @@
  						$i++;
  						}
 				  ?>
-				  
+
 				  <div class="viewing"></div>
 				</div>
 			</div>
