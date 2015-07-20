@@ -114,6 +114,7 @@ class Front_init extends CI_Controller
 				$color->get_files();
 				$this->data['colors'][$color->category][] = $color;
 			}
+
 	}
 
 	public function get_posts(){
