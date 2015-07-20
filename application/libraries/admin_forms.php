@@ -8,7 +8,7 @@ class admin_forms {
 	protected $description;
 	protected $common_attrs;
 	public $label_in_input = false;
-	
+
 	// Constructor
 	function __construct($config = array()) {
 		$this->ci =& get_instance();
@@ -22,7 +22,7 @@ class admin_forms {
 		$this->description = $description ? $description : $field_attrs['description'];
 		$this->common_attrs =  "name='".$this->field_name."' class='form-control ".($this->field_attrs['class'] ? $this->field_attrs['class'] : "")."' ".($this->field_attrs['style'] ? " style='".$this->field_attrs['style']."' " : "")." ".$this->field_attrs['attrs'];
 		$this->common_attrs .= $this->field_attrs['disabled'] ? "disabled='disabled'" : "";
-		
+
 		switch($this->field_attrs['type'])
 		{
 			case 'autocomplete':
@@ -49,13 +49,13 @@ class admin_forms {
 				break;
 			case 'select_address':
 				$str = $this->_select_address();
-				break;	
+				break;
 			case 'multiselect':
 				$str = $this->_multiselect();
 				break;
 			case 'radio':
 				$str = $this->_radio();
-				break;	
+				break;
 			case 'checkbox':
 				$str = $this->_checkbox();
 				break;
@@ -79,7 +79,7 @@ class admin_forms {
 				break;
 			case 'hidden':
 				$str = $this->_hidden();
-				break;			
+				break;
 			default: false;
 		}
 		return $str;
@@ -93,16 +93,16 @@ class admin_forms {
 		$val = str_replace('"','\'',$this->prev_val);
 		if($this->label_in_input)
 		{
-			$str .= "<div class='col-sm-12 col-md-10'>";	
+			$str .= "<div class='col-sm-12 col-md-10'>";
 			$str .=	"<input type='".$this->field_attrs['type']."' id='".$this->field_name."' ".$this->common_attrs." value=\"".$val."\"/ placeholder='".$this->field_attrs['label']."'>";
 			$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
 			$str .= "</div>";
-					
+
 		}
 		else
 		{
 			$str = "<label for='".$this->field_name."' class='col-md-2 col-sm-12 control-label'>".$this->field_attrs['label']."</label>";
-			$str .= "<div class='col-sm-12 col-md-10'>";	
+			$str .= "<div class='col-sm-12 col-md-10'>";
 			$str .=	"<input type='".$this->field_attrs['type']."' id='".$this->field_name."' ".$this->common_attrs." value=\"".$val."\"/>";
 			$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
 			$str .= "</div>";
@@ -110,16 +110,16 @@ class admin_forms {
 		if($this->field_attrs['values'])
 		{
 			$str .= 	"<script>
-					$('#".$this->field_name."').typeahead({                                
-					  name: '',                                                          
-					  local: [\"".implode('","',$this->field_attrs['values'])."\"],                                       
-					  limit: 10                                                                   
+					$('#".$this->field_name."').typeahead({
+					  name: '',
+					  local: [\"".implode('","',$this->field_attrs['values'])."\"],
+					  limit: 10
 					});
 					</script>";
-			return $str;	
+			return $str;
 		}
-		
-		
+
+
 		if($this->field_attrs['local'])
 		{
 			$source_fields = implode(",",$this->field_attrs['source_fields']);
@@ -130,12 +130,12 @@ class admin_forms {
 			{
 				$opt[] = $row['label'];
 			}
-			
+
 			$str .= 	"<script>
-						$('#".$this->field_name."').typeahead({                                
-						  name: '',                                                          
-						  local: [\"".(is_array($opt) ? implode('","',$opt) : "")."\"],                                       
-						  limit: 10                                                                   
+						$('#".$this->field_name."').typeahead({
+						  name: '',
+						  local: [\"".(is_array($opt) ? implode('","',$opt) : "")."\"],
+						  limit: 10
 						});
 						</script>
 						";
@@ -144,22 +144,22 @@ class admin_forms {
 	}
 
 	protected function _hidden()
-	{	
+	{
 		$value = $this->prev_val? $this->prev_val : $this->field_attrs['value'];
 		$str .=	"<input type='hidden' id='".$this->field_name."' name='".$this->field_name."' value='".$value."'/>";
-		return $str;				
+		return $str;
 	}
-	
+
 	protected function _password()
 	{
 		$str = "<label for='".$this->field_name."' class='col-md-2 col-sm-12 control-label'>".$this->field_attrs['label']."</label>";
-		$str .= "<div class='col-sm-12 col-md-10'>";	
+		$str .= "<div class='col-sm-12 col-md-10'>";
 		$str .=	"<input type='".$this->field_attrs['type']."' id='".$this->field_name."' ".$this->common_attrs."/>";
 		$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
 		$str .= "</div>";
-		return $str;				
+		return $str;
 	}
-		
+
 	protected function _image_gallery()
 	{
 		$str .= "<label for='".$this->field_name."' class='col-md-2 col-sm-12 control-label'>Seleccionar imagen</label>";
@@ -167,21 +167,21 @@ class admin_forms {
 		$str .= "<div>".$img."<input type='file' id='".$this->field_name."' ".$this->common_attrs." value='".$this->prev_val."'/></div>";
 		$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
 		$str .= "</span>";
-		return $str;						
+		return $str;
 	}
-	
+
 	protected function _date()
 	{
 		switch($this->prev_val)
 		{
 			case 'today':
 							$prev_val = date("Y-m-d");
-							break;	
+							break;
 			default:
 						$prev_val = $this->prev_val;
 						break;
 		}
-		
+
 		$str = "<label for='".$this->field_name."' class='col-md-2 col-sm-12 control-label'>".$this->field_attrs['label']."</label>";
 		$str .= "<span class='form_input'>";
 		$str .= "<div class='col-sm-12 col-md-10'>".selectDates($prev_val, $this->field_name, $this->field_attrs['class'],$this->field_attrs['offset_up'] ? $this->field_attrs['offset_up'] : 1,$this->field_attrs['offset_down'] ? $this->field_attrs['offset_down'] : 10);
@@ -189,7 +189,7 @@ class admin_forms {
 		$str .= "</div></span>";
 		return $str;
 	}
-	
+
 	protected function _date_time()
 	{
 		$this->common_attrs =  "name='".$this->field_name."' class='form-control datetimepicker ".($this->field_attrs['class'] ? $this->field_attrs['class'] : "")."' ".($this->field_attrs['style'] ? " style='".$this->field_attrs['style']."' " : "")." ".$this->field_attrs['attrs'];
@@ -201,9 +201,9 @@ class admin_forms {
                  ';
 		$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
 		$str .= "</div></span>";
-		return $str;				
+		return $str;
 	}
-	
+
 	protected function _radio()
 	{
 		$str = "<label for='".$this->field_name."' class='col-md-2 col-sm-12 control-label'>".$this->field_attrs['label']."</label>";
@@ -213,16 +213,16 @@ class admin_forms {
 		{
 			foreach($this->field_attrs['options'] as $option_id => $option)
 			{
-				$str .= "<label class='btn btn-default ".($option['value'] == $this->prev_val ? 'active' : '')."' for='".$option['value']."_".$option_id."'><input type='radio' value='".$option['value']."' id='".$option['value']."_".$option_id."'".$this->common_attrs." ".($option['value'] == $this->prev_val ? 'checked="checked"' : '')."/>".$option['label']."</label>";	
+				$str .= "<label class='btn btn-default ".($option['value'] == $this->prev_val ? 'active' : '')."' for='".$option['value']."_".$option_id."'><input type='radio' value='".$option['value']."' id='".$option['value']."_".$option_id."'".$this->common_attrs." ".($option['value'] == $this->prev_val ? 'checked="checked"' : '')."/>".$option['label']."</label>";
 			}
 		}
-		
+
 		$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
 		$str .="</div>";
 		$str .= "</span>";
-		return $str;						
+		return $str;
 	}
-	
+
 	protected function _checkbox()
 	{
 		$str = "<label for='".$this->field_name."' class='col-md-2 col-sm-12 control-label'>".$this->field_attrs['label']."</label>";
@@ -233,9 +233,9 @@ class admin_forms {
 		$str .= "</div>";
 		$str .= "</div><div class='clearfix'></div>";
 		$str .= $this->description? "<div class='col-md-offset-2 col-md-10 col-sm-12 '><small>".$this->description."</small></div>" : "";
-		return $str;			
+		return $str;
 	}
-		
+
 	protected function _textarea()
 	{
 		if($this->label_in_input)
@@ -243,7 +243,7 @@ class admin_forms {
 			$str .= "<div class='col-sm-12 col-md-12'>";
 			$str .=	"<textarea placeholder='".$this->field_attrs['label']."'  id='".$this->field_name."' ".$this->common_attrs." >".$this->prev_val."</textarea>";
 			$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
-			$str .= "</div>";			
+			$str .= "</div>";
 		}
 		else
 		{
@@ -257,7 +257,7 @@ class admin_forms {
 		{
 			$str .= "<script>$('#".$this->field_name."').code('".$this->prev_val."')</script>";
 		}
-		return $str;						
+		return $str;
 	}
 
 	protected function _file()
@@ -266,22 +266,22 @@ class admin_forms {
 		$str .= "<div class='col-sm-12 col-md-10'>";
 		if($this->prev_val)
 		{
-			$img = '<a href="'.$this->prev_val.'" target="_blank">'.$this->prev_val.'</a>';	
+			$img = '<a href="'.$this->prev_val.'" target="_blank">'.$this->prev_val.'</a>';
 			$str .= "<div>".$img."<input type='file' id='".$this->field_name."' class='input_file' ".$this->common_attrs."/></div>";
-			
+
 		}
 		else
 		{
-			$str .= "<div>".$img."<input type='file' id='".$this->field_name."' ".$this->common_attrs."/></div>";	
+			$str .= "<div>".$img."<input type='file' id='".$this->field_name."' ".$this->common_attrs."/></div>";
 		}
 		$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
 		$str .= "</div>";
-							
+
 		return $str;
 	}
-	
+
 	protected function _video()
-	{	
+	{
 		$str = "<label for='".$this->field_name."' class='col-md-2 col-sm-12 control-label'>".$this->field_attrs['label']."</label>";
 		$str .= "<div class='col-sm-12 col-md-10'>";
 		$str .= "<div class='comment'>Título del video</div>";
@@ -289,23 +289,23 @@ class admin_forms {
 		$str .= "<div class='comment'>Video Url</div>";
 		$str .=	"<input type='text' id='".$this->field_name."_video_code' name='".$this->field_name."_video_code' value=\"".str_replace('"','\'',$this->prev_val['code'])."\"/>";
 		$str .= "</div>";
-		return $str;						
+		return $str;
 	}
-	
+
 	protected function _text()
 	{
 		$val =  $this->prev_val ? str_replace('"','\'',$this->prev_val) : $this->field_attrs['value'];
 		if($this->label_in_input)
 		{
-			$str .= "<div class='col-sm-12 col-md-10'>";	
+			$str .= "<div class='col-sm-12 col-md-10'>";
 			$str .=	"<input type='".$this->field_attrs['type']."' id='".$this->field_name."' ".$this->common_attrs." value=\"".$val."\"/ placeholder='".$this->field_attrs['label']."'>";
 			$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
-			$str .= "</div>";		
+			$str .= "</div>";
 		}
 		else
 		{
 			$str = "<label for='".$this->field_name."' class='col-md-2 col-sm-12 control-label'>".$this->field_attrs['label']."</label>";
-			$str .= "<div class='col-sm-12 col-md-10'>";	
+			$str .= "<div class='col-sm-12 col-md-10'>";
 			$str .=	"<input type='".$this->field_attrs['type']."' id='".$this->field_name."' ".$this->common_attrs." value=\"".$val."\"/>";
 			$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
 			$str .= "</div>";
@@ -313,7 +313,7 @@ class admin_forms {
 
 		return $str;
 	}
-	
+
 	protected function _select()
 	{
 		if(isset($this->field_attrs['source_table']))
@@ -334,20 +334,20 @@ class admin_forms {
 		}
 		$str .= "<div class='col-sm-12 col-md-10'>";
 		$str .="<select  id='".$this->field_name."' ".$this->common_attrs.">";
-		
+
 		$str .= $this->field_attrs['zero_option'] ? "<option value=''>".$this->field_attrs['zero_option']."</option>" : "";
-		
+
 		if(is_array($this->field_attrs['options']))
 		{
 			foreach($this->field_attrs['options'] as $option)
 			{
-				$str .= "<option value='".$option['value']."' ".($option['value'] == $this->prev_val ? 'selected' : '').">".($this->field_attrs['ucwords'] ? ucwords(strtolower($option['label'])) : $option['label'])."</option>";	
+				$str .= "<option value='".$option['value']."' ".($option['value'] == $this->prev_val ? 'selected' : '').">".($this->field_attrs['ucwords'] ? ucwords(strtolower($option['label'])) : $option['label'])."</option>";
 			}
 		}
 		$str .="</select>";
 		$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
 		$str .= "</div>";
-		return $str;		
+		return $str;
 	}
 
 	/*
@@ -367,8 +367,8 @@ class admin_forms {
 							'department_field_name' => 'department_id',
 							'department_label' => 'Localidad',
 							'ucwords' => false
-							),		
-	
+							),
+
 	*/
 	protected function _select_address()
 	{
@@ -378,8 +378,8 @@ class admin_forms {
 		$this->field_attrs['ucwords'] = isset($this->field_attrs['ucwords']) ? $this->field_attrs['ucwords'] : true;
 		$this->field_attrs['with_departments'] = isset($this->field_attrs['with_departments']) ? $this->field_attrs['with_departments'] : true;
 		$this->field_attrs['zero_option'] = $this->field_attrs['zero_option'] ? $this->field_attrs['zero_option'] : "Seleccione provincia";
-		
-		$str = "<div id='".$this->field_name."_sub_box'>";	
+
+		$str = "<div id='".$this->field_name."_sub_box'>";
 		$str .= $this->_select();
 		$str .= "</div>";
 		if($this->field_attrs['with_departments'])
@@ -389,8 +389,8 @@ class admin_forms {
 			$this->field_attrs['department_db_label'] = $this->field_attrs['department_db_label'] ? $this->field_attrs['department_db_label'] : 'name';
 			$this->field_attrs['department_field_name'] = $this->field_attrs['department_field_name'] ? $this->field_attrs['department_field_name'] : 'department_id';
 			$this->field_attrs['department_label'] = $this->field_attrs['department_label'] ? $this->field_attrs['department_label'] : 'Localidad';
-			
-			$str .= "<div id='".$this->field_attrs['department_field_name']."_sub_box'>";	
+
+			$str .= "<div id='".$this->field_attrs['department_field_name']."_sub_box'>";
 			$str .= "<label for='".$this->field_attrs['department_field_name']."' class='col-md-2 col-sm-12 control-label'>".$this->field_attrs['department_label']."</label>";
 			$str .= "<div class='col-sm-12 col-md-10'>";
 			$str .="<select  id='".$this->field_attrs['department_field_name']."'   name='".$this->field_attrs['department_field_name']."' disabled='disabled'>";
@@ -400,7 +400,7 @@ class admin_forms {
 			$str .= "<script type=\"text/javascript\">
 						$(document).ready(function() {
 						$('#".$this->field_name."').change(function(){
-							
+
 							var ajax_data = { province_id:	$(this).val(), ucwords:\"".$this->field_attrs['ucwords']."\", db_table: \"".$this->field_attrs['department_db_table']."\", db_index: \"".$this->field_attrs['department_db_index']."\",db_label: \"".$this->field_attrs['department_db_label']."\",province_index_name: \"".$this->field_attrs['source_index_id']."\" };
 							$.ajax({
 									url: \"".base_url()."common/departments\",
@@ -408,13 +408,13 @@ class admin_forms {
 									data: ajax_data,
 									cache: false,
 									dataType: 'json',
-						
+
 									success: function (html) {
-						
+
 										if (html.success == true)
 										{
 											var sel_options;
-											
+
 											//$.each(html.departments, function(index, value){
 											//	sel_options += \"<option value='\"+index+\"'>\"+value+\"</option>\";
 											//});
@@ -426,23 +426,23 @@ class admin_forms {
 						});
 						});
 					</script>";
-			
+
 		}
-		return $str;		
+		return $str;
 	}
 
 
-	
+
 	protected function _multiselect()
 	{
-		$sql = "SELECT ".$this->field_attrs['source_index_id']." FROM ".$this->field_attrs['source_relation_table']." WHERE ".$this->ci->main_model->db_index." = ".$this->ci->main_model->get_id();	
+		$sql = "SELECT ".$this->field_attrs['source_index_id']." FROM ".$this->field_attrs['source_relation_table']." WHERE ".$this->ci->main_model->db_index." = ".$this->ci->main_model->get_id();
 		$result = $this->ci->db->query($sql)->result_array();
-		
+
 		foreach($result as $row)
 		{
-			$this->prev_vals[] = $row[$this->field_attrs['source_index_id']];	
+			$this->prev_vals[] = $row[$this->field_attrs['source_index_id']];
 		}
-		
+
 		if(isset($this->field_attrs['source_table']))
 		{
 			$source_fields = implode(",",$this->field_attrs['source_fields']);
@@ -455,12 +455,12 @@ class admin_forms {
 			}
 			$this->field_attrs['options'] = $opt;
 		}
-		
+
 		$str = "<label for='".$this->field_name."' class='col-md-2 col-sm-12 control-label'>".$this->field_attrs['label']."</label>";
 		$str .= "<div class='col-sm-12 col-md-10'>";
-		
+
 		$str .="<select  id='".$this->field_name."' name='".$this->field_name."[]'  multiple='multiple' >";
-		
+
 		if(is_array($this->field_attrs['options']))
 		{
 			foreach($this->field_attrs['options'] as $option)
@@ -481,7 +481,7 @@ class admin_forms {
 							selectableHeader: "<div class=\'custom-header\'><b>Lista completa</b></div>",
 							selectionHeader: "<div class=\'custom-header\'><b>Items Seleccionados</b></div>"
 							});</script>';
-		return $str;		
+		return $str;
 	}
 
 	protected function _image()
@@ -490,17 +490,17 @@ class admin_forms {
 		$str .= "<div class='col-sm-12 col-md-10'>";
 		if($this->prev_val)
 		{
-			$img = '<a href="'.$this->prev_val.'" target="_blank"><img src="'.thumb_image($this->prev_val).'" class="form_image"></a> <span fieldname="'.$this->field_name.'" class="modify_file">Cambiar '.$this->field_attrs['label'].'</span>';	
+			$img = '<a href="'.$this->prev_val.'" target="_blank"><img src="'.thumb_image($this->prev_val).'" class="form_image"></a> <span fieldname="'.$this->field_name.'" class="modify_file">Cambiar '.$this->field_attrs['label'].'</span>';
 			$str .= "<div>".$img."<input type='file' id='".$this->field_name."' class='input_file' ".$this->common_attrs."/></div>";
-			
+
 		}
 		else
 		{
-			$str .= "<div>".$img."<input type='file' id='".$this->field_name."' ".$this->common_attrs."/></div>";	
+			$str .= "<div>".$img."<input type='file' id='".$this->field_name."' ".$this->common_attrs."/></div>";
 		}
 		$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
 		$str .= "</div>";
-							
+
 		return $str;
 	}
 
@@ -521,20 +521,20 @@ class admin_forms {
 			{
 				if($row['category_id']==1)
 					continue;
-					
+
 				if(in_array($row[$this->field_attrs['tree_index_id']], $this->prev_vals))
 					$checked = "checked='checked'";
 				else
 					$checked = "";
-		
+
 				if( $prev_level == $row['level'] )
 				{
 					$str .= ($is_first)?'':'</li>';
-					$str .= "<li class='level_".$row['level']."' >";	
+					$str .= "<li class='level_".$row['level']."' >";
 					$str .= "<input type='checkbox' {$checked} name='".$this->field_name."[".$row[$this->field_attrs['tree_index_id']]."]' id='".$this->field_name."[".$row[$this->field_attrs['tree_index_id']]."]'>";
 					$str .= "<label for='".$this->field_name."[".$row[$this->field_attrs['tree_index_id']]."]'>".$row['title']."</label>";
 					$str .= "";
-					
+
 				}elseif( $row['level'] > $prev_level)
 				{
 					$str .= "<ul><li class='level_".$row['level']."' >";
@@ -561,22 +561,22 @@ class admin_forms {
 		else
 		{
 			$str .= "No hay ".$this->field_attrs['label'];
-		}		
+		}
 		return $str;
 	}
-	
+
 	protected function _address()
 	{
 		$str = "<script> gmaps_init();autocomplete_init(); </script>";
 		$str .= "<label for='".$this->field_name."' class='col-md-2 col-sm-12 control-label'>".$this->field_attrs['label']."</label>";
-		$str .= "<div class='col-sm-12 col-md-10'>";	
+		$str .= "<div class='col-sm-12 col-md-10'>";
 		$str .=	"<input type='".$this->field_attrs['type']."' id='gmaps-input-address' ".$this->common_attrs." value=\"".str_replace('"','\'',$this->prev_val)."\"/>";
 		$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
-		
+
 		if(strstr($this->field_name,"]"))
 		{
 			$latitude = str_replace("]","_latitude]",$this->field_name);
-			$longitude = str_replace("]","_longitude]",$this->field_name);		
+			$longitude = str_replace("]","_longitude]",$this->field_name);
 		}
 		else
 		{
@@ -589,7 +589,7 @@ class admin_forms {
 				<div id='gmaps-canvas'></div>";
 		$str .= "</div>";
 		$str .= "<script>if($('#gmaps-input-address').val()){geocode_lookup( 'address', $('#gmaps-input-address').val(), true );}</script>";
-		return $str;				
+		return $str;
 	}
 }
 

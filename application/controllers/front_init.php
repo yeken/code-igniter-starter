@@ -100,8 +100,9 @@ class Front_init extends CI_Controller
 	}
 
 
-	public function get_colors(){
-			$sql = 'SELECT * FROM colors WHERE active = 1 ORDER BY color_id DESC';
+	public function get_colors($product_id){
+			$sql = "SELECT * FROM colors AS c JOIN products_colors AS pc ON (c.color_id = pc.color_id)
+					WHERE  pc.product_id = '$product_id' AND c.active = 1 ORDER BY c.color_id DESC" ;
 			$result = $this->db->query($sql)->result_array();
 
 			$this->load->model('admin/color_model', 'color_model');

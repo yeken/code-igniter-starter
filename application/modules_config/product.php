@@ -55,6 +55,16 @@ $config['modules'][$module_name]['fields'] = array(
 																'source_index_id' => 'subcategory_id',
 																'source_fields' => array('name')
 																),
+										'colors' => array('label' => 'Colores',
+															'type' => 'multiselect',
+															'source_index_id' => 'color_id',
+															'source_relation_table' => 'products_colors',
+															'source_fields' => array('category','name'),
+															'source_table' => 'colors',
+															'validation' => '',
+															'visibility' => 'save|details',
+
+											)
 										);
 
 $config['modules'][$module_name]['top_menu_actions'] = array( 	'products_list' => array('url' => '#product/show_list','method' => 'show_list', 'class_name' => $config['modules'][$module_name], 'icon' => "ui-icon-clipboard", 'label' => "Listado de ".$config['modules'][$module_name]['module_label']),
