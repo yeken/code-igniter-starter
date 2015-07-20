@@ -1,4 +1,4 @@
-/* RESET */
+/* RESET */ 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
 body {line-height:1;}
 ol, ul {list-style:none;}
@@ -95,7 +95,7 @@ header .navbar-primary ul li.social a:hover{
 	color: #5b5b5b;
 	font-family: 'Signika', sans-serif;
 	font-size: 20px;
-	font-weight: 600;
+	font-weight: 600;	
 	text-transform: uppercase;
 	line-height: 45px;
 	float: left;
@@ -172,7 +172,6 @@ header .navbar-primary ul li.social a:hover{
 }
 #slider .btn-white{
 	background: #ffffff;
-	color: #000000;
 }
 #slider .btn-grey{
 	background: #666666;
@@ -185,6 +184,27 @@ header .navbar-primary ul li.social a:hover{
 }
 #slider .btn-green{
 	background: green;
+}
+#slider .txt-bordeaux{
+	color: #ee075d;
+}
+#slider .txt-black{
+	color: #000000;
+}
+#slider .txt-white{
+	color: #ffffff;
+}
+#slider .txt-grey{
+	color: #666666;
+}
+#slider .txt-blue{
+	color: blue;
+}
+#slider .txt-red{
+	color: red;
+}
+#slider .txt-green{
+	color: green;
 }
 /* NUESTROS PRODUCTOS */
 
@@ -279,12 +299,13 @@ header .navbar-primary ul li.social a:hover{
 	float: left;
 	position: relative;
 	overflow: hidden;
-	padding-bottom: 20%;
+	padding-bottom: 15%;
 }
 
 #latest > div > div > div > div:nth-child(1), 
 #latest > div > div > div > div:nth-child(3){
 	width: 30%;
+}
 
 #latest > div > div > div > div:nth-child(2){
 	width: 35%;
@@ -435,8 +456,8 @@ section#coloracion .product-item{
 	text-align: center;
 }
 
-section#coloracion .product-item h3,
-section#coloracion .product-item p,
+section#coloracion .product-item h3, 
+section#coloracion .product-item p, 
 section#coloracion .product-item img{
 	cursor: pointer;
 }
@@ -497,8 +518,8 @@ section#coloracion .showing{
 	z-index: 2000 !important;
 }
 
-#coll .exposed h3,
-#coll .exposed p,
+#coll .exposed h3, 
+#coll .exposed p, 
 #coll .exposed img{
 	color: #ffffff !important;
 	z-index: 2000 !important;
@@ -590,6 +611,11 @@ section#blog #blog-post img{
 
 section#blog #blog-post .social{
 	margin: 3% 0;
+	line-height: 12px;
+}
+
+section#blog #blog-post .social .fb-like{
+	margin: 0 10px 0 0; 
 }
 
 section#blog #blog-post h3{
@@ -786,19 +812,4 @@ section#contact{
 section#contact .bigicon{
     font-size: 35px;
     color: #710329;
-}
-
-.form_field
-{
-	margin: 20px 0px;
-}
-
-.form_field input
-{
-	width: 100%;
-}
-
-.form_field textarea
-{
-	height: 200px;
 }

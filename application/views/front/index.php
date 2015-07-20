@@ -31,11 +31,15 @@
                   <div class="carousel-caption">
                     <div class="container">
                       <div class="row">
-                        <div class="col-xs-12">
+                        <div class="col-xs-12 col-sm-5">
                           <h2><?= $banner->name?></h2>
                           <h3><?= $banner->brief?></h3>
                           <p><?= $banner->description?></p>
-                          <a href="<?= $banner->banner_url?>" class="<?= $banner->button?>">ver más</a>
+                          <a href="<?= $banner->banner_url?>" class="<?= $banner->button?>">
+                            <span class="<?= $banner->button_txt?>">
+                            ver más
+                            </span>
+                          </a>
                         </div>
                       </div>
                     </div>

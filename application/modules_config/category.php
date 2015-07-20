@@ -20,7 +20,7 @@ $config['modules'][$module_name]['fields'] = array(
 										'brief'=> array(	'label' => 'Resumen',
 															'type' => 'textarea',
 															'class' => 'title',
-															'validation' => 'required',
+															'validation' => '',
 															'visibility' => 'save|details|list'
 														),
 										'description'=> array(	'label' => 'Detalle',
