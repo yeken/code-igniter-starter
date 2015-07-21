@@ -33,10 +33,8 @@ $config['modules'][$module_name]['fields'] = array(
 										'category' => array( 'label' => 'Categoria',
 																'type' => 'select',
 																'options' => array(
-																					0 => array("value" => "consejo", "label" => "Consejo"),
-																					1 => array("value" => "tendencia", "label" => "Tendencia"),
-																					2 => array("value" => "moda", "label" => "Moda"),
-																					3 => array("value" => "novedades", "label" => "Novedades"),
+																					0 => array("value" => "Consejo", "label" => "Consejo"),
+																					1 => array("value" => "Tendencia", "label" => "Tendencia"),
 																					),
 																'visibility' => 'details|save|list',
 																),

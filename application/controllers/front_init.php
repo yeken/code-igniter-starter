@@ -129,6 +129,7 @@ class Front_init extends CI_Controller
 				$post->set($row);
 				$post->get_files();
 				$this->data['posts']['by_category'][$post->category][] = $post;
+				$this->data['posts']['full_list'][] = $post;
 			}
 	}
 	/*

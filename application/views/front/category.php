@@ -73,8 +73,11 @@
               if($(this).hasClass('exposed')){
                 $('.showing').fadeIn(300);
                 $('.showing').appendTo($(this));
-                $('#'+$id+'.detail-cont').show(300);
+                $('#'+$id+'.detail-cont').show(300);                
                 $("#opacity-bg").addClass('active');
+                $('html, body').animate({
+                      scrollTop: $('#'+$id+'.detail-cont').offset().top
+                  }, 500);
               } else{
               };
           });

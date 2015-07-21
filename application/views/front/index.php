@@ -103,9 +103,9 @@
         <div class="row">
           <div class="col-xs-12">
             <?
-            if(is_array($posts)){
+            if(is_array($posts['full_list'])){
                 $i = 0;
-                foreach($posts as $post){
+                foreach($posts['full_list'] as $post){
             ?>
             <div class="latest-item">
               <a href="<?= base_url()?>post/<?= $post->get_id()?>/<?= urlencode($post->name)?>">

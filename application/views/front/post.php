@@ -54,9 +54,9 @@ window.fbAsyncInit = function() {
                             <div class="col-xs-12">
                                 <ul>
                                     <?
-                                    if(is_array($posts)){
+                                    if(is_array($posts['full_list'])){
                                         $i = 0;
-                                        foreach($posts as $post){
+                                        foreach($posts['full_list'] as $post){
                                     ?>
                                     <li>
                                     	<img class="img-responsive" src="<?= $post->main_image?>" alt="">
