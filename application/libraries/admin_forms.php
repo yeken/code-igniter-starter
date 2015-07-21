@@ -435,7 +435,7 @@ class admin_forms {
 
 	protected function _multiselect()
 	{
-		$sql = "SELECT ".$this->field_attrs['source_index_id']." FROM ".$this->field_attrs['source_relation_table']." WHERE ".$this->ci->main_model->db_index." = ".$this->ci->main_model->get_id();
+		$sql = "SELECT ".$this->field_attrs['source_index_id']." FROM ".$this->field_attrs['source_relation_table']." WHERE ".$this->ci->main_model->db_index." = '".$this->ci->main_model->get_id()."'";
 		$result = $this->ci->db->query($sql)->result_array();
 
 		foreach($result as $row)
