@@ -43,6 +43,13 @@ $route['default_controller'] = 'home';
 $route['coloracion'] = "home/category/1";
 $route['decoloracion'] = "home/category/2";
 $route['tratamientos'] = "home/category/4";
+
+$route['articulos'] = "home/articulos/0";
+$route['articulos/(:num)'] = "home/articulos/$1";
+$route['categoria'] = "home/categoria";
+$route['categoria/(:num)/(:any)'] = "home/categoria/$1/$2";
+$route['categoria/(:num)/(:any)/(:num)'] = "home/categoria/$1/$2/$3";
+
 $route['producto/(:num)/(:any)'] = "home/product/$1";
 $route['blog'] = "home/blog";
 $route['post/(:num)/(:any)'] = "home/post/$1";

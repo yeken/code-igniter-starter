@@ -11,7 +11,8 @@ $config['general']['admin'] = array('home_controller' => 'admin/x/',
 $config['general']['admin']['sections'] = array(
 									//'user' =>array('url' => '#user/show_list', 'name' => 'Clientes', 'admin_only' => true, 'icon' => 'fa-user'),
 									'contact' =>array('url' => '#contact/show_list', 'name' => 'Contactos', 'admin_only' => true, 'icon' => 'fa-book'),
-
+									'article_category' => array('url' => '#article_category/show_list', 'name' => 'article_category', 'admin_only' => true, 'icon' => 'fa-book'),
+									'article' => array('url' => '#article/show_list', 'name' => 'ARTICULOS', 'admin_only' => true, 'icon' => 'fa-book'),
 									'banner' =>array('url' => '#banner/show_list', 'name' => 'Banners', 'admin_only' => true, 'icon' => 'fa-photo'),
 									'category' =>array('url' => '#category/show_list', 'name' => 'Categorias', 'admin_only' => true, 'icon' => 'fa-list'),
 									'subcategory' =>array('url' => '#subcategory/show_list', 'name' => 'Sub Categorias', 'admin_only' => true, 'icon' => 'fa-th-list'),

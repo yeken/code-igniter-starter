@@ -39,7 +39,7 @@ $config['modules'][$module_name]['fields'] = array(
 										'mobile_image' => array(	'label' => 'Imagen Mobile',
 																'type' => 'image',
 																'tag' => 'mobile_image',
-																'description' => 'Tamaño: Ancho Maximo 768px.',
+																'description' => 'Tamaño: 768x600',
 																'validation' => '',
 																'visibility' => 'details|save',
 															),

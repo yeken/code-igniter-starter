@@ -1,142 +1,88 @@
-<? include(dirname(__FILE__)."/common/header.php") ?>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.4";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+﻿<? $this->load->view('front/common/header.php'); ?>		
 
-    <section class="image-bg-fluid-height" style="background: url('<?=base_url();?>assets_fe/img/slider1.jpg') no-repeat center center scroll;">
-        <div class="container">
-            <div class="row">
-                <div class=" col-xs-12">
-                    <h1 class="section-heading"><?=ucfirst($section);?></h1>
-                </div>
-            </div>
+	<div class="container container-home">
+    	<div class="col-md-8">
+            <? 
+			if(count($recents_articles)>0)
+			{
+				?>
+				<h2 class="title-blue" style="text-transform:uppercase">Artículos recientes</h2>
+				<div class="row">
+				<?
+				$i = 0;		
+				foreach($recents_articles as $article)
+				{
+					$i++;
+				?>
+					<div class="col-lg-6" style="margin-bottom:20px;">
+						<a href="<?=$article['detail_url'];?>">
+                        <img src="<? if(valid_url($article['image_list'])){ echo $article['image_list']; }else{  base_url().'assets_fe/img/detalle_foto.jpg'; } ?>" border="0" />
+                        </a>
+						<div class="clearfix"></div>
+						<span class="label label-default"><a href="<?=base_url().'categoria/'.$article['category_id'].'/'.$article['categories_names']?>"><?=$article['categories_names']?></a></span>
+						<!--<span class="label label-comment">0</span>-->
+						<div class="clearfix"></div>
+						<div class="date"><?=dateFormat($article['date_event_start'],'d/m/Y');?></div>
+						<div class="title"><a href="<?=$article['detail_url'];?>"><?=$article['title'];?></a></div>
+						<div class="brief"><?=$article['brief'];?></div>
+					</div>
+					<?
+						if(($i % 2 == 0))
+						{
+							echo "<div class='clearfix'></div>";
+						}
+					}
+					?>
+				</div>
+				<? 
+			}
+			else{
+			?>
+			<!--<p>No hay articulos recientes</p>-->
+			<? 
+			}
+			?>
+        	<h2 class="title-blue">M&Aacute;S ART&Iacute;CULOS</h2>
+            <?
+			
+			if(count($more_articles)>0)
+			{
+			
+				foreach($more_articles as $article)
+				{
+				?>
+				<div class="row list-horizontal">
+					<div class="col-lg-4">
+					<a href="<?=$article['detail_url'];?>">
+	                    <img src="<? if(valid_url($article['image_list'])){ echo $article['image_list']; }else{  base_url().'assets_fe/img/listado_foto.jpg'; } ?>" border="0" />
+                    </a>
+					</div>
+					<div class="col-lg-8">
+						<span class="label label-default">
+							<a href="<?=base_url().'categoria/'.$article['category_id'].'/'.$article['categories_names']?>"><?=$article['categories_names']?></a>
+						</span>
+						<!--<span class="label label-comment">0</span>-->
+						<div class="clearfix"></div>
+						<div class="title"><a href="<?=$article['detail_url'];?>"><?=$article['title'];?></a></div>
+						<div class="brief"><?=$article['brief']?></div>
+					</div>
+				</div>
+				<div class="divider"></div>
+				<?
+				}
+			}else{
+			?>
+            <p></p>
+            <?	
+			}
+			echo $this->pagination->create_links();
+			?>
+            
         </div>
-    </section>
-    
-    <section id="blog">
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-xs-7">
-
-                    <div class="destacado">
-                        <?
-                            if(is_array($posts['by_category']['novedades'])){
-                                $i = 0;
-                                foreach($posts['by_category']['novedades'] as $post){
-                                    
-                        ?>
-                            <a href="<?= base_url()?>post/<?= $post->get_id()?>/<?= urlencode($post->name)?>">
-                                <img class="img-responsive" src="<?= $post->main_image?>">
-                                <h4><?= $post->name?></h4>
-                                <p class="description"><?= $post->description?></p>
-                            </a>
-                        <?
-                                    $i++;
-                                    if($i==1){
-                                      break;
-                                    }
-                                }
-                            }
-                        ?>  
-                    </div>
-
-                    <div class="tendencias">
-                        <div class="row">
-                            <?
-                            if(is_array($posts['by_category']['tendencia'])){
-                                $i = 0;
-                                foreach($posts['by_category']['tendencia'] as $post){
-
-                            ?>
-                            <div class="col-xs-6">
-                                <a href="<?= base_url()?>post/<?= $post->get_id()?>/<?= urlencode($post->name)?>">
-                                    <img class="img-responsive" src="<?= $post->main_image?>">
-                                    <h3 class="<?= $post->category?>"><?= $post->category?></h3>
-                                    <h4><?= $post->name?></h4>
-                                    <p class="date"><?= $post->date_created?></p>
-                                    <p class="description"><?= $post->description?></p>
-                                </a>
-                            </div>
-                            <?
-                                    $i++;
-                                    if($i==2){
-                                        break;
-                                    }
-                                }
-                            }
-                            ?>
-                        </div>
-                    </div>
-                    <h4>Todos los posts</h4>
-                    <div class="todos">
-                        <div class="row">
-                            <?
-                                if(is_array($posts['full_list'])){
-                                    $i = 0;
-                                    foreach($posts['full_list'] as $post){
-                                        
-                            ?>
-                            <div class="col-xs-12">
-                                <a href="<?= base_url()?>post/<?= $post->get_id()?>/<?= urlencode($post->name)?>">
-                                    <img class="img-responsive" src="<?= $post->main_image?>">                                                              
-                                    <h4><?= $post->name?></h4>
-                                    <h3><?= $post->category?></h3>  
-                                    <p class="date"><?= $post->date_created?></p>
-                                    <p class="description"><?= $post->description?></p>
-                                </a>
-                            </div>
-                            <?
-                                        $i++;
-                                        if($i==10){
-                                          break;
-                                        }
-                                    }
-                                }
-                            ?>  
-                        </div>
-                    </div>
-                </div>
-                     
-                <div class="col-xs-5">
-                    <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
-                    <h4>Novedades</h4>
-                    <div class="novedades">
-                        <?
-                            if(is_array($posts['by_category']['novedades'])){
-                                $i = 0;
-                                foreach($posts['by_category']['novedades'] as $post){
-                                    
-                        ?>
-                        <div class="item">
-                            <img class="img-responsive" src="<?= $post->main_image?>">
-                            <a href="<?= base_url()?>post/<?= $post->get_id()?>/<?= urlencode($post->name)?>">
-                                <?= $post->name?>
-                            </a>
-                        </div>
-                        <?
-                                    $i++;
-                                    if($i==5){
-                                      break;
-                                    }
-                                }
-                            }
-                        ?>  
-                    </div>          
-                </div>
-
-            </div>              
+        <div class="col-md-4 col-right">
+	        <? $this->load->view('front/common/sidebar-right.php'); ?>
         </div>
-    </section>
+        
+    </div>
 
-    <script type="text/javascript">
-        $(".post-item .description").text(function(index, currentText) {
-            return currentText.substr(0, 250);
-        });
-    </script>
-<? include(dirname(__FILE__)."/common/footer.php") ?>
+<? $this->load->view('front/common/footer.php');  ?>

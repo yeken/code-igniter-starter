@@ -873,7 +873,12 @@ section#color-chart #viewer{
 	font-weight: 300;
 }
 
-section#color-chart #viewer .color-option img{
+section#color-chart #viewer .color-option .color_icon{
+	display: none;
+}
+
+section#color-chart #viewer .color-option .main_image{
+	display: inline-block;
 	float: left;
 	margin-right: 3%;
 }
@@ -882,7 +887,7 @@ section#color-chart #viewer .color-option p{
 	color: #000000;
 	display: inline-block;
 	font-size: 22px;
-	line-height: 92px;
+	line-height: 170px;
 	float: left;
 }
 
@@ -918,6 +923,7 @@ section#color-chart #accordion .panel-body{
 
 section#color-chart #accordion .color-option{
 	position: relative;
+	cursor: pointer;
 }
 
 section#color-chart #accordion .color-option .viewing{
@@ -934,7 +940,9 @@ section#color-chart #accordion .color-option .viewing{
 section#color-chart #accordion .color-option img{
 	min-width: 20px;
 }
-section#color-chart #accordion .color-option p{
+
+section#color-chart #accordion .color-option p, 
+section#color-chart #accordion .color-option .main_image{
 	display: none;
 }
 

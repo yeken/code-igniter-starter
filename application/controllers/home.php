@@ -46,22 +46,141 @@ class Home extends Front_init
 		$this->load->view("front/about.php", $this->data);
 	}
 
-	public function blog()
+		public function articulos($offset=0)
 	{
-		$this->get_posts();
+			
+		$this->load->library('pagination');
+		
+		$config['base_url'] = base_url().'articulos';
+		$config['total_rows'] = $this->get_totals_more_news();
+		$config['per_page'] = 9; 
+		$config['uri_segment'] = 2;
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['prev_link'] = '&laquo;';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['next_link'] = '&raquo;';
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active"><a href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+		
+		$this->pagination->initialize($config); 
 
-		$config = array();
-    $config["total_rows"] = $this->blog_model->record_count();
-    $config["per_page"] = 1;
-    $config["uri_segment"] = 3;
+		$this->get_more_news($offset, 9, 1);
+		$this->load->view("front/articulos.php", $this->data);
+	}
 
-    $this->pagination->initialize($config);
+	public function search()
+	{
+		$this->get_search_news(20);
+		$this->get_banners();
 
-    $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-    $data["results"] = $this->blog_model->fetch_posts($config["per_page"], $page);
-    $data["links"] = $this->pagination->create_links();
+		$this->data['page_title'] = 'Revolutio';
+		$this->data['page_description'] = 'Revolutio ';
+		$this->data['section'] = 'home';
 
-		$this->data['section'] = "blog";
+		$this->load->view("front/seach.php", $this->data);
+	}
+
+	public function categoria($name='', $offset=0)
+	{
+		
+		$this->load->library('pagination');
+		
+		$config['base_url'] = base_url().'categoria/'.$name;
+		$config['total_rows'] = $this->get_articles();
+		$config['per_page'] = 10; 
+		$config['uri_segment'] = 4;
+
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['prev_link'] = '&laquo;';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['next_link'] = '&raquo;';
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active"><a href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+		
+		$this->pagination->initialize($config); 
+		
+		$this->get_articles($offset);
+		
+		
+		$this->data['section'] = $name;
+
+		$this->data['avoid_cover'] = $offset ? true: false;
+		$this->load->view("front/categoria.php", $this->data);
+	}
+
+	public function noticia($id, $nombre)
+	{
+		$this->get_article($id);
+		$this->get_related_news(4, 'category_id = '.$this->data['article']['category_id'].' AND article_id != '.$this->data['article']['article_id']);
+
+		$this->article_model->add_view($id);
+		$this->get_ads('article_detail');
+		
+		$this->data['page_title'] = 'Revolutio | '.$this->data['article']['title'];
+		$this->data['page_description'] = strip_tags($this->data['article']['brief']);
+
+		$this->load->model('user_model');
+		$this->get_user($this->data['article']['creator_id']);
+
+		$this->data['section'] = 'noticia';
+
+		$this->load->view("front/noticia_detalle.php", $this->data);
+	}
+
+		public function tag($tag)
+	{
+		$this->get_by_tags($tag);
+		$this->get_banners();
+
+		$this->data['page_title'] = 'Revolutio | '.$tag;
+		$this->data['page_description'] = 'Revolutio ';
+		$this->data['section'] = 'search';
+		
+		$this->data['term'] = urldecode($tag);
+
+		$this->load->view("front/seach.php", $this->data);
+	}
+
+	public function blog($offset=0)
+	{
+		$this->load->library('pagination');
+		$this->get_recent_news();
+		$this->get_more_news(count($this->data['recents_articles']),4,1);
+		$config['base_url'] = base_url().'articulos/';
+		$config['total_rows'] = $this->get_totals_more_news(21);
+		$config['per_page'] = 9; 
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['prev_link'] = '&laquo;';
+		$config['prev_tag_open'] = '<li>';
+		$config['prev_tag_close'] = '</li>';
+		$config['next_link'] = '&raquo;';
+		$config['next_tag_open'] = '<li>';
+		$config['next_tag_close'] = '</li>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active"><a href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+		$this->pagination->initialize($config); 		
+		$this->get_banners();
+		$this->data['page_title'] = 'Revolutio';
+		$this->data['page_description'] = 'Revolutio ';
+		$this->data['section'] = 'home';
+
+		// $this->output->enable_profiler(TRUE);
+
 		$this->load->view("front/blog.php", $this->data);
 	}
 

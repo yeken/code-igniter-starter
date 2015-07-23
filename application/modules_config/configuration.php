@@ -61,10 +61,10 @@ $config['modules'][$module_name]['fields'] = array(
 																'visibility' => 'edit|details|list'
 																),
 
-										'url_twitter' => array('label' => 'Twitter URL',
+										'url_youtube' => array('label' => 'Youtube URL',
 																'type' => 'text',
 																'validation' => '',
-																'description' => "ej: http://www.twitter.com/username",
+																'description' => "ej: http://www.youtube.com/username",
 																'visibility' => 'edit|details|list'
 																),
 

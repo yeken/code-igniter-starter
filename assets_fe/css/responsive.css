@@ -137,7 +137,7 @@
 	}
 
 	/*BLOG*/
-	section#blog #popular{
+	section#blog .mobile{
 		display: none;
 	}
 

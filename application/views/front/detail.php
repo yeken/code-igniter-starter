@@ -67,7 +67,8 @@
  						?>
 				        <div class="col-xs-1 col-md-1">
 				        	<div class="color-option">
-					        	<img class="img-responsive" src="<?= $color->main_image?>">
+					        	<img class="img-responsive color_icon" src="<?= $color->color_icon?>">
+					        	<img class="img-responsive main_image" src="<?= $color->main_image?>">
 					        	<p>
 				        			<?= $color->name?> <span><?= $color->tone?><sup><?= $color->subtone?></sup></span>
 					        	</p>

@@ -117,6 +117,314 @@ class Front_init extends CI_Controller
 
 	}
 
+	public function get_news_by_author($author, $limit=10)
+	{
+		$sql = "SELECT * FROM articles WHERE active = 1 AND show_insite = 1 AND creator_name = '{$author}' ORDER BY  date_created DESC LIMIT 0, {$limit}";
+
+		$query = $this->db->query($sql);
+		$this->load->model('admin/article_model');
+		foreach($query->result_array() as $article)
+		{
+			$this->article_model->set($article);
+			$this->article_model->get_files();
+			
+			foreach($this->article_model->file_tags as $file_tag)
+			{
+				$article[$file_tag] = $this->article_model->$file_tag;
+			}
+			foreach($this->article_model->gallery_tags as $gallery_tag)
+			{
+				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
+			}
+			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
+			
+			$this->data['articles'][] = $article;
+		}
+	}
+
+	public function get_totals_more_news($group_id = 0)
+	{
+		$sql = "SELECT * FROM articles WHERE active = 1 AND show_insite = 1 ".($group_id ? "AND group_id = '".(int)$group_id."'" : "")." ORDER BY date_event_start DESC";
+		$query = $this->db->query($sql);
+		return $query->num_rows();
+	}
+
+
+	public function get_recent_news($offset=0, $limit=4 )
+	{
+		$sql = "SELECT A.* FROM articles AS A  WHERE A.active = 1 AND A.show_insite = 1 AND group_id = 21 ORDER BY  A.date_event_start DESC LIMIT {$offset}, {$limit}";
+		$query = $this->db->query($sql);
+		$this->load->model('admin/article_model');
+		foreach($query->result_array() as $article)
+		{
+			$this->article_model->set($article);
+			$this->article_model->get_files();
+			
+			foreach($this->article_model->file_tags as $file_tag)
+			{
+				$article[$file_tag] = $this->article_model->$file_tag;
+			}
+			foreach($this->article_model->gallery_tags as $gallery_tag)
+			{
+				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
+			}
+			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
+			
+			$this->data['recents_articles'][] = $article;
+		}
+	}
+	
+	public function get_more_news($offset=0, $limit=4, $where=1)
+	{
+		$this->data['more_articles'] = array();
+		$sql = "SELECT * FROM articles WHERE {$where} AND active = 1 AND show_insite = 1 AND group_id = 21 ORDER BY date_event_start DESC LIMIT {$offset} , {$limit}";
+		$query = $this->db->query($sql);
+		$this->load->model('admin/article_model');
+
+		foreach($query->result_array() as $article)
+		{
+			$this->article_model->set($article);
+			$this->article_model->get_files();
+			
+			foreach($this->article_model->file_tags as $file_tag)
+			{
+				$article[$file_tag] = $this->article_model->$file_tag;
+			}
+			foreach($this->article_model->gallery_tags as $gallery_tag)
+			{
+				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
+			}
+			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
+
+			$this->data['more_articles'][] = $article;
+		}
+		
+	}
+
+	public function get_related_news($limit=4, $where=1)
+	{
+		$sql = "SELECT * FROM articles WHERE {$where} AND active = 1 AND show_insite = 1 ORDER BY date_event_start DESC LIMIT {$limit}";
+		$query = $this->db->query($sql);
+		$this->load->model('admin/article_model');
+		foreach($query->result_array() as $article)
+		{
+			$this->article_model->set($article);
+			$this->article_model->get_files();
+			
+			foreach($this->article_model->file_tags as $file_tag)
+			{
+				$article[$file_tag] = $this->article_model->$file_tag;
+			}
+			foreach($this->article_model->gallery_tags as $gallery_tag)
+			{
+				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
+			}
+			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
+
+			$this->data['related_articles'][] = $article;
+
+		}
+	}
+	
+	public function get_by_tags($tag)
+	{
+		$term = urldecode($tag);
+		$sql = "SELECT * FROM articles WHERE active = 1 AND (tags LIKE '%".$term."%') AND show_insite = 1 ORDER BY  date_created DESC";
+
+		$query = $this->db->query($sql);
+		$this->load->model('admin/article_model');
+		foreach($query->result_array() as $article)
+		{
+			$this->article_model->set($article);
+			$this->article_model->get_files();
+			
+			foreach($this->article_model->file_tags as $file_tag)
+			{
+				$article[$file_tag] = $this->article_model->$file_tag;
+			}
+			foreach($this->article_model->gallery_tags as $gallery_tag)
+			{
+				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
+			}
+			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
+			
+			$this->data['search_articles'][] = $article;
+		}
+	}
+
+	public function get_search_news($limit=20)
+	{
+		$term = $this->input->post('term');
+		$this->data['search'] = $term;
+		$sql = "SELECT * FROM articles WHERE active = 1 AND(title LIKE '%".$term."%' OR brief LIKE '%".$term."%' OR description LIKE '%".$term."%' OR MATCH(brief,description,title) AGAINST ('".mysql_real_escape_string($term)."'))  ORDER BY  date_created DESC LIMIT 0, {$limit}";
+
+		$query = $this->db->query($sql);
+		$this->load->model('admin/article_model');
+		foreach($query->result_array() as $article)
+		{
+			$this->article_model->set($article);
+			$this->article_model->get_files();
+			
+			foreach($this->article_model->file_tags as $file_tag)
+			{
+				$article[$file_tag] = $this->article_model->$file_tag;
+			}
+			foreach($this->article_model->gallery_tags as $gallery_tag)
+			{
+				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
+			}
+			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
+			
+			$this->data['search_articles'][] = $article;
+		}
+	}
+	
+	public function get_category_by_id($category_id)
+	{
+		$sql = "SELECT * FROM articles_categories WHERE category_id = {$category_id} AND active = 1";
+		$query = $this->db->query($sql);
+		$this->load->model('admin/article_category_model');
+		foreach($query->result_array() as $category)
+		{
+			$this->article_category_model->set($category);
+			$this->article_category_model->get_files();
+			
+			foreach($this->article_category_model->file_tags as $file_tag)
+			{
+				$category[$file_tag] = $this->article_category_model->$file_tag;
+			}
+			foreach($this->article_category_model->gallery_tags as $gallery_tag)
+			{
+				$category[$gallery_tag] = $this->article_category_model->galleries[$gallery_tag];
+			}
+			
+			$this->data['category'] = $category;
+		}
+	}
+
+	public function get_totals_articles_by_category($category_id)
+	{
+		$sql = "SELECT * FROM articles AS a WHERE a.category_id = {$category_id} AND a.active = 1 AND show_insite = 1";
+		$query = $this->db->query($sql);
+		return $query->num_rows();
+	}
+	
+	public function get_articles($offset=0)
+	{
+
+		$sql = "SELECT * FROM articles AS a WHERE active = 1 LIMIT {$offset} , 10";
+		$query = $this->db->query($sql);
+		$this->load->model('admin/article_model');
+		foreach($query->result_array() as $article)
+		{
+			$this->article_model->set($article);
+			$this->article_model->get_files();
+			
+			foreach($this->article_model->file_tags as $file_tag)
+			{
+				$article[$file_tag] = $this->article_model->$file_tag;
+			}
+			foreach($this->article_model->gallery_tags as $gallery_tag)
+			{
+				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
+			}
+			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
+			
+			$this->data['articles'][] = $article;
+		}
+	}
+
+	public function get_article($id)
+	{
+		$sql = "SELECT * FROM articles WHERE article_id = ".$id." AND active = 1 ORDER BY date_event_start DESC LIMIT 1";
+		$query = $this->db->query($sql);
+		$this->load->model('admin/article_model');
+		foreach($query->result_array() as $article)
+		{
+			$this->article_model->set($article);
+			$this->article_model->get_files();
+			
+			foreach($this->article_model->file_tags as $file_tag)
+			{
+				$article[$file_tag] = $this->article_model->$file_tag;
+			}
+			foreach($this->article_model->gallery_tags as $gallery_tag)
+			{
+				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
+			}
+			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
+			
+			if($where!=1)
+			{
+				$this->data['article'] = $article;
+			}else{
+				$this->data['articles'][] = $article;
+			}
+		}
+	}
+
+	public function get_news($limit=3, $where=1)
+	{
+		$sql = "SELECT * FROM articles WHERE {$where} AND active = 1 AND show_insite = 1 ORDER BY date_event_start DESC LIMIT {$limit}";
+		$query = $this->db->query($sql);
+		$this->load->model('admin/article_model');
+		foreach($query->result_array() as $article)
+		{
+			$this->article_model->set($article);
+			$this->article_model->get_files();
+			
+			foreach($this->article_model->file_tags as $file_tag)
+			{
+				$article[$file_tag] = $this->article_model->$file_tag;
+			}
+			foreach($this->article_model->gallery_tags as $gallery_tag)
+			{
+				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
+			}
+			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
+			
+			if($where!=1)
+			{
+				$this->data['article'] = $article;
+			}else{
+				$this->data['articles'][] = $article;
+			}
+		}
+	}
+
+	public function get_popular_news($limit=5, $where=1)
+	{
+		$sql = "SELECT * FROM articles WHERE {$where} AND active = 1 AND show_insite = 1 ORDER BY views DESC LIMIT {$limit}";
+		$query = $this->db->query($sql);
+		$this->load->model('admin/article_model');
+		foreach($query->result_array() as $article)
+		{
+			$this->article_model->set($article);
+			$this->article_model->get_files();
+			
+			foreach($this->article_model->file_tags as $file_tag)
+			{
+				$article[$file_tag] = $this->article_model->$file_tag;
+			}
+			foreach($this->article_model->gallery_tags as $gallery_tag)
+			{
+				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
+			}
+			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
+
+			$this->data['pop_articles'][] = $article;
+
+		}
+	}
+	
+	public function get_totals_recent_news()
+	{
+		$sql = "SELECT * FROM articles AS A INNER JOIN articles_groups AS ag ON ag.group_id = A.group_id WHERE A.active = 1 AND A.group_id != 0 AND ag.active = 1 AND ag.show_home = 1 AND A.show_insite = 1 GROUP BY ag.group_id ORDER BY ag.group_id ASC, A.date_event_start DESC LIMIT 0, 20000";
+		$query = $this->db->query($sql);
+		$query->num_rows();
+	}
+	
+
 	public function get_posts(){
 			$sql = 'SELECT * FROM blog WHERE active = 1 ORDER BY post_id DESC';
 			$result = $this->db->query($sql)->result_array();

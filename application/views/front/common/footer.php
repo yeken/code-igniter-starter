@@ -5,8 +5,8 @@
         <div class="row">
           <div class="col-xs-12 mobile">
                 <img src="<?=base_url();?>assets_fe/img/logo_footer.png" alt="logo" />
-                <a href="#" target="_blank" class="social"><img src="<?=base_url();?>assets_fe/img/ico_facebook.png" alt="Facebook" /></a>
-                <a href="#" target="_blank" class="social"><img src="<?=base_url();?>assets_fe/img/ico_twitter.png" alt="Twitter" /></a>
+                <a href="<?= $this->configuration_model->url_facebook?>" target="_blank" class="social"><img src="<?=base_url();?>assets_fe/img/ico_facebook.png" alt="Facebook" /></a>
+                <a href="<?= $this->configuration_model->url_youtube?>" target="_blank" class="social"><img src="<?=base_url();?>assets_fe/img/ico_youtube.png" alt="Youtube" /></a>
           </div>
           <div class="col-xs-12 col-sm-4">
             <p>© 2015. Issue - Todos los derechos reservados®</p>
