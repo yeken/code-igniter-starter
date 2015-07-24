@@ -23,7 +23,9 @@
 		</div>
 	</div>
 </section>
-
+<?
+  if(count($colors)>0){
+?>
 <section id="color-chart">
 	<div class="container">
 		<div class="row">
@@ -47,41 +49,44 @@
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 				  <?
-				  $i = 0;
-				  foreach($colors as $category => $category_colors){
-				  	$cat = preg_replace('/\s+/', '_', $category);
+					  $i = 0;
+					  foreach($colors as $category => $category_colors){
+					  	$cat = preg_replace('/\s+/', '_', $category);
 
- 						?>
-	 					<div class="panel panel-default">
-					    <div class="panel-heading" role="tab" id="headingOne">
-					      <h4 class="panel-title">
-					        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#<?= $cat?>" aria-expanded="true" aria-controls="collapseOne">
-					          &bull; <?= $category?>
-					        </a>
-					      </h4>
+	 						?>
+		 					<div class="panel panel-default">
+						    <div class="panel-heading" role="tab" id="headingOne">
+						      <h4 class="panel-title">
+						        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#<?= $cat?>" aria-expanded="true" aria-controls="collapseOne">
+						          &bull; <?= $category?>
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="<?= $cat?>" class="panel-collapse <?if($i==0){echo "collapse in";} else{echo "collapse out";};?>" role="tabpanel" aria-labelledby="headingOne">
+					      <div class="panel-body">
+	 						<?
+	 						foreach($category_colors as $color){
+	 						?>
+					        <div class="col-xs-1 col-md-1">
+					        	<div class="color-option">
+						        	<img class="img-responsive color_icon" src="<?= $color->color_icon?>">
+						        	<img class="img-responsive main_image" src="<?= $color->main_image?>">
+						        	<p>
+					        			<?= $color->name?> <span><?= $color->tone?><sup><?= $color->subtone?></sup></span>
+						        	</p>
+					        	</div>
+					        </div>
+	 						<?
+	 							}
+	 						?>
+	 						</div>
 					    </div>
-					    <div id="<?= $cat?>" class="panel-collapse <?if($i==0){echo "collapse in";} else{echo "collapse out";};?>" role="tabpanel" aria-labelledby="headingOne">
-				      <div class="panel-body">
- 						<?
- 						foreach($category_colors as $color){
- 						?>
-				        <div class="col-xs-1 col-md-1">
-				        	<div class="color-option">
-					        	<img class="img-responsive color_icon" src="<?= $color->color_icon?>">
-					        	<img class="img-responsive main_image" src="<?= $color->main_image?>">
-					        	<p>
-				        			<?= $color->name?> <span><?= $color->tone?><sup><?= $color->subtone?></sup></span>
-					        	</p>
-				        	</div>
-				        </div>
- 						<?
- 							}
- 						?>
- 						</div>
-				    </div>
-				  </div>
- 						<?
- 						$i++;
+					  </div>
+					<?
+	 						$i++;
+	 						}
+ 						} else{
+
  						}
 				  ?>
 

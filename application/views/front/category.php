@@ -14,7 +14,11 @@
 
     <section id="coloracion">
       <div class="container">
-        <div class="row" id="coll">
+        <?
+        $i = 0;
+        echo '<div class="row coll" id="'.$i.'">';
+        ?>
+        
           <div id="opacity-bg"></div>
           <div class="showing"></div>
           <?php
@@ -45,10 +49,11 @@
                 ?>
               </div>
                 <?
+                $i++;
+                if ($i == 3) echo '</div><!-- end row --><div class="row coll" id="'.$i.'">';
             }
           ?>
 
-        </div><!-- end row -->
       </div><!-- end container -->
     </section>
 
@@ -86,7 +91,16 @@
       //controla el ancho de la ventana
       if ($(window).width() > 768){
           //mueve los detalles al final de #coll
-          $(".detail-cont").appendTo("#coll");
+          $('.coll').click(function(){
+            var $did = $(this).attr('id');
+
+            $(".detail-cont").appendTo('#'+$did);
+
+            $('html, body').animate({
+                scrollTop: $('#'+$id+'.detail-cont').offset().top
+            }, 500);
+          })
+          
       }
     </script>
     

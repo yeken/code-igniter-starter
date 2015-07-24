@@ -118,7 +118,7 @@ header .navbar-primary ul li.social a:hover{
 #slider #myCarousel .carousel-caption{
 	left: 0;
 	width: 100%;
-	top: 20%;
+	bottom: 5%;
 	text-align: left;
 	color: #ffffff;
 	font-family: 'Signika', sans-serif;
@@ -376,7 +376,7 @@ header .navbar-primary ul li.social a:hover{
 	float: left;
 	width: 90%;
 	color: #ffffff;
-	font-size: 30px;
+	font-size: 22px;
 	font-weight: 600;
 }
 /* FOOTER */
@@ -408,6 +408,10 @@ footer ul li{
 footer ul li a{
 	float: left;
 	color: #878889;
+}
+
+footer ul li a:hover{
+	color: #ffffff;
 }
 footer .mobile{
 	display: none;
@@ -460,6 +464,17 @@ section#coloracion{
 	position: relative;
 }
 
+section#coloracion .coll{
+	border-top: 1px solid #d5d5d5;
+	padding-top: 4%;
+	margin-top: 4%;
+}
+
+section#coloracion .coll:first-child{
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
 section#coloracion .product-item{
 	text-align: center;
 }
@@ -505,12 +520,12 @@ section#coloracion #opacity-bg{
 section#coloracion #opacity-bg.active{
 	display: block;
 }
-#coll .exposed{
+.coll .exposed{
 	text-align: center;
 	z-index: 2000 !important;
 }
 
-#coll .exposed img{
+.coll .exposed img{
 	background: #ffffff;
 	border: 1px solid #ffffff !important;
 }
@@ -526,9 +541,9 @@ section#coloracion .showing{
 	z-index: 2000 !important;
 }
 
-#coll .exposed h3, 
-#coll .exposed p, 
-#coll .exposed img{
+.coll .exposed h3, 
+.coll .exposed p, 
+.coll .exposed img{
 	color: #ffffff !important;
 	z-index: 2000 !important;
 }
