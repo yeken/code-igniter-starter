@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 24, 2015 at 03:21 PM
+-- Generation Time: Jul 24, 2015 at 06:25 PM
 -- Server version: 5.5.43-0ubuntu0.12.04.1
 -- PHP Version: 5.5.23-1+deb.sury.org~precise+2
 
@@ -19,6 +19,187 @@ SET time_zone = "+00:00";
 --
 -- Database: `issue`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles`
+--
+
+CREATE TABLE IF NOT EXISTS `articles` (
+  `article_id` int(11) unsigned NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `categories_names` text NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `groups_names` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `brief` text NOT NULL,
+  `description` text NOT NULL,
+  `date_event_start` datetime NOT NULL,
+  `web` text NOT NULL,
+  `source` varchar(250) NOT NULL,
+  `file_manager_id` int(11) unsigned NOT NULL,
+  `video` varchar(255) NOT NULL,
+  `active` smallint(1) unsigned NOT NULL,
+  `show_agenda` smallint(6) NOT NULL,
+  `show_insite` smallint(6) NOT NULL,
+  `tags` varchar(255) NOT NULL,
+  `views` int(11) NOT NULL,
+  `show_image_details` tinyint(1) unsigned NOT NULL,
+  `user_listed` int(11) NOT NULL,
+  `date_created` datetime NOT NULL,
+  `creator_id` int(11) unsigned NOT NULL,
+  `creator_name` varchar(255) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=769 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `articles`
+--
+
+INSERT INTO `articles` (`article_id`, `category_id`, `categories_names`, `group_id`, `groups_names`, `title`, `brief`, `description`, `date_event_start`, `web`, `source`, `file_manager_id`, `video`, `active`, `show_agenda`, `show_insite`, `tags`, `views`, `show_image_details`, `user_listed`, `date_created`, `creator_id`, `creator_name`) VALUES
+(767, 5, 'prueba', 0, 'Sin grupo', 'titulo de prueba 1', 'resumen de prueba 1', 'descripcion de prueba 1', '2015-07-24 18:21:00', '#', 'tester', 99, '', 1, 1, 1, 'test', 0, 1, 0, '2015-07-24 18:22:56', 3, 'issue'),
+(768, 5, 'prueba', 0, 'Sin grupo', 'titulo prueba 2', 'RESUMEN PRUEBA 2', 'descripcion prueba 3', '2015-07-24 18:23:00', '', 'tester', 100, '', 1, 1, 1, '', 0, 1, 0, '2015-07-24 18:23:34', 3, 'issue');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_categories`
+--
+
+CREATE TABLE IF NOT EXISTS `articles_categories` (
+  `category_id` int(11) unsigned NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `active` int(11) NOT NULL,
+  `total_articles` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `creator_name` varchar(255) NOT NULL,
+  `date_created` datetime NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `articles_categories`
+--
+
+INSERT INTO `articles_categories` (`category_id`, `title`, `active`, `total_articles`, `creator_id`, `creator_name`, `date_created`) VALUES
+(5, 'prueba', 1, 0, 3, 'issue', '2015-07-24 18:21:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_categories_articles`
+--
+
+CREATE TABLE IF NOT EXISTS `articles_categories_articles` (
+  `article_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `priority` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_categories_deleted`
+--
+
+CREATE TABLE IF NOT EXISTS `articles_categories_deleted` (
+  `category_id` int(11) unsigned NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `active` int(11) NOT NULL,
+  `total_articles` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `creator_name` varchar(255) NOT NULL,
+  `date_created` datetime NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_deleted`
+--
+
+CREATE TABLE IF NOT EXISTS `articles_deleted` (
+  `article_id` int(11) unsigned NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `categories_names` text NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `groups_names` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `brief` text NOT NULL,
+  `description` text NOT NULL,
+  `date_event_start` datetime NOT NULL,
+  `web` text NOT NULL,
+  `source` varchar(250) NOT NULL,
+  `file_manager_id` int(11) unsigned NOT NULL,
+  `video` varchar(255) NOT NULL,
+  `active` smallint(1) unsigned NOT NULL,
+  `show_agenda` smallint(6) NOT NULL,
+  `show_insite` smallint(6) NOT NULL,
+  `tags` varchar(255) NOT NULL,
+  `views` int(11) NOT NULL,
+  `show_image_details` tinyint(1) unsigned NOT NULL,
+  `user_listed` int(11) NOT NULL,
+  `date_created` datetime NOT NULL,
+  `creator_id` int(11) unsigned NOT NULL,
+  `creator_name` varchar(255) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=737 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_groups`
+--
+
+CREATE TABLE IF NOT EXISTS `articles_groups` (
+  `group_id` int(11) unsigned NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `show_home` smallint(1) NOT NULL,
+  `priority` int(11) NOT NULL,
+  `active` int(11) NOT NULL,
+  `total_articles` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `creator_name` varchar(255) NOT NULL,
+  `date_created` datetime NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_groups_deleted`
+--
+
+CREATE TABLE IF NOT EXISTS `articles_groups_deleted` (
+  `group_id` int(11) unsigned NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `show_home` smallint(1) NOT NULL,
+  `priority` int(11) NOT NULL,
+  `active` int(11) NOT NULL,
+  `total_articles` int(11) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `creator_name` varchar(255) NOT NULL,
+  `date_created` datetime NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_tags`
+--
+
+CREATE TABLE IF NOT EXISTS `articles_tags` (
+  `article_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles_tags_articles`
+--
+
+CREATE TABLE IF NOT EXISTS `articles_tags_articles` (
+  `article_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -82,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `bitauth_logins` (
   `user_id` int(10) unsigned NOT NULL,
   `time` datetime NOT NULL,
   `success` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bitauth_logins`
@@ -149,7 +330,8 @@ INSERT INTO `bitauth_logins` (`login_id`, `ip_address`, `user_id`, `time`, `succ
 (58, 3189762968, 3, '2015-07-23 15:45:22', 1),
 (59, 3047876798, 3, '2015-07-23 18:14:25', 1),
 (60, 3047876798, 3, '2015-07-23 18:20:34', 1),
-(61, 3232243969, 3, '2015-07-23 23:59:56', 0);
+(61, 3232243969, 3, '2015-07-23 23:59:56', 0),
+(62, 3232243969, 3, '2015-07-24 18:21:40', 1);
 
 -- --------------------------------------------------------
 
@@ -205,7 +387,7 @@ CREATE TABLE IF NOT EXISTS `bitauth_users` (
 INSERT INTO `bitauth_users` (`user_id`, `username`, `fullname`, `displayname`, `email`, `password`, `password_last_set`, `password_never_expires`, `remember_me`, `activation_code`, `groups_names`, `group_id`, `active`, `forgot_code`, `forgot_generated`, `enabled`, `file_manager_id`, `last_login`, `last_login_ip`, `date_created`) VALUES
 (21822, 'bla', 'bla blas', '', 'admin@bla.com', '$2a$08$LfEZbVVeor1fIw79d5GEO.DVNWT6KZUJsYHkDIudtDX0iI0YPs8s2', '2014-08-29 12:34:33', 0, '8812207e38cccfed486024394288d8a22b66a632', '', 'Jugador', 3, 1, '', '0000-00-00 00:00:00', 1, 21, '2014-08-29 12:34:58', 2147483647, '2014-08-20 18:06:35'),
 (21823, 'admin3232', '32132132', '', 'j@a.com', '$2a$08$jJelYpqj2/qPWkah4.QFQOWYwNxJrndapu6XrUFkSBYrR9CLDJbk.', '2014-08-20 18:21:46', 0, '', '', 'Jugador', 3, 1, '', '0000-00-00 00:00:00', 1, 22, '0000-00-00 00:00:00', 0, '2014-08-20 18:21:46'),
-(3, 'issue', 'Admin tester', '', 'admin@admin.com', '$2a$08$1cpXj47yJmFf2It2gDeuyOYNAeAcHD6OjEjr7ZRTe7pYPc16yaeoG', '2015-07-13 15:05:29', 0, '18555419175df20bcca74e2305b21615548cc6f1', '', 'Administrador', 1, 1, '', '2015-07-15 15:17:51', 1, 23, '2015-07-23 18:20:34', 2147483647, '2012-09-28 16:27:01'),
+(3, 'issue', 'Admin tester', '', 'admin@admin.com', '$2a$08$1cpXj47yJmFf2It2gDeuyOYNAeAcHD6OjEjr7ZRTe7pYPc16yaeoG', '2015-07-13 15:05:29', 0, '18555419175df20bcca74e2305b21615548cc6f1', '', 'Administrador', 1, 1, '', '2015-07-15 15:17:51', 1, 23, '2015-07-24 18:21:40', 2147483647, '2012-09-28 16:27:01'),
 (21824, 'bla', 'Blas parera', '', 'bla2@gmail.com', '$2a$08$bDfP.YHM8GiAdb0CsjXwH.Z41rja57p6r/dZyE6mmHT0mwOXXjBse', '2014-08-29 12:40:08', 0, '', '', 'Manager', 2, 1, '', '0000-00-00 00:00:00', 1, 24, '2014-08-29 12:40:28', 2147483647, '2014-08-29 12:40:08'),
 (21825, 'bla', 'fdsfd', '', 'bla@bla.com', '$2a$08$MqhbrxvxBsfmga5f//Xt1uZI08GxZ60R4ZrOB/PmR70W0Kum0cKl.', '2014-08-29 13:30:28', 0, '', '', 'Manager', 2, 1, '', '0000-00-00 00:00:00', 1, 25, '0000-00-00 00:00:00', 0, '2014-08-29 13:30:28');
 
@@ -374,7 +556,7 @@ CREATE TABLE IF NOT EXISTS `files` (
   `ext` varchar(10) NOT NULL,
   `group` varchar(255) NOT NULL,
   `date_created` datetime NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=170 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=174 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `files`
@@ -453,7 +635,11 @@ INSERT INTO `files` (`file_id`, `file`, `file_name`, `type`, `code`, `ext`, `gro
 (167, '167_Rubio_Oscuro_6.png', 'Rubio Oscuro 6', 'image', '', 'png', '', '2015-07-23 20:36:04'),
 (166, '166_Castaño_claro_5.png', 'Castaño claro 5', 'image', '', 'png', '', '2015-07-23 20:35:45'),
 (165, '165_Castaño_4.png', 'Castaño 4', 'image', '', 'png', '', '2015-07-23 20:34:20'),
-(169, '169_Rubio_Claro_8.png', 'Rubio Claro 8', 'image', '', 'png', '', '2015-07-23 20:36:46');
+(169, '169_Rubio_Claro_8.png', 'Rubio Claro 8', 'image', '', 'png', '', '2015-07-23 20:36:46'),
+(170, '170_blog_post1.jpg', 'blog_post1', 'image', '', 'jpg', '', '2015-07-24 18:22:56'),
+(171, '171_blog_post2.jpg', 'blog_post2', 'image', '', 'jpg', '', '2015-07-24 18:22:56'),
+(172, '172_blog_post3.jpg', 'blog_post3', 'image', '', 'jpg', '', '2015-07-24 18:23:34'),
+(173, '173_crazy-colors.jpg', 'crazy-colors', 'image', '', 'jpg', '', '2015-07-24 18:23:34');
 
 -- --------------------------------------------------------
 
@@ -465,7 +651,7 @@ CREATE TABLE IF NOT EXISTS `file_managers` (
   `file_manager_id` int(11) unsigned NOT NULL,
   `file_manager` varchar(255) NOT NULL,
   `date_created` datetime NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `file_managers`
@@ -533,7 +719,9 @@ INSERT INTO `file_managers` (`file_manager_id`, `file_manager`, `date_created`) 
 (97, '', '2015-07-23 20:36:25'),
 (96, '', '2015-07-23 20:36:04'),
 (95, '', '2015-07-23 20:35:45'),
-(94, '', '2015-07-23 20:34:20');
+(94, '', '2015-07-23 20:34:20'),
+(99, '', '2015-07-24 18:22:56'),
+(100, '', '2015-07-24 18:23:34');
 
 -- --------------------------------------------------------
 
@@ -640,7 +828,11 @@ INSERT INTO `file_managers_files` (`file_manager_id`, `file_id`, `tag`, `order`)
 (95, 166, 'color_icon', 0),
 (96, 167, 'color_icon', 0),
 (97, 168, 'color_icon', 0),
-(98, 169, 'color_icon', 0);
+(98, 169, 'color_icon', 0),
+(99, 170, 'image_list', 0),
+(99, 171, 'image_details', 0),
+(100, 172, 'image_list', 0),
+(100, 173, 'image_details', 0);
 
 -- --------------------------------------------------------
 
@@ -787,6 +979,50 @@ INSERT INTO `subcategories` (`subcategory_id`, `category_id`, `category`, `name`
 --
 
 --
+-- Indexes for table `articles`
+--
+ALTER TABLE `articles`
+  ADD PRIMARY KEY (`article_id`),
+  ADD KEY `creator_id` (`creator_id`),
+  ADD FULLTEXT KEY `title` (`title`,`brief`,`description`);
+ALTER TABLE `articles`
+  ADD FULLTEXT KEY `title_2` (`title`);
+
+--
+-- Indexes for table `articles_categories`
+--
+ALTER TABLE `articles_categories`
+  ADD PRIMARY KEY (`category_id`);
+
+--
+-- Indexes for table `articles_categories_deleted`
+--
+ALTER TABLE `articles_categories_deleted`
+  ADD PRIMARY KEY (`category_id`);
+
+--
+-- Indexes for table `articles_deleted`
+--
+ALTER TABLE `articles_deleted`
+  ADD PRIMARY KEY (`article_id`),
+  ADD KEY `creator_id` (`creator_id`),
+  ADD FULLTEXT KEY `title` (`title`,`brief`,`description`);
+ALTER TABLE `articles_deleted`
+  ADD FULLTEXT KEY `title_2` (`title`);
+
+--
+-- Indexes for table `articles_groups`
+--
+ALTER TABLE `articles_groups`
+  ADD PRIMARY KEY (`group_id`);
+
+--
+-- Indexes for table `articles_groups_deleted`
+--
+ALTER TABLE `articles_groups_deleted`
+  ADD PRIMARY KEY (`group_id`);
+
+--
 -- Indexes for table `banners`
 --
 ALTER TABLE `banners`
@@ -899,6 +1135,36 @@ ALTER TABLE `subcategories`
 --
 
 --
+-- AUTO_INCREMENT for table `articles`
+--
+ALTER TABLE `articles`
+  MODIFY `article_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=769;
+--
+-- AUTO_INCREMENT for table `articles_categories`
+--
+ALTER TABLE `articles_categories`
+  MODIFY `category_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `articles_categories_deleted`
+--
+ALTER TABLE `articles_categories_deleted`
+  MODIFY `category_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `articles_deleted`
+--
+ALTER TABLE `articles_deleted`
+  MODIFY `article_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=737;
+--
+-- AUTO_INCREMENT for table `articles_groups`
+--
+ALTER TABLE `articles_groups`
+  MODIFY `group_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+--
+-- AUTO_INCREMENT for table `articles_groups_deleted`
+--
+ALTER TABLE `articles_groups_deleted`
+  MODIFY `group_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+--
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
@@ -912,7 +1178,7 @@ ALTER TABLE `bitauth_groups`
 -- AUTO_INCREMENT for table `bitauth_logins`
 --
 ALTER TABLE `bitauth_logins`
-  MODIFY `login_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=62;
+  MODIFY `login_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=63;
 --
 -- AUTO_INCREMENT for table `bitauth_userdata`
 --
@@ -952,12 +1218,12 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `files`
 --
 ALTER TABLE `files`
-  MODIFY `file_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=170;
+  MODIFY `file_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=174;
 --
 -- AUTO_INCREMENT for table `file_managers`
 --
 ALTER TABLE `file_managers`
-  MODIFY `file_manager_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=99;
+  MODIFY `file_manager_id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=101;
 --
 -- AUTO_INCREMENT for table `products`
 --
