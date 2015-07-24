@@ -12,10 +12,6 @@
     </div>
 
 	<div class="container section-container">
-    	
-        <div class="col-md-12 hightlight">
-            <?=$advertisements['article_detail']['code']; ?> 
-        </div>
 
 		<div class="col-md-8">
 				<div style="line-height:10px; margin-bottom:30px">
@@ -106,7 +102,7 @@
                       <?
 				}
 					  ?>  
-                </div>
+                
 
         	<div class="clearfix"></div>
         	<h2 class="title-blue">ART&Iacute;CULOS RELACIONADOS</h2>

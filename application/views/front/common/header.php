@@ -17,6 +17,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="<?=base_url();?>assets_fe/css/style.css" rel="stylesheet">
+    <link href="<?=base_url();?>assets_fe/css/blog.css" rel="stylesheet">
     <link href="<?=base_url();?>assets_fe/css/responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="<?=base_url();?>assets_fe/css/owl.carousel.css" />
     <link rel="stylesheet" href="<?=base_url();?>assets_fe/css/owl.theme.default.min.css" />

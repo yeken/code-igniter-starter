@@ -120,19 +120,19 @@ class Home extends Front_init
 		$this->load->view("front/categoria.php", $this->data);
 	}
 
-	public function noticia($id, $nombre)
+	public function noticia($id)
 	{
 		$this->get_article($id);
 		$this->get_related_news(4, 'category_id = '.$this->data['article']['category_id'].' AND article_id != '.$this->data['article']['article_id']);
-
-		$this->article_model->add_view($id);
-		$this->get_ads('article_detail');
+		$this->get_popular_news();
+		$this->article_model->add_view();
+		//$this->get_ads('article_detail');
 		
-		$this->data['page_title'] = 'Revolutio | '.$this->data['article']['title'];
+		$this->data['page_title'] = 'Issue | '.$this->data['article']['title'];
 		$this->data['page_description'] = strip_tags($this->data['article']['brief']);
 
-		$this->load->model('user_model');
-		$this->get_user($this->data['article']['creator_id']);
+		//$this->load->model('user_model');
+		//$this->get_user($this->data['article']['creator_id']);
 
 		$this->data['section'] = 'noticia';
 
@@ -157,6 +157,7 @@ class Home extends Front_init
 	{
 		$this->load->library('pagination');
 		$this->get_recent_news();
+		$this->get_popular_news();
 		$this->get_more_news(count($this->data['recents_articles']),4,1);
 		$config['base_url'] = base_url().'articulos/';
 		$config['total_rows'] = $this->get_totals_more_news(21);
@@ -182,20 +183,6 @@ class Home extends Front_init
 		// $this->output->enable_profiler(TRUE);
 
 		$this->load->view("front/blog.php", $this->data);
-	}
-
-	public function post($post_id)
-	{
-		$this->load->model('admin/blog_model', 'blog_model');
-		$this->blog_model->get($post_id);
-		$this->get_posts();
-
-		if(!$this->blog_model->get_id()){
-			$this->index();
-			die();
-		}
-		$this->data['section'] = "blog";
-		$this->load->view("front/post.php", $this->data);
 	}
 
 	public function contact()

@@ -152,7 +152,7 @@ class Front_init extends CI_Controller
 
 	public function get_recent_news($offset=0, $limit=4 )
 	{
-		$sql = "SELECT A.* FROM articles AS A  WHERE A.active = 1 AND A.show_insite = 1 AND group_id = 21 ORDER BY  A.date_event_start DESC LIMIT {$offset}, {$limit}";
+		$sql = "SELECT A.* FROM articles AS A  WHERE A.active = 1 AND A.show_insite = 1 ORDER BY  A.date_event_start DESC LIMIT {$offset}, {$limit}";
 		$query = $this->db->query($sql);
 		$this->load->model('admin/article_model');
 		foreach($query->result_array() as $article)
@@ -198,7 +198,6 @@ class Front_init extends CI_Controller
 
 			$this->data['more_articles'][] = $article;
 		}
-
 	}
 
 	public function get_related_news($limit=4, $where=1)
@@ -413,7 +412,7 @@ class Front_init extends CI_Controller
 			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
 
 			$this->data['pop_articles'][] = $article;
-
+			
 		}
 	}
 

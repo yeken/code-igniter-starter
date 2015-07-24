@@ -52,7 +52,7 @@ $route['categoria/(:num)/(:any)/(:num)'] = "home/categoria/$1/$2/$3";
 
 $route['producto/(:num)/(:any)'] = "home/product/$1";
 $route['blog'] = "home/blog";
-$route['post/(:num)/(:any)'] = "home/post/$1";
+$route['noticia/(:num)/(:any)'] = "home/noticia/$1";
 $route['issue_mundo'] = "home/issue_mundo";
 $route['issue_about'] = "home/issue_about";
 $route['politica-de-privacidad'] = "home/footer_link/text_privacy_policy";

@@ -62,9 +62,10 @@ class Article_model extends Simple_data_model
 		return ($this->panoramic=='')?base_url().'assets_fe/images/defaults/logo.jpg':$this->logo;
 	}
 
-	public function add_view($article_id)
+	public function add_view($article_id = 0)
 	{
-		$this->logs->add_log('article','view',$article_id);
+		$article_id = $article_id ? $article_id : $this->get_id();
+		//$this->logs->add_log('article','view',$article_id);
 		$sql = "UPDATE ".$this->db_table." SET views = views + 1 WHERE ".$this->db_index." = ".$article_id;
 		$this->db->query($sql);
 	}

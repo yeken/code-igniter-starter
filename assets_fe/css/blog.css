@@ -1,0 +1,63 @@
+.container-home{ position:relative; top:-100px; }
+
+.col-right{ background:#EDF6FF; padding-bottom:20px; margin-top:-37px; } 
+.col-right .divider{ border-bottom:1px #093751 dotted; }
+
+img{ width:100%; }
+.hightlight img{ width:auto; }
+.hightlight{ margin-bottom:20px; text-align:center; }
+
+.search-right.title-blue{ background:#093751; margin-bottom:10px; margin-top:10px; float:left; }
+.search-right.title-blue .input-group{ z-index:9999999; }
+h2.title-blue{ background:#093751; padding:8px 10px; color:#ecf5ff; font-family: 'Open Sans', sans-serif !important; font-size:16px; margin:20px 0px; }
+
+.search-right{ width:100%; }
+.search-right .input-group{ width:100%; }
+.search-right input{ background:#093751 !important; color:#428BCA; border:0 !important; width:80%; float:left; }
+.search-right .btn-default{ color:#428BCA; background:#093751 !important; border:0 !important; padding:1px 10px; width:20%; float:left; }
+
+.section-title{ top:-100px; background:#EDF6FF; position:relative;  font-family: 'Open Sans', sans-serif !important; color:#093751; padding-top:30px; padding-bottom:15px; }
+.section-container{ position:relative; top:-100px; margin-top:20px; color:#696969; font-family: 'Open Sans', sans-serif !important; }
+.section-container .col-right{ margin-top:-20px !important; }
+
+.highlight-title{ background:#093751; padding:8px 10px; color:#ecf5ff; font-family: 'Open Sans', sans-serif !important; font-size:16px; margin-top:-50px; margin-bottom:30px; position:relative; }
+
+.colaborators { margin-bottom:30px; }
+.colaborators h1{ color:#093751; font-family: 'Open Sans', sans-serif !important; margin:0px; margin-bottom:10px; font-size:20px; font-weight:bold; }
+.colaborators .facebook{ background:url(../img/facebook.png); height:30px; width:31px; display:block; float:left; margin-right:10px;}
+.colaborators .twitter{ background:url(../img/twitter.png); height:30px; width:31px; display:block; float:left; margin-right:10px; }
+.colaborators .instagram{ background:url(../img/instagram.png); height:30px; width:31px; display:block; float:left; }
+
+.label-default, .label-default a{ background:none; color:#f01235; font-size:14px; padding:0px; margin:5px 0px; float:left;font-family: 'Open Sans', sans-serif !important; text-transform:uppercase; }
+
+.label-comment{ background: url(../img/comment.png); color: #FFF; font-size: 12px; padding: 0px 8px 5px 8px; margin: 10px 0px 0px 0px; float: left; font-family: 'Open Sans', sans-serif !important; float: right; line-height: 17px; }
+
+
+.detail-title .title-light-blue{ margin:5px 0px; }
+
+.detail-title .label-default{ background:none; color:#f01235; font-size:14px; padding:0px; margin:10px 0px; float:left !important;font-family: 'Open Sans', sans-serif !important; }
+.detail-title .label-comment{ background: url(../img/comment.png); color: #FFF; font-size: 12px; padding: 0px 8px 5px 8px; margin: 10px 10px 0px 0px; float: left; font-family: 'Open Sans', sans-serif !important; float: left  !important; line-height: 17px; }
+
+
+.date{ color:#b1b1b1; font-family: 'Open Sans', sans-serif !important; font-size:11px; }
+.title{ color:#093751; font-family: 'Open Sans', sans-serif !important; font-size:16px; font-weight:bold; margin-top:5px; }
+.brief{ color:#858585; font-family: 'Open Sans', sans-serif !important; font-size:12px; margin-top:
+10px;}
+
+.list-horizontal .title{ color:#093751; font-family: 'Open Sans', sans-serif !important; font-size:16px; font-weight:bold; margin-top:0px; }
+
+.list-horizontal .label-default{ background:none; color:#f01235; font-size:14px; padding:0px; margin:0px 0px 0px 0px; float:left;font-family: 'Open Sans', sans-serif !important; }  
+
+.list-horizontal .label-comment{ background: url(../img/comment.png); color: #FFF; font-size: 12px; padding: 0px 8px 5px 8px; margin: 0px 0px 0px 0px; float: left; font-family: 'Open Sans', sans-serif !important; float: right; line-height: 17px; }
+
+.divider{ margin-top:10px; margin-bottom:10px; height:1px; background:#f3f3f3;  }
+
+.popular-articles h1{ color:#093751; font-size:12px; margin:0px; font-weight:bold; }
+.related-articles .title{ font-size:12px !important; }
+.related-articles .col-lg-3{ padding-top:10px; padding-bottom:10px; } 
+.related-articles .col-lg-3:hover{ background:#8FAAC8; }
+.related-articles .col-lg-3:hover > .title{ color:#FFFFFF;}
+
+.event-cine{ background:#fc4b71 !important; }
+.event-msica{ background:#6ca770 !important; }
+.event-cultura-pop{ background:#495e89 !important; }
