@@ -1,6 +1,6 @@
-.container-home{ position:relative; top:-100px; }
+.container-home{ position:relative; }
 
-.col-right{ background:#EDF6FF; padding-bottom:20px; margin-top:-37px; } 
+.col-right{ background:#EDF6FF; padding-bottom:20px; } 
 .col-right .divider{ border-bottom:1px #093751 dotted; }
 
 img{ width:100%; }
@@ -16,9 +16,9 @@ h2.title-blue{ background:#093751; padding:8px 10px; color:#ecf5ff; font-family:
 .search-right input{ background:#093751 !important; color:#428BCA; border:0 !important; width:80%; float:left; }
 .search-right .btn-default{ color:#428BCA; background:#093751 !important; border:0 !important; padding:1px 10px; width:20%; float:left; }
 
-.section-title{ top:-100px; background:#EDF6FF; position:relative;  font-family: 'Open Sans', sans-serif !important; color:#093751; padding-top:30px; padding-bottom:15px; }
-.section-container{ position:relative; top:-100px; margin-top:20px; color:#696969; font-family: 'Open Sans', sans-serif !important; }
-.section-container .col-right{ margin-top:-20px !important; }
+.section-title{  background:#EDF6FF; position:relative;  font-family: 'Open Sans', sans-serif !important; color:#093751; padding-top:30px; padding-bottom:15px; }
+.section-container{ position:relative;  margin-top:20px; color:#696969; font-family: 'Open Sans', sans-serif !important; }
+
 
 .highlight-title{ background:#093751; padding:8px 10px; color:#ecf5ff; font-family: 'Open Sans', sans-serif !important; font-size:16px; margin-top:-50px; margin-bottom:30px; position:relative; }
 
