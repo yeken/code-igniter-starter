@@ -33,7 +33,6 @@
 				<h3>
 					Carta de Colores
 				</h3>
-				<hr>
 				<div id="viewer">
 					<div class="col-xs-12">
 	        	<div class="color-option">

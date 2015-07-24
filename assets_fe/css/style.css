@@ -865,29 +865,35 @@ section#color-chart{
 }
 
 section#color-chart h3{
-	border-top: 1px solid;
-	border-left: 1px solid;
-	border-right: 1px solid;
-	border-color: #D5D5D5;
+	border-top: 1px solid #D5D5D5;
+	border-left: 1px solid #D5D5D5;
+	border-right: 1px solid #D5D5D5;
+	border-bottom: 1px solid #ffffff;
+	font-family: 'Open Sans', sans-serif;
 	display: inline;
-	padding: 1% 2%;
+	padding: 11px 2%;
+	line-height: 44px;
 }
 
-section#color-chart hr{
+/*section#color-chart hr{
 	border: 0;
 	background: #D5D5D5;
 	height: 1px;
 	width: 55%;
 	float: right;
 	margin-top: 27px;
-}
+}*/
 
 section#color-chart #viewer{
-	max-height: 100px;
+	border-top: 1px solid #D5D5D5;
+	max-height: 200px;
 	font-family: 'Signika', sans-serif;
 	font-weight: 300;
 }
 
+section#color-chart #viewer img{
+	max-height: 200px;
+}
 section#color-chart #viewer .color-option .color_icon{
 	display: none;
 }
