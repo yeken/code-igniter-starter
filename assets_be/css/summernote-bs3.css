@@ -545,10 +545,10 @@
   .note-editor .dl-horizontal dd:after {
     content: " ";
     /* 1 */
-  
+
     display: table;
     /* 2 */
-  
+
   }
   .note-editor .dl-horizontal dd:after {
     clear: both;
@@ -557,10 +557,10 @@
   .note-editor .dl-horizontal dd:after {
     content: " ";
     /* 1 */
-  
+
     display: table;
     /* 2 */
-  
+
   }
   .note-editor .dl-horizontal dd:after {
     clear: both;
@@ -5009,6 +5009,7 @@ button.note-editor .close {
   -webkit-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
+  z-index: 10000;
 }
 .modal-dialog {
   margin-left: auto;
@@ -5044,6 +5045,7 @@ button.note-editor .close {
 .modal-backdrop.in {
   opacity: 0.5;
   filter: alpha(opacity=50);
+  z-index: -1;
 }
 .modal-header {
   padding: 15px;
