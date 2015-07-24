@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-3">
-				<img class="img-responsive" src="<?= $this->product_model->main_image?>">
+				<img class="img-responsive" src="<?= $this->product_model->detail_image ? $this->product_model->detail_image : $this->product_model->main_image?>">
 			</div>
 			<div class="col-xs-12 col-sm-9">
 				<p><?= $this->product_model->description?></p>
