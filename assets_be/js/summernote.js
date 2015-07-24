@@ -997,7 +997,7 @@
         range: rng,
         text: rng.toString(),
         url: rng.isOnAnchor() ? dom.ancestor(rng.sc, dom.isAnchor).href : '',
-      }, function (sLinkUrl) {
+      }, function (sLinkUrl, sLinkText, sLinkTarget) {
         rng.select();
         recordUndo($editable);
         
@@ -1009,8 +1009,8 @@
         }
 		
         //IE: createLink when range collapsed.
-		var target = $("#link-target").val();
-        var displayText = $("#modal-link-text").val();
+		var target = sLinkTarget;
+        var displayText = sLinkText;
 		if (agent.bMSIE && rng.isCollapsed()) {
           rng.insertNode($('<A target="'+target+'" id="linkAnchor">' + displayText + '</A>')[0]);
           var $anchor = $('#linkAnchor').removeAttr('id')
@@ -1334,17 +1334,17 @@
           $linkUrl = $linkDialog.find('.note-link-url'),
 		  $linkTarget = $linkDialog.find('.note-link-target'),
           $linkBtn = $linkDialog.find('.note-link-btn');
-
       $linkDialog.on('shown.bs.modal', function () {
-        $linkText.html(linkInfo.text);
+        $linkText.val(linkInfo.text);
         $linkUrl.val(linkInfo.url).keyup(function () {
           toggleBtn($linkBtn, $linkUrl.val());
-          if (!linkInfo.text) { //$linkText.html($linkUrl.val()); 
+          if (!linkInfo.text) { 
+			  $linkText.val($linkUrl.val()); 
 		  }
         }).trigger('focus');
         $linkBtn.click(function (event) {
           $linkDialog.modal('hide'); //hide and createLink (ie9+)
-          callback($linkUrl.val());
+          callback($linkUrl.val(), $linkText.val(), $linkTarget.val());
           event.preventDefault();
         });
       }).on('hidden.bs.modal', function () {
