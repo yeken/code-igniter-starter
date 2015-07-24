@@ -127,7 +127,7 @@ class Front_init extends CI_Controller
 		{
 			$this->article_model->set($article);
 			$this->article_model->get_files();
-			
+
 			foreach($this->article_model->file_tags as $file_tag)
 			{
 				$article[$file_tag] = $this->article_model->$file_tag;
@@ -137,7 +137,7 @@ class Front_init extends CI_Controller
 				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
 			}
 			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
-			
+
 			$this->data['articles'][] = $article;
 		}
 	}
@@ -159,7 +159,7 @@ class Front_init extends CI_Controller
 		{
 			$this->article_model->set($article);
 			$this->article_model->get_files();
-			
+
 			foreach($this->article_model->file_tags as $file_tag)
 			{
 				$article[$file_tag] = $this->article_model->$file_tag;
@@ -169,15 +169,15 @@ class Front_init extends CI_Controller
 				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
 			}
 			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
-			
+
 			$this->data['recents_articles'][] = $article;
 		}
 	}
-	
+
 	public function get_more_news($offset=0, $limit=4, $where=1)
 	{
 		$this->data['more_articles'] = array();
-		$sql = "SELECT * FROM articles WHERE {$where} AND active = 1 AND show_insite = 1 AND group_id = 21 ORDER BY date_event_start DESC LIMIT {$offset} , {$limit}";
+		$sql = "SELECT * FROM articles WHERE {$where} AND active = 1 AND show_insite = 1 ORDER BY date_event_start DESC LIMIT {$offset} , {$limit}";
 		$query = $this->db->query($sql);
 		$this->load->model('admin/article_model');
 
@@ -185,7 +185,7 @@ class Front_init extends CI_Controller
 		{
 			$this->article_model->set($article);
 			$this->article_model->get_files();
-			
+
 			foreach($this->article_model->file_tags as $file_tag)
 			{
 				$article[$file_tag] = $this->article_model->$file_tag;
@@ -198,7 +198,7 @@ class Front_init extends CI_Controller
 
 			$this->data['more_articles'][] = $article;
 		}
-		
+
 	}
 
 	public function get_related_news($limit=4, $where=1)
@@ -210,7 +210,7 @@ class Front_init extends CI_Controller
 		{
 			$this->article_model->set($article);
 			$this->article_model->get_files();
-			
+
 			foreach($this->article_model->file_tags as $file_tag)
 			{
 				$article[$file_tag] = $this->article_model->$file_tag;
@@ -225,7 +225,7 @@ class Front_init extends CI_Controller
 
 		}
 	}
-	
+
 	public function get_by_tags($tag)
 	{
 		$term = urldecode($tag);
@@ -237,7 +237,7 @@ class Front_init extends CI_Controller
 		{
 			$this->article_model->set($article);
 			$this->article_model->get_files();
-			
+
 			foreach($this->article_model->file_tags as $file_tag)
 			{
 				$article[$file_tag] = $this->article_model->$file_tag;
@@ -247,7 +247,7 @@ class Front_init extends CI_Controller
 				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
 			}
 			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
-			
+
 			$this->data['search_articles'][] = $article;
 		}
 	}
@@ -264,7 +264,7 @@ class Front_init extends CI_Controller
 		{
 			$this->article_model->set($article);
 			$this->article_model->get_files();
-			
+
 			foreach($this->article_model->file_tags as $file_tag)
 			{
 				$article[$file_tag] = $this->article_model->$file_tag;
@@ -274,11 +274,11 @@ class Front_init extends CI_Controller
 				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
 			}
 			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
-			
+
 			$this->data['search_articles'][] = $article;
 		}
 	}
-	
+
 	public function get_category_by_id($category_id)
 	{
 		$sql = "SELECT * FROM articles_categories WHERE category_id = {$category_id} AND active = 1";
@@ -288,7 +288,7 @@ class Front_init extends CI_Controller
 		{
 			$this->article_category_model->set($category);
 			$this->article_category_model->get_files();
-			
+
 			foreach($this->article_category_model->file_tags as $file_tag)
 			{
 				$category[$file_tag] = $this->article_category_model->$file_tag;
@@ -297,7 +297,7 @@ class Front_init extends CI_Controller
 			{
 				$category[$gallery_tag] = $this->article_category_model->galleries[$gallery_tag];
 			}
-			
+
 			$this->data['category'] = $category;
 		}
 	}
@@ -308,7 +308,7 @@ class Front_init extends CI_Controller
 		$query = $this->db->query($sql);
 		return $query->num_rows();
 	}
-	
+
 	public function get_articles($offset=0)
 	{
 
@@ -319,7 +319,7 @@ class Front_init extends CI_Controller
 		{
 			$this->article_model->set($article);
 			$this->article_model->get_files();
-			
+
 			foreach($this->article_model->file_tags as $file_tag)
 			{
 				$article[$file_tag] = $this->article_model->$file_tag;
@@ -329,7 +329,7 @@ class Front_init extends CI_Controller
 				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
 			}
 			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
-			
+
 			$this->data['articles'][] = $article;
 		}
 	}
@@ -343,7 +343,7 @@ class Front_init extends CI_Controller
 		{
 			$this->article_model->set($article);
 			$this->article_model->get_files();
-			
+
 			foreach($this->article_model->file_tags as $file_tag)
 			{
 				$article[$file_tag] = $this->article_model->$file_tag;
@@ -353,7 +353,7 @@ class Front_init extends CI_Controller
 				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
 			}
 			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
-			
+
 			if($where!=1)
 			{
 				$this->data['article'] = $article;
@@ -372,7 +372,7 @@ class Front_init extends CI_Controller
 		{
 			$this->article_model->set($article);
 			$this->article_model->get_files();
-			
+
 			foreach($this->article_model->file_tags as $file_tag)
 			{
 				$article[$file_tag] = $this->article_model->$file_tag;
@@ -382,7 +382,7 @@ class Front_init extends CI_Controller
 				$article[$gallery_tag] = $this->article_model->galleries[$gallery_tag];
 			}
 			$article['detail_url'] = base_url()."noticia/".$article['article_id']."/".url_title($article['title']);
-			
+
 			if($where!=1)
 			{
 				$this->data['article'] = $article;
@@ -401,7 +401,7 @@ class Front_init extends CI_Controller
 		{
 			$this->article_model->set($article);
 			$this->article_model->get_files();
-			
+
 			foreach($this->article_model->file_tags as $file_tag)
 			{
 				$article[$file_tag] = $this->article_model->$file_tag;
@@ -416,14 +416,14 @@ class Front_init extends CI_Controller
 
 		}
 	}
-	
+
 	public function get_totals_recent_news()
 	{
 		$sql = "SELECT * FROM articles AS A INNER JOIN articles_groups AS ag ON ag.group_id = A.group_id WHERE A.active = 1 AND A.group_id != 0 AND ag.active = 1 AND ag.show_home = 1 AND A.show_insite = 1 GROUP BY ag.group_id ORDER BY ag.group_id ASC, A.date_event_start DESC LIMIT 0, 20000";
 		$query = $this->db->query($sql);
 		$query->num_rows();
 	}
-	
+
 
 	public function get_posts(){
 			$sql = 'SELECT * FROM blog WHERE active = 1 ORDER BY post_id DESC';
