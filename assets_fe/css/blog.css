@@ -1,22 +1,22 @@
 .container-home{ position:relative; }
 
-.col-right{ background:#EDF6FF; padding-bottom:20px; } 
+.col-right{padding-bottom:20px; } 
 .col-right .divider{ border-bottom:1px #093751 dotted; }
 
-img{ width:100%; }
+
 .hightlight img{ width:auto; }
 .hightlight{ margin-bottom:20px; text-align:center; }
 
 .search-right.title-blue{ background:#093751; margin-bottom:10px; margin-top:10px; float:left; }
 .search-right.title-blue .input-group{ z-index:9999999; }
-h2.title-blue{ background:#093751; padding:8px 10px; color:#ecf5ff; font-family: 'Open Sans', sans-serif !important; font-size:16px; margin:20px 0px; }
+h2.title-blue{ background:#730029; padding:8px 10px; color:#ecf5ff; font-family: 'Open Sans', sans-serif !important; font-size:16px; margin:20px 0px; }
 
 .search-right{ width:100%; }
 .search-right .input-group{ width:100%; }
 .search-right input{ background:#093751 !important; color:#428BCA; border:0 !important; width:80%; float:left; }
 .search-right .btn-default{ color:#428BCA; background:#093751 !important; border:0 !important; padding:1px 10px; width:20%; float:left; }
 
-.section-title{  background:#EDF6FF; position:relative;  font-family: 'Open Sans', sans-serif !important; color:#093751; padding-top:30px; padding-bottom:15px; }
+.section-title{  background:#FFCEDF; position:relative;  font-family: 'Open Sans', sans-serif !important; color:#093751; padding: 15px 0; }
 .section-container{ position:relative;  margin-top:20px; color:#696969; font-family: 'Open Sans', sans-serif !important; }
 
 
@@ -33,7 +33,7 @@ h2.title-blue{ background:#093751; padding:8px 10px; color:#ecf5ff; font-family:
 .label-comment{ background: url(../img/comment.png); color: #FFF; font-size: 12px; padding: 0px 8px 5px 8px; margin: 10px 0px 0px 0px; float: left; font-family: 'Open Sans', sans-serif !important; float: right; line-height: 17px; }
 
 
-.detail-title .title-light-blue{ margin:5px 0px; }
+.detail-title .title-light-blue{ margin:5px 0px; font-size: 36px;}
 
 .detail-title .label-default{ background:none; color:#f01235; font-size:14px; padding:0px; margin:10px 0px; float:left !important;font-family: 'Open Sans', sans-serif !important; }
 .detail-title .label-comment{ background: url(../img/comment.png); color: #FFF; font-size: 12px; padding: 0px 8px 5px 8px; margin: 10px 10px 0px 0px; float: left; font-family: 'Open Sans', sans-serif !important; float: left  !important; line-height: 17px; }
