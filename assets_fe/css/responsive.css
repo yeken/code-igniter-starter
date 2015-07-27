@@ -39,7 +39,7 @@
 	}
 	#second-nav ul li{
 		width: 100%;
-		padding: 5px;
+		padding: 5px !important;
 		border-top: 1px solid #666666;
 	}
 

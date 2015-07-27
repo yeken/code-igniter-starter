@@ -16,7 +16,7 @@ class Home extends Front_init
 	{
 		$this->get_banners();
 		$this->get_products();
-		$this->get_posts();
+		$this->get_recent_news();
 
 		$this->load->view("front/index.php", $this->data);
 	}

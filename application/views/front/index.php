@@ -103,17 +103,17 @@
         <div class="row">
           <div class="col-xs-12">
             <?
-            if(is_array($posts['full_list'])){
+            if(count($recents_articles)>0){
                 $i = 0;
-                foreach($posts['full_list'] as $post){
+                foreach($recents_articles as $article){
             ?>
             <div class="latest-item">
-              <a href="<?= base_url()?>post/<?= $post->get_id()?>/<?= urlencode($post->name)?>">
-                <img class="img-responsive" src="<?= $post->main_image?>">
+              <a href="<?=$article['detail_url'];?>">
+                <img class="img-responsive" src="<? if(valid_url($article['image_list'])){ echo $article['image_list']; }else{  base_url().'assets_fe/img/detalle_foto.jpg'; } ?>">
                 <div class="box-info">
                   <span>Blog</span>
-                  <span class="<?= $post->category?>"><?= $post->category?></span>
-                  <h4><?= $post->name?></h4>
+                  <span class="<?=$article['categories_names']?>"><?=$article['categories_names']?></span>
+                  <h4><?=$article['title'];?></h4>
                 </div>
                 
               </a>
