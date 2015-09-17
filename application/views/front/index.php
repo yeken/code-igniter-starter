@@ -71,7 +71,7 @@
     </section><!-- end slider -->
 
     <section id="nuestros-productos">
-      <h3>nuestros productos</h3>
+      <h3>nuestras líneas</h3>
       <div class="owl-carousel">
         <?
           if(is_array($products)){
