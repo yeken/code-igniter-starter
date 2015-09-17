@@ -99,7 +99,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 
-	    $('.color-option').click(function(){
+	    $('.color-option').hover(function(){
 	    	$('#viewer').empty();
   			$(this).clone().appendTo('#viewer');
 				$('#viewer .color-option').addClass('col-xs-12');
