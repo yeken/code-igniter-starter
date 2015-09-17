@@ -96,39 +96,39 @@
       </div>
     </section>
 
-    <section id="latest">
+    <!-- <section id="latest">
       <h3>últimos artículos</h3>
 
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
             <?
-            if(count($recents_articles)>0){
-                $i = 0;
-                foreach($recents_articles as $article){
+            //if(count($recents_articles)>0){
+              //  $i = 0;
+                //foreach($recents_articles as $article){
             ?>
             <div class="latest-item">
-              <a href="<?=$article['detail_url'];?>">
-                <img class="img-responsive" src="<? if(valid_url($article['image_list'])){ echo $article['image_list']; }else{  base_url().'assets_fe/img/detalle_foto.jpg'; } ?>">
+              <a href="<?//=$article['detail_url'];?>">
+                <img class="img-responsive" src="<?// if(valid_url($article['image_list'])){ echo $article['image_list']; }else{  base_url().'assets_fe/img/detalle_foto.jpg'; } ?>">
                 <div class="box-info">
                   <span>Blog</span>
-                  <span class="<?=$article['categories_names']?>"><?=$article['categories_names']?></span>
-                  <h4><?=$article['title'];?></h4>
+                  <span class="<?//=$article['categories_names']?>"><?//=$article['categories_names']?></span>
+                  <h4><?//=$article['title'];?></h4>
                 </div>
                 
               </a>
             </div>
             <?
-                $i++;
-                if($i==3){
-                  break;
-                }
-              }   
-            }
+                //$i++;
+                //if($i==3){
+                  //break;
+                //}
+              //}   
+            //}
             ?>
           </div>
         </div>
       </div>
-    </section>    
+    </section> -->    
 
 <? include(dirname(__FILE__)."/common/footer.php") ?>
