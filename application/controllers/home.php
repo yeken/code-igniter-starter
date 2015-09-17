@@ -153,7 +153,7 @@ class Home extends Front_init
 		$this->load->view("front/seach.php", $this->data);
 	}
 
-	public function blog($offset=0)
+	public function tips_issue($offset=0)
 	{
 		$this->load->library('pagination');
 		$this->get_recent_news();

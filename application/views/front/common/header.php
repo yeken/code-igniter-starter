@@ -104,7 +104,7 @@
 
                 <div class="collapse navbar-collapse" id="primary">
                   <ul class="navbar-nav navbar-right">
-                    <li><a class="<?= $section == 'blog' ? 'active' : "" ?>" href="<?=base_url();?>blog">Blog</a></li>
+                    <li><a class="<?= $section == 'tips_issue' ? 'active' : "" ?>" href="<?=base_url();?>tips_issue">Tips Issue</a></li>
                     <li><a class="<?= $section == 'issue_mundo' ? 'active' : "" ?>" href="<?=base_url();?>issue_mundo">Issue en el mundo</a></li>
                     <li><a class="<?= $section == 'nosotros' ? 'active' : "" ?>" href="<?=base_url();?>issue_about">Nosotros</a></li>
                     <li><a class="<?= $section == 'contact' ? 'active' : "" ?>" href="<?=base_url();?>contact">Contacto</a></li>
