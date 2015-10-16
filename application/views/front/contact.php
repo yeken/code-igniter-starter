@@ -1,6 +1,16 @@
 <? include(dirname(__FILE__)."/common/header.php") ?>
 
-<section class="image-bg-fluid-height" style="background: url('<?=base_url();?>assets_fe/img/slider1.jpg') no-repeat center center scroll;">
+<section class="image-bg-fluid-height desktop-header" style="background: url('<?= $this->configuration_model->contacto_desktop ?>') no-repeat center center scroll;">
+    <div class="container">
+        <div class="row">
+            <div class=" col-xs-12">
+                <h1 class="section-heading">Contactenos</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="image-bg-fluid-height mobile-header" style="background: url('<?= $this->configuration_model->contacto_mobile ?>') no-repeat center center scroll;">    
     <div class="container">
         <div class="row">
             <div class=" col-xs-12">
@@ -13,8 +23,27 @@
 <section id="contact">
     <div class="container">
         <div class="row" id="contact-container">
-            <div class="col-md-8 col-md-offset-2 well">
-                <h2>Envianos tu mensaje y nos contactaremos a la brevedad</h2>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="contact-data">
+                    <p>
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <a href="mailto:info@godrejcp.com">info@godrejcp.com</a>
+                    </p>
+
+                    <p>
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                        </span>
+                        Call Center 0800 444 7783
+                    </p>
+                </div>
+                <h2>
+                    Completa el formulario y nos contactaremos a la brevedad:
+                </h2>
                 <form id="contact-form" class="ajax_form" action="./home/validate_contact_form/contact" method="post" enctype="multipart/form-data">
                 <fieldset>
                 <?
@@ -29,10 +58,8 @@
                             echo '<div class="clearfix"></div>';
                             echo '</div>';
                     }?>
-                    <div class="col-md-12">
-                        <div class="pull-right">
+                    <div class="col-md-8 col-md-offset-2">
                             <input name="submit" type="submit" class="btn btn-primary" value="Enviar" />
-                        </div>
                     </div>
                 </fieldset>
                 </form>

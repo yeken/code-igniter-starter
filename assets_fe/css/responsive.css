@@ -1,5 +1,61 @@
+
+@media only screen and (max-width:1200px){
+
+	section#coloracion .product-item.coloracion12 h3{
+		min-height: 60px !important;
+	}
+	section#coloracion .product-item.coloracion12 p{
+		min-height: 180px !important;	
+		
+	}
+}
+
+
+@media only screen and (max-width:990px){
+	section#coloracion .product-item.coloracion12 h3{
+		min-height: 80px !important;
+	}
+	section#coloracion .product-item.coloracion12 p{
+		min-height: 200px !important;	
+		
+	}
+}
 /*Extra small devices Phones (<768px)*/
 @media only screen and (max-width:768px){
+.desktop-header{
+	display: none;
+}
+
+.mobile-header{
+	display: block;
+}
+
+section#color-chart #viewer .color-option p{
+	width: 100% !important;
+}
+section#coloracion .product-item.coloracion12 h3{
+	min-height: auto !important;
+}
+section#coloracion .product-item.coloracion12 p{
+	min-height: auto !important;	
+	
+}
+section#detail img{
+	margin: 0 auto;
+}
+
+section#detail p{
+	margin: 20px !important;
+}
+section#detail .gallery a{
+	margin: 0;
+}
+	.colors-chart{
+		display: none;
+	}
+	section#color-chart #accordion{
+		display: block;
+	}
 	/*HEADER*/
 	header{
 		background: #ffffff;

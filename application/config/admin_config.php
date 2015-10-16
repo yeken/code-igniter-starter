@@ -25,6 +25,7 @@ $config['general']['admin']['table_icons'] = array(	'details' => 'fa fa-eye',
 													'save' => 'fa fa-pencil',
 													'edit' => 'fa fa-pencil',
 													'files' => 'fa fa-file-text-o',
+													'media_gallery' => 'glyphicon glyphicon-camera glyph-normal',
 													'delete' => 'fa fa-trash-o');
 
 foreach(glob( dirname(__FILE__)."/../modules_config/*.php") as $filename)

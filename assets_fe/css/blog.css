@@ -18,7 +18,9 @@ h2.title-blue{ background:#730029; padding:8px 10px; color:#ecf5ff; font-family:
 
 .section-title{  background:#FFCEDF; position:relative;  font-family: 'Open Sans', sans-serif !important; color:#093751; padding: 15px 0; }
 .section-container{ position:relative;  margin-top:20px; color:#696969; font-family: 'Open Sans', sans-serif !important; }
-
+.section-container img{
+	margin: 20px 0;
+}
 
 .highlight-title{ background:#093751; padding:8px 10px; color:#ecf5ff; font-family: 'Open Sans', sans-serif !important; font-size:16px; margin-top:-50px; margin-bottom:30px; position:relative; }
 
@@ -53,6 +55,7 @@ h2.title-blue{ background:#730029; padding:8px 10px; color:#ecf5ff; font-family:
 .divider{ margin-top:10px; margin-bottom:10px; height:1px; background:#f3f3f3;  }
 
 .popular-articles h1{ color:#093751; font-size:12px; margin:0px; font-weight:bold; }
+.popular-articles img{max-width: 150px;}
 .related-articles .title{ font-size:12px !important; }
 .related-articles .col-lg-3{ padding-top:10px; padding-bottom:10px; } 
 .related-articles .col-lg-3:hover{ background:#8FAAC8; }

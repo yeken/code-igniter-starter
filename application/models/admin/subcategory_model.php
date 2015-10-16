@@ -12,8 +12,10 @@ class Subcategory_model extends Simple_data_model
 									'category',
 									'category_id',
 									'name',
+									'position',
 									'brief',
 									'file_manager_id',
+									'show_in_home',
 									'active',
 									'date_created'
 									);
@@ -27,7 +29,7 @@ class Subcategory_model extends Simple_data_model
 		}
 
 		public function get_products(){
-			$sql = "SELECT * FROM products WHERE subcategory_id = '$this->subcategory_id'";
+			$sql = "SELECT * FROM products WHERE subcategory_id = '$this->subcategory_id' ORDER BY position DESC";
 			$result = $this->db->query($sql)->result_array();
 			$this->load->model('admin/product_model', 'product_model');
 			$this->products = array();

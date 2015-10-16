@@ -14,6 +14,7 @@ class Home extends Front_init
 
 	public function index()
 	{
+		$this->get_subcategories();
 		$this->get_banners();
 		$this->get_products();
 		//$this->get_recent_news();
@@ -26,7 +27,7 @@ class Home extends Front_init
 		$this->data['section'] = "issue_mundo";
 		$this->data['title'] = "Issue en el mundo";
 		$this->data['section_content'] = $this->configuration_model->text_issue_mundo;
-		$this->load->view("front/about.php", $this->data);
+		$this->load->view("front/issue_mundo.php", $this->data);
 	}
 
 	public function footer_link($text)
@@ -209,8 +210,11 @@ class Home extends Front_init
 		$this->load->model('admin/product_model', 'product_model');
 		$this->product_model->get($product_id);
 		$this->get_colors($product_id);
+		$this->load->model('admin/subcategory_model', 'product_category_model');
+		$this->product_category_model->get($this->product_model->subcategory_id);
+		//vd($this->product_model->subcategory_id);
+		//hola($this->product_category_model);
 
-		$this->data['section'] = "decoloracion";
 		$this->load->view("front/detail.php", $this->data);
 	}
 }

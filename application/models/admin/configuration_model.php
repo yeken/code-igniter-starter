@@ -18,11 +18,12 @@ class Configuration_model extends Simple_data_model
                                 'text_privacy_policy',
                                 'url_facebook',
 								'url_twitter',
-								'url_googleplus',
+								'url_instagram',
 								'url_youtube',
 								'email',
 								'form_emails',
-								'username'
+								'file_manager_id',
+                                'username'
 								);
 }
 ?>

@@ -19,11 +19,14 @@
     <link href="<?=base_url();?>assets_fe/css/style.css" rel="stylesheet">
     <link href="<?=base_url();?>assets_fe/css/blog.css" rel="stylesheet">
     <link href="<?=base_url();?>assets_fe/css/responsive.css" rel="stylesheet">
+    <link href="<?=base_url();?>assets_fe/css/col-15.css" rel="stylesheet">
     <link rel="stylesheet" href="<?=base_url();?>assets_fe/css/owl.carousel.css" />
     <link rel="stylesheet" href="<?=base_url();?>assets_fe/css/owl.theme.default.min.css" />
+    <link href="<?=base_url();?>assets_fe/css/lightbox.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="<?=base_url();?>assets_fe/js/bootstrap.min.js"></script>
     <script src="<?=base_url();?>assets_fe/js/owl.carousel.min.js"></script>
+    <script src="<?=base_url();?>assets_fe/js/lightbox.min.js"></script>
     <?
     if($section == "contact")
     {
@@ -105,9 +108,11 @@
                 <div class="collapse navbar-collapse" id="primary">
                   <ul class="navbar-nav navbar-right">
                     <li><a class="<?= $section == 'nosotros' ? 'active' : "" ?>" href="<?=base_url();?>issue_about">Nosotros</a></li>
-                    <li><a class="<?= $section == 'issue_mundo' ? 'active' : "" ?>" href="<?=base_url();?>issue_mundo">Issue en el mundo</a></li>
+                    <li><a class="" href="http://www.godrejargentina.com/distribuidores.html">Issue en el mundo</a></li>
                     <li><a class="<?= $section == 'contact' ? 'active' : "" ?>" href="<?=base_url();?>contact">Contacto</a></li>
                     <li><a class="<?= $section == 'tips_issue' ? 'active' : "" ?>" href="<?=base_url();?>tips_issue">Tips Issue</a></li>
+                    <li class="social"><a href="<?= $this->configuration_model->url_instagram?>" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_instagram.png" alt="Instagram" /></a></li>
+                    <li class="social"><a href="<?= $this->configuration_model->url_twitter?>" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_twitter.png" alt="Twitter" /></a></li>
                     <li class="social"><a href="<?= $this->configuration_model->url_facebook?>" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_facebook.png" alt="Facebook" /></a></li>
                     <li class="social"><a href="<?= $this->configuration_model->url_youtube?>" target="_blank"><img src="<?=base_url();?>assets_fe/img/ico_youtube.png" alt="Youtube" /></a></li>
                   </ul>

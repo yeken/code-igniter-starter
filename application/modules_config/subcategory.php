@@ -6,7 +6,7 @@ $config['modules'][$module_name] = array(
 										 	'controller_name' => 'admin/subcategory',
 											'main_model' => 'admin/subcategory_model',
 										 	'module_label' => 'Sub Categorias',
-											'module_unit' => 'Subcategory',
+											'module_unit' => 'Subcategoria',
 										 );
 
 $config['modules'][$module_name]['fields'] = array(
@@ -23,7 +23,17 @@ $config['modules'][$module_name]['fields'] = array(
 															'validation' => 'required',
 															'visibility' => 'save|details|list'
 														),
-
+										'position' => array(	'label' => 'Orden',
+															'type' => 'number',
+															'class' => 'title',
+															'validation' => 'required',
+															'visibility' => 'save|details|list'
+														),
+										'show_in_home'	=> array(	'label' => 'Mostrar en la home?',
+																'type' => 'checkbox',
+																'value' => 1,
+																'visibility' => 'save|details|list'
+																),
 										'active'	=> array(	'label' => 'Activo',
 																'type' => 'checkbox',
 																'value' => 1,
@@ -50,6 +60,13 @@ $config['modules'][$module_name]['fields'] = array(
 																	'validation' => '',
 																	'visibility' => 'details|save',
 																	),
+										'header_image' => array('label' => 'Imagen del Header',
+																'type' => 'image',
+																'tag' => 'header_image',
+																'description' => 'Tamaño: 1920×585.',
+																'validation' => '',
+																'visibility' => 'details|save',
+																),
 										);
 
 $config['modules'][$module_name]['top_menu_actions'] = array( 	'subcategories_list' => array('url' => '#subcategory/show_list','method' => 'show_list', 'class_name' => $config['modules'][$module_name], 'icon' => "ui-icon-clipboard", 'label' => "Listado de ".$config['modules'][$module_name]['module_label']),

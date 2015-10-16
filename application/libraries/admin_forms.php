@@ -31,6 +31,12 @@ class admin_forms {
 			case 'text':
 				$str = $this->_text();
 				break;
+			case 'contact_text':
+				$str = $this->_contact_text();
+				break;
+			case 'number':
+				$str = $this->_number();
+				break;
 			case 'password':
 				$str = $this->_password();
 				break;
@@ -43,6 +49,9 @@ class admin_forms {
 			case 'script':
 			case 'textarea':
 				$str = $this->_textarea();
+				break;
+			case 'contact_textarea':
+				$str = $this->_contact_textarea();
 				break;
 			case 'select':
 				$str = $this->_select();
@@ -260,6 +269,30 @@ class admin_forms {
 		return $str;
 	}
 
+	protected function _contact_textarea()
+	{
+		if($this->label_in_input)
+		{
+			$str .= "<div class='col-sm-12 col-md-12'>";
+			$str .=	"<textarea placeholder='".$this->field_attrs['label']."'  id='".$this->field_name."' ".$this->common_attrs." >".$this->prev_val."</textarea>";
+			$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
+			$str .= "</div>";
+		}
+		else
+		{
+			$str .= "<div class='form_control'>";
+			$str = "<label  class='control-label' for='".$this->field_name."'>".$this->field_attrs['label']."</label>";			
+			$str .=	"<textarea  id='".$this->field_name."' ".$this->common_attrs." >".$this->prev_val."</textarea>";
+			$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
+			$str .= "</div>";
+		}
+		if($this->field_attrs['class'] == 'summernote')
+		{
+			$str .= "<script>$('#".$this->field_name."').code('".$this->prev_val."')</script>";
+		}
+		return $str;
+	}
+
 	protected function _file()
 	{
 		$str = "<label class='col-md-2 col-sm-12 control-label'>".$this->field_attrs['label']."</label>";
@@ -293,6 +326,46 @@ class admin_forms {
 	}
 
 	protected function _text()
+	{
+		$val =  $this->prev_val ? str_replace('"','\'',$this->prev_val) : $this->field_attrs['value'];
+		if($this->label_in_input)
+		{
+			$str .= "<div class='col-sm-12 col-md-10'>";
+			$str .=	"<input type='".$this->field_attrs['type']."' id='".$this->field_name."' ".$this->common_attrs." value=\"".$val."\"/ placeholder='".$this->field_attrs['label']."'>";
+			$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
+			$str .= "</div>";
+		}
+		else
+		{
+			$str = "<label for='".$this->field_name."' class='col-md-2 col-sm-12 control-label'>".$this->field_attrs['label']."</label>";
+			$str .= "<div class='col-sm-12 col-md-10'>";
+			$str .=	"<input type='".$this->field_attrs['type']."' id='".$this->field_name."' ".$this->common_attrs." value=\"".$val."\"/>";
+			$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
+			$str .= "</div>";
+		}
+
+		return $str;
+	}
+
+	protected function _contact_text()
+	{
+		$val =  $this->prev_val ? str_replace('"','\'',$this->prev_val) : $this->field_attrs['value'];
+		if($this->label_in_input)
+		{
+			$str .=	"<input type='".$this->field_attrs['type']."' id='".$this->field_name."' ".$this->common_attrs." value=\"".$val."\"/ placeholder='".$this->field_attrs['label']."'>";
+			$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
+		}
+		else
+		{
+			$str = "<label for='".$this->field_name."' class='control-label'>".$this->field_attrs['label']."</label>";
+			$str .=	"<input type='".$this->field_attrs['type']."' id='".$this->field_name."' ".$this->common_attrs." value=\"".$val."\"/>";
+			$str .= $this->description? "<div class='clearfix'></div><small>".$this->description."</small>" : "";
+		}
+
+		return $str;
+	}
+
+	protected function _number()
 	{
 		$val =  $this->prev_val ? str_replace('"','\'',$this->prev_val) : $this->field_attrs['value'];
 		if($this->label_in_input)

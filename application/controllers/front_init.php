@@ -5,32 +5,27 @@ class Front_init extends CI_Controller
 	{
 		parent::__construct();
 		$this->data['fields'] = array(	'name' => array(	'label' => 'Nombre',
-															'type' => 'text',
+															'type' => 'contact_text',
 															'validation' => 'required|xss_clean',
 															'visibility' => 'contact'
 															),
 										'last_name' => array(	'label' => 'Apellido',
-															'type' => 'text',
+															'type' => 'contact_text',
 															'validation' => 'required|xss_clean',
 															'visibility' => 'contact'
 															),
 										'email' => array(	'label' => 'Email',
-															'type' => 'text',
+															'type' => 'contact_text',
 															'validation' => 'required|valid_email|xss_clean',
 															'visibility' => 'contact'
 															),
 										'telephone' => array(	'label' => 'Teléfono',
-																'type' => 'text',
+																'type' => 'contact_text',
 																'validation' => 'xss_clean',
 																'visibility' => 'contact'
 															),
-										'subject' => array(	'label' => 'Asunto',
-															'type' => 'text',
-															'validation' => 'required|xss_clean',
-															'visibility' => 'contact'
-															),
 										'message' => array(	'label' => 'Mensaje',
-															'type' => 'textarea',
+															'type' => 'contact_textarea',
 															'validation' => 'required|xss_clean',
 															'visibility' => 'contact'
 															),
@@ -69,6 +64,21 @@ class Front_init extends CI_Controller
 		}
 	}
 
+	protected function get_subcategories(){
+		$sql = 'SELECT * FROM subcategories WHERE active = 1 AND show_in_home = 1 ORDER BY position DESC';
+		$result = $this->db->query($sql)->result_array();
+
+		$this->load->model('admin/subcategory_model', 'subcategory_model');
+		$this->data['categories'] = array();
+
+		foreach($result as $row){
+			$subcategory = new Subcategory_model();
+			$subcategory->set($row);
+			$subcategory->get_files();
+			$this->data['subcategories'][] = $subcategory;
+		}
+	}
+
 	protected function get_banners(){
 		$sql = 'SELECT * FROM banners WHERE active = 1 ORDER BY banner_id DESC';
 		$result = $this->db->query($sql)->result_array();
@@ -85,7 +95,7 @@ class Front_init extends CI_Controller
 	}
 
 	public function get_products(){
-			$sql = 'SELECT * FROM products WHERE active = 1 ORDER BY product_id DESC';
+			$sql = 'SELECT * FROM products WHERE active = 1 ORDER BY position DESC';
 			$result = $this->db->query($sql)->result_array();
 
 			$this->load->model('admin/product_model', 'product_model');
@@ -101,8 +111,7 @@ class Front_init extends CI_Controller
 
 
 	public function get_colors($product_id){
-			$sql = "SELECT * FROM colors AS c JOIN products_colors AS pc ON (c.color_id = pc.color_id)
-					WHERE  pc.product_id = '$product_id' AND c.active = 1 ORDER BY c.color_id DESC" ;
+			$sql = "SELECT * FROM colors AS c JOIN products_colors AS pc ON ( c.color_id = pc.color_id ) WHERE pc.product_id = '$product_id' AND c.active =1 ORDER BY CAST( c.tone AS UNSIGNED ) ASC , CAST( subtone AS UNSIGNED ) ASC";
 			$result = $this->db->query($sql)->result_array();
 
 			$this->load->model('admin/color_model', 'color_model');
@@ -112,7 +121,14 @@ class Front_init extends CI_Controller
 				$color = new Color_model();
 				$color->set($row);
 				$color->get_files();
-				$this->data['colors'][$color->category][] = $color;
+				$this->data['colors_mobile'][$color->category][] = $color;
+			}
+
+			foreach ($result as $row){
+				$color = new Color_model();
+				$color->set($row);
+				$color->get_files();
+				$this->data['colors_desktop'][] = $color;
 			}
 
 	}

@@ -11,8 +11,8 @@ class Contact_model extends Simple_data_model
 	protected $db_fields = array(
 								'name',
 								'email',
-								'subject',
 								'message',
+								'telephone',
 								'date_created',
 								);
 

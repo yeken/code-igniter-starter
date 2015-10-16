@@ -11,6 +11,7 @@ class Product_model extends Simple_data_model
 								'name',
 								'description',
 								'brief',
+								'position',
 								'subcategory',
 								'file_manager_id',
 								'active',

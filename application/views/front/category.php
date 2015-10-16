@@ -12,8 +12,8 @@
       </div>
     </section>
 
-    <section id="coloracion">
-      <div class="container">
+    <section id="coloracion">      
+        <div class="container-fluid">
         <?
         $i = 0;
         echo '<div class="row coll" id="'.$i.'">';
@@ -24,7 +24,7 @@
           <?php
             foreach ($this->category_model->subcategories as $subcategory) {
               ?>
-              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 product-item" id="product-<?= $subcategory->get_id()?>">
+              <div class="col-xs-12 col-sm-<? if($this->uri->segment(1) == 'coloracion'){ echo '15 coloracion12';} else{ echo '4';}?> product-item" id="product-<?= $subcategory->get_id()?>">
                   <h3>
                       <?= $subcategory->name?>
                   </h3>
@@ -50,7 +50,11 @@
               </div>
                 <?
                 $i++;
-                if ($i == 3) echo '</div><!-- end row --><div class="row coll" id="'.$i.'">';
+                if (($i==6) && ($this->uri->segment(1)=="coloracion")){
+                  echo '</div><!-- end row --><div class="row coll" id="'.$i.'">';
+                } elseif (($i==3) && ($this->uri->segment(1)!=='coloracion')) {
+                  echo '</div><!-- end row --><div class="row coll" id="'.$i.'">';
+                }
             }
           ?>
 

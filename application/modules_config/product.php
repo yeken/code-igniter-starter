@@ -17,6 +17,12 @@ $config['modules'][$module_name]['fields'] = array(
 															'validation' => 'required',
 															'visibility' => 'save|details|list'
 														),
+										'position' => array(	'label' => 'Orden',
+															'type' => 'number',
+															'class' => 'title',
+															'validation' => 'required',
+															'visibility' => 'save|details|list'
+														),
 										'brief'=> array(	'label' => 'Resumen',
 															'type' => 'textarea',
 															'class' => '',
@@ -36,7 +42,6 @@ $config['modules'][$module_name]['fields'] = array(
 																	'validation' => '',
 																	'visibility' => 'details|save',
 																	),
-
 										'detail_image' => array(	'label' => 'Imagen Detalle',
 																	'type' => 'image',
 																	'tag' => 'detail_image',
@@ -44,11 +49,11 @@ $config['modules'][$module_name]['fields'] = array(
 																	'validation' => '',
 																	'visibility' => 'details|save',
 																	),
-										'active'	=> array(	'label' => 'Activo',
-																'type' => 'checkbox',
-																'value' => 1,
-																'visibility' => 'save|details|list'
-																),
+										'image_gallery' => array(	'label' => 'Galería de Imágenes',
+																	'type' => 'image',
+																	'validation' => '',
+																	'visibility' => 'media_gallery',
+																	),
 										'subcategory' => array(	'label' => 'Subcategoria',
 															'type' => 'text',
 															'class' => 'title',
@@ -71,8 +76,12 @@ $config['modules'][$module_name]['fields'] = array(
 															'source_table' => 'colors',
 															'validation' => '',
 															'visibility' => 'save|details',
-
-											)
+														),
+										'active'	=> array(	'label' => 'Activo',
+																'type' => 'checkbox',
+																'value' => 1,
+																'visibility' => 'save|details|list'
+														),	
 										);
 
 $config['modules'][$module_name]['top_menu_actions'] = array( 	'products_list' => array('url' => '#product/show_list','method' => 'show_list', 'class_name' => $config['modules'][$module_name], 'icon' => "ui-icon-clipboard", 'label' => "Listado de ".$config['modules'][$module_name]['module_label']),
@@ -83,13 +92,16 @@ $config['modules'][$module_name]['main_model_tabs'] = array( 	'details' => array
 											'edit' => array( 	'label' => 'Editar',
 											 					'url' => '#'.$module_name.'/edit/',
 																),
-
+																'media_gallery' => array( 'label' => 'Galer&iacute;a',
+																'url' => '#'.$module_name.'/media_gallery/image/'),
 																);
 
 $config['modules'][$module_name]['datatable_actions'] = array( 	'details' => array( 'label' => 'Detalle',
 								  			  	 				'url' => '#'.$module_name.'/details/'),
 											'edit' => array( 	'label' => 'Editar',
 											 					'url' => '#'.$module_name.'/edit/'),
+											'media_gallery' => array( 'label' => 'Galer&iacute;a',
+																	  'url' => '#'.$module_name.'/media_gallery/image/'),
 											'delete' => array( 	'label' => 'Borrar',
 																'dialog' => 'Borrar producto?',
 											 					'url' => '#'.$module_name.'/delete/'),
