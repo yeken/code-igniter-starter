@@ -33,7 +33,7 @@ $config['modules'][$module_name]['fields'] = array(
 															'type' => 'textarea',
 															'class' => 'summernote',
 															'validation' => 'required',
-															'visibility' => 'save|details|list'
+															'visibility' => 'save|details'
 														),
 										'main_image' => array(	'label' => 'Imagen Principal',
 																	'type' => 'image',
@@ -81,7 +81,7 @@ $config['modules'][$module_name]['fields'] = array(
 																'type' => 'checkbox',
 																'value' => 1,
 																'visibility' => 'save|details|list'
-														),	
+														),
 										);
 
 $config['modules'][$module_name]['top_menu_actions'] = array( 	'products_list' => array('url' => '#product/show_list','method' => 'show_list', 'class_name' => $config['modules'][$module_name], 'icon' => "ui-icon-clipboard", 'label' => "Listado de ".$config['modules'][$module_name]['module_label']),

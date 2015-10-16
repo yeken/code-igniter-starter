@@ -156,7 +156,7 @@ class ADMIN_Controller extends ADMIN_Relations {
 			}
 			if($this->main_model->save())
 			{
-				if(is_array($this->multiselect_fields))
+				if(is_array($this->multiselect_fields) && ($page == 'create' || $page == 'edit' || $page == 'save'))
 				{
 					foreach($this->multiselect_fields as $field_id => $field)
 					{
