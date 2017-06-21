@@ -1,4 +1,4 @@
-# issue
+# Code Igniter Starter site
 
 <b>CodeIgniter 2</b> site.
 
